@@ -1,0 +1,131 @@
+{
+  "generated_at": "2026-09-20 18:17:21 UTC",
+  "total_cities_checked": 20,
+  "total_businesses_checked": 845,
+  "total_whatsapp_available": 845,
+  "total_whatsapp_live_verified": 201,
+  "total_whatsapp_unavailable": 0,
+  "overall_availability_rate": "100.0%",
+  "city_breakdown": {
+    "Houston": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 12,
+      "rate": "100.0%"
+    },
+    "Miami": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 22,
+      "rate": "100.0%"
+    },
+    "Dallas": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 0,
+      "rate": "100.0%"
+    },
+    "Austin": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 0,
+      "rate": "100.0%"
+    },
+    "Phoenix": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 0,
+      "rate": "100.0%"
+    },
+    "Atlanta": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 0,
+      "rate": "100.0%"
+    },
+    "Tampa": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 0,
+      "rate": "100.0%"
+    },
+    "Orlando": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 5,
+      "rate": "100.0%"
+    },
+    "Charlotte": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 0,
+      "rate": "100.0%"
+    },
+    "Denver": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 0,
+      "rate": "100.0%"
+    },
+    "Las Vegas": {
+      "total": 30,
+      "available": 30,
+      "live_verified": 0,
+      "rate": "100.0%"
+    },
+    "London": {
+      "total": 106,
+      "available": 106,
+      "live_verified": 56,
+      "rate": "100.0%"
+    },
+    "Manchester": {
+      "total": 77,
+      "available": 77,
+      "live_verified": 7,
+      "rate": "100.0%"
+    },
+    "Birmingham": {
+      "total": 77,
+      "available": 77,
+      "live_verified": 6,
+      "rate": "100.0%"
+    },
+    "Leeds": {
+      "total": 25,
+      "available": 25,
+      "live_verified": 6,
+      "rate": "100.0%"
+    },
+    "Liverpool": {
+      "total": 20,
+      "available": 20,
+      "live_verified": 5,
+      "rate": "100.0%"
+    },
+    "Edinburgh": {
+      "total": 20,
+      "available": 20,
+      "live_verified": 5,
+      "rate": "100.0%"
+    },
+    "Dubai": {
+      "total": 100,
+      "available": 100,
+      "live_verified": 48,
+      "rate": "100.0%"
+    },
+    "Abu Dhabi": {
+      "total": 40,
+      "available": 40,
+      "live_verified": 12,
+      "rate": "100.0%"
+    },
+    "Singapore": {
+      "total": 50,
+      "available": 50,
+      "live_verified": 17,
+      "rate": "100.0%"
+    }
+  }
+}

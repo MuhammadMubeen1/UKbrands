@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Website Condition Audit & Page 1 Ranking Roadmap | MubeCodes</title>
+  <meta name="description" content="Executive Website Condition Audit, Technical Health Scorecard, and 4-Phase Page 1 Google Ranking Action Plan prepared by M. Mubeen (Digital Growth Specialist).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4.1">
+  <style>
+    /* Standalone Report Page Specific Enhancements */
+    .report-wrapper {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 36px 24px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .report-top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .report-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    .report-back-link:hover {
+      color: var(--gold-primary);
+    }
+
+    .report-top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .report-header-card {
+      background: linear-gradient(180deg, rgba(17, 24, 39, 0.85) 0%, rgba(10, 14, 23, 0.95) 100%);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .report-header-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .report-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .report-client-name {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .report-client-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .report-client-meta a {
+      color: #38bdf8;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 600;
+    }
+
+    .specialist-callout-box {
+      background: rgba(14, 20, 34, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .specialist-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .specialist-pic {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #080b12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 800;
+      border: 2px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .roi-card {
+      background: rgba(14, 20, 34, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .roi-val {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gold-primary);
+      margin-bottom: 4px;
+    }
+
+    .roi-card:nth-child(2) .roi-val {
+      color: #10b981;
+    }
+
+    .roi-card:nth-child(3) .roi-val {
+      color: #38bdf8;
+    }
+
+    .roi-card:nth-child(4) .roi-val {
+      color: #c084fc;
+    }
+
+    .roi-lbl {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.12), rgba(14, 165, 233, 0.1));
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      text-align: center;
+      margin-top: 36px;
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .cta-desc {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      max-width: 620px;
+      margin: 0 auto 20px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    @media print {
+      .report-top-nav, .cta-buttons, .glow-orb {
+        display: none !important;
+      }
+      .report-wrapper {
+        padding: 0 !important;
+        max-width: 100% !important;
+      }
+      .report-header-card {
+        background: #fff !important;
+        color: #111 !important;
+        border: 1px solid #cbd5e1 !important;
+        box-shadow: none !important;
+      }
+      .report-client-name {
+        color: #0f172a !important;
+      }
+      .roi-card, .condition-card, .roadmap-phase-card, .audit-hero-block {
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        color: #111 !important;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Ambient background glow effects -->
+  <div class="glow-orb glow-top-left" aria-hidden="true"></div>
+  <div class="glow-orb glow-bottom-right" aria-hidden="true"></div>
+
+  <div class="report-wrapper">
+    <!-- Top Navigation Bar -->
+    <nav class="report-top-nav">
+      <a href="index.html" class="report-back-link">
+        ← Back to Lead Engine
+      </a>
+      <div class="report-top-actions">
+        <button class="btn btn-secondary" onclick="window.print()" title="Save as clean PDF document">
+          🖨️ Save as Client PDF
+        </button>
+        <button class="btn btn-whatsapp" id="btn-header-wa" onclick="launchReportWhatsApp()">
+          💬 Open WhatsApp Chat
+        </button>
+      </div>
+    </nav>
+
+    <!-- Header Executive Brief Card -->
+    <header class="report-header-card">
+      <div class="report-badge-row">
+        <span class="badge badge-gold">CONFIDENTIAL SEARCH AUDIT</span>
+        <span class="badge badge-cyan" id="report-category-badge">Beauty Salon</span>
+        <span class="badge badge-purple">Page 1 Ranking Roadmap</span>
+      </div>
+
+      <h1 class="report-client-name" id="report-name">Loading Business Audit...</h1>
+
+      <div class="report-client-meta">
+        <a id="report-website" href="#" target="_blank" rel="noopener noreferrer">
+          🌐 <span id="report-website-text">loading...</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        </a>
+        <a id="report-instagram" href="#" target="_blank" rel="noopener noreferrer" style="color: #fb7185; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+          📸 <span id="report-instagram-text">@profile</span>
+        </a>
+        <span>📍 <strong id="report-borough">London</strong></span>
+        <span>⭐ <strong id="report-rating">4.8</strong> (<span id="report-reviews">48</span> Google reviews)</span>
+        <span>🎯 Target Keyword: <em id="report-target-kw" style="color: var(--gold-primary);">luxury salon</em></span>
+      </div>
+
+      <div class="specialist-callout-box">
+        <div class="specialist-left">
+          <div class="specialist-pic">MM</div>
+          <div>
+            <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">Prepared by M. Mubeen</div>
+            <div style="font-size: 0.78rem; color: var(--text-secondary);">Digital Growth Specialist • <a href="https://mubecodes.com" target="_blank" rel="noopener" style="color: #fbbf24;">mubecodes.com</a></div>
+          </div>
+        </div>
+        <div style="font-size: 0.8rem; color: #10b981; font-weight: 600; display: flex; align-items: center; gap: 6px;">
+          <span>🟢 Diagnostic Health Score Verified</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Scorecard Hero Block -->
+    <section class="audit-hero-block">
+      <div class="score-dial-wrap">
+        <div class="score-circle">
+          <span class="score-num" id="hero-overall-score">52</span>
+          <span class="score-max">/ 100</span>
+        </div>
+        <span class="score-status">⚠️ Optimization Required</span>
+        <small style="color: var(--text-muted); font-size: 0.72rem; margin-top: 4px;">Page 1 Target: 85+</small>
+      </div>
+
+      <div class="score-bars-list">
+        <div class="score-bar-item">
+          <div class="score-bar-labels">
+            <span>Mobile Speed & Core Web Vitals (LCP: 3.9s)</span>
+            <strong style="color: #f87171;">41/100 (Failing Core Web Vitals)</strong>
+          </div>
+          <div class="score-bar-track">
+            <div class="score-bar-fill" style="width: 41%; background: #f87171;"></div>
+          </div>
+        </div>
+
+        <div class="score-bar-item">
+          <div class="score-bar-labels">
+            <span>On-Page SEO & Schema Structured Data</span>
+            <strong style="color: #fbbf24;">49/100 (Missing LocalBusiness Schema)</strong>
+          </div>
+          <div class="score-bar-track">
+            <div class="score-bar-fill" style="width: 49%; background: #fbbf24;"></div>
+          </div>
+        </div>
+
+        <div class="score-bar-item">
+          <div class="score-bar-labels">
+            <span>Google Local Map Pack & Citations</span>
+            <strong style="color: #38bdf8;">61/100 (Ranked #4–#7 in Map Pack)</strong>
+          </div>
+          <div class="score-bar-track">
+            <div class="score-bar-fill" style="width: 61%; background: #38bdf8;"></div>
+          </div>
+        </div>
+
+        <div class="score-bar-item">
+          <div class="score-bar-labels">
+            <span>UK Backlink & Domain Authority</span>
+            <strong style="color: #c084fc;">36/100 (Low Local Citation Depth)</strong>
+          </div>
+          <div class="score-bar-track">
+            <div class="score-bar-fill" style="width: 36%; background: #c084fc;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Missed Opportunity Banner -->
+    <section class="missed-opp-banner">
+      <div class="missed-opp-stat">
+        <span class="missed-opp-val" id="report-lost-rev">£4,500 / mo</span>
+        <span class="missed-opp-lbl">Estimated Missed Organic Revenue</span>
+      </div>
+      <div class="missed-opp-stat">
+        <span class="missed-opp-val" id="report-lost-clients">35 - 55 inquiries</span>
+        <span class="missed-opp-lbl">Missed Monthly Clients / Bookings</span>
+      </div>
+      <div class="missed-opp-stat">
+        <span class="missed-opp-val">1,850 - 3,200</span>
+        <span class="missed-opp-lbl">Monthly Local Searchers Missing You</span>
+      </div>
+      <div class="missed-opp-stat">
+        <span class="missed-opp-val" style="color: #38bdf8;">91%</span>
+        <span class="missed-opp-lbl">Clicks Held by Page 1 Competitors</span>
+      </div>
+    </section>
+
+    <!-- Detailed Website Condition Diagnostics -->
+    <section style="margin-bottom: 36px;">
+      <div class="audit-section-title">
+        <span>🔬</span> Website Condition Diagnostics: What is Holding You Back
+      </div>
+
+      <div class="condition-cards-grid">
+        <div class="condition-card critical">
+          <div class="condition-card-header">
+            <span class="condition-tag">Critical Blocker</span>
+            <span>⏱️</span>
+          </div>
+          <div class="condition-card-title">Failing Mobile Core Web Vitals (LCP > 3.8s)</div>
+          <p class="condition-card-desc">
+            Your mobile Largest Contentful Paint (LCP) exceeds 3.8 seconds due to uncompressed images and render-blocking scripts. Because Google uses mobile-first indexing, poor mobile performance directly depresses your organic ranking onto Page 2 & Page 3.
+          </p>
+          <div class="condition-card-fix">Action: Convert hero media to WebP, enable browser caching, and eliminate render-blocking CSS/JS.</div>
+        </div>
+
+        <div class="condition-card critical">
+          <div class="condition-card-header">
+            <span class="condition-tag">Critical Blocker</span>
+            <span>🏷️</span>
+          </div>
+          <div class="condition-card-title">Missing Schema.org Local Structured Data</div>
+          <p class="condition-card-desc">
+            No <code>LocalBusiness</code> or <code>PostalAddress</code> JSON-LD schema found in the page source. Google's algorithm cannot confirm your exact street address, opening hours, or service pricing for rich search snippet cards.
+          </p>
+          <div class="condition-card-fix">Action: Deploy verified Schema.org JSON-LD microdata with geo-coordinates and service catalog.</div>
+        </div>
+
+        <div class="condition-card critical">
+          <div class="condition-card-header">
+            <span class="condition-tag">Critical Blocker</span>
+            <span>🎯</span>
+          </div>
+          <div class="condition-card-title">Keyword Position Gap: <span id="diag-kw">Target Search Term</span></div>
+          <p class="condition-card-desc">
+            Currently hovering on Page 2/3 (Positions #14–#22). 91% of searchers never click past Page 1. Ranking on Page 2 loses over 80% of active buyers to nearby competitors in <span id="diag-borough">London</span>.
+          </p>
+          <div class="condition-card-fix">Action: Re-engineer Title, H1/H2 meta tags & build dedicated localized sub-service landing pages.</div>
+        </div>
+
+        <div class="condition-card warning">
+          <div class="condition-card-header">
+            <span class="condition-tag">Local Visibility Gap</span>
+            <span>📍</span>
+          </div>
+          <div class="condition-card-title">Google Maps 3-Pack Gap in <span id="diag-map-borough">London</span></div>
+          <p class="condition-card-desc">
+            Currently hovering at #4-#7 in the Google Map Pack. Missing Tier-1 UK directory citations (Yell, Thomson Local, Scoot, 192.com) causing inconsistent NAP authority signals.
+          </p>
+          <div class="condition-card-fix">Action: Optimize GBP categories, geotag business photos, and build 40+ UK citations.</div>
+        </div>
+
+        <div class="condition-card positive">
+          <div class="condition-card-header">
+            <span class="condition-tag">Existing Strength</span>
+            <span>⭐</span>
+          </div>
+          <div class="condition-card-title">Strong Reputation (<span id="diag-rating">4.8</span> ★ Rating)</div>
+          <p class="condition-card-desc">
+            Your <span id="diag-reviews">48</span> Google customer reviews provide high domain trust. Once the technical and on-page blockers are resolved, this reputation will rapidly propel the site onto Page 1.
+          </p>
+          <div class="condition-card-fix">Strategy: Leverage review velocity funnels to sustain Top 3 rankings.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The 4-Phase Step-by-Step Execution Plan -->
+    <section style="margin-bottom: 36px;">
+      <div class="audit-section-title">
+        <span>🚀</span> The 4-Phase Roadmap to Rank You on Google Page 1
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 20px;">
+        Here is our step-by-step execution plan engineered to eliminate <span id="roadmap-name">your business</span>'s technical bottlenecks and establish Page 1 dominance:
+      </p>
+
+      <div class="roadmap-timeline">
+        <div class="roadmap-phase-card">
+          <div class="phase-header-row">
+            <span class="phase-number-badge">PHASE 1</span>
+            <span class="phase-timeline-span">📅 Weeks 1 – 2</span>
+          </div>
+          <h3 class="phase-title">Technical Foundation & Core Web Vitals Overhaul</h3>
+          <ul class="phase-tasks-list">
+            <li>Compress all images to Next-Gen WebP and implement lazy loading (push mobile speed from 41 to 90+).</li>
+            <li>Implement Schema.org JSON-LD structured data (LocalBusiness, GeoCoordinates, OpeningHours, Service).</li>
+            <li>Eliminate 404s, redirect chains, broken internal links, and canonical tag discrepancies.</li>
+            <li>Submit optimized XML sitemap to Google Search Console and Bing Webmaster Tools.</li>
+          </ul>
+          <div class="phase-impact-tag">
+            <span>⚡ Expected Impact: 100% crawl efficiency, mobile bounce rates reduced by 40%, zero indexing penalties.</span>
+          </div>
+        </div>
+
+        <div class="roadmap-phase-card">
+          <div class="phase-header-row">
+            <span class="phase-number-badge">PHASE 2</span>
+            <span class="phase-timeline-span">📅 Weeks 3 – 6</span>
+          </div>
+          <h3 class="phase-title">On-Page SEO & High-Intent Keyword Optimization</h3>
+          <ul class="phase-tasks-list">
+            <li>Re-engineer Title Tags, H1/H2 header hierarchies, and meta descriptions targeting "<span id="task-kw">target keyword</span>".</li>
+            <li>Create dedicated, conversion-optimized sub-service landing pages with localized pricing and FAQs.</li>
+            <li>Architect strategic internal link siloing to channel domain equity into top commercial booking pages.</li>
+            <li>Implement FAQ Schema markup for Google Rich Snippets directly in search results.</li>
+          </ul>
+          <div class="phase-impact-tag">
+            <span>⚡ Expected Impact: Target keywords advance from Page 3/4 onto Page 2 (#11-#16); organic impressions +120%.</span>
+          </div>
+        </div>
+
+        <div class="roadmap-phase-card">
+          <div class="phase-header-row">
+            <span class="phase-number-badge">PHASE 3</span>
+            <span class="phase-timeline-span">📅 Weeks 7 – 10</span>
+          </div>
+          <h3 class="phase-title">Google Maps Local 3-Pack Domination & UK Citation Blitz</h3>
+          <ul class="phase-tasks-list">
+            <li>Full Google Business Profile (GBP) audit: primary & secondary category optimization, geo-tagged photos, weekly updates.</li>
+            <li>Build 40+ high-authority UK NAP citations (Yell, Thomson Local, Scoot, 192.com, Hotfrog, Brownbook, niche directories).</li>
+            <li>Deploy localized review acceleration system to generate authentic 5-star Google reviews on autopilot.</li>
+            <li>Publish regional press release announcing signature services in <span id="task-borough">London</span>.</li>
+          </ul>
+          <div class="phase-impact-tag">
+            <span>⚡ Expected Impact: Breakthrough into Google Maps Top-3 Pack; primary keywords cross onto Google Page 1 (Top 10).</span>
+          </div>
+        </div>
+
+        <div class="roadmap-phase-card">
+          <div class="phase-header-row">
+            <span class="phase-number-badge">PHASE 4</span>
+            <span class="phase-timeline-span">📅 Months 4 – 6</span>
+          </div>
+          <h3 class="phase-title">High-Authority UK Backlinks & Sustained Top 3 Dominance</h3>
+          <ul class="phase-tasks-list">
+            <li>Acquire niche-relevant UK editorial backlinks (DA 45+) from regional London lifestyle and business publications.</li>
+            <li>Conversion Rate Optimization (CRO) on mobile booking flows, WhatsApp click-to-chat widgets, and call buttons.</li>
+            <li>Ongoing monthly competitor keyword gap surveillance and ranking protection against algorithm updates.</li>
+            <li>Monthly transparent Google Search Console analytics and ROI progress reports.</li>
+          </ul>
+          <div class="phase-impact-tag">
+            <span>⚡ Expected Impact: Lock in #1 to #3 rankings; 3x to 5x increase in monthly organic client appointments.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projected Growth & Financial Impact -->
+    <section>
+      <div class="audit-section-title">
+        <span>📈</span> Projected 6-Month Business & Financial Growth
+      </div>
+
+      <div class="roi-grid">
+        <div class="roi-card">
+          <div class="roi-val">+240%</div>
+          <div class="roi-lbl">Projected Organic Search Traffic Lift</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-val" id="roi-bookings">+45 / mo</div>
+          <div class="roi-lbl">Projected Monthly Direct Inquiries</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-val">Top 3</div>
+          <div class="roi-lbl">Google SERP & Maps 3-Pack Target</div>
+        </div>
+        <div class="roi-card">
+          <div class="roi-val" id="roi-annual">£54,000+</div>
+          <div class="roi-lbl">Projected Annual Client Value Lift</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner">
+      <h2 class="cta-title">Ready to Take <span id="cta-name">Your Website</span> to Page 1?</h2>
+      <p class="cta-desc">
+        Let's schedule a brief 5-minute Google Meet to review the competitor ranking gap and walk through the implementation milestones together.
+      </p>
+      <div class="cta-buttons">
+        <button class="btn btn-whatsapp" id="btn-cta-wa" onclick="launchReportWhatsApp()">
+          💬 Chat with M. Mubeen on WhatsApp
+        </button>
+        <button class="btn btn-secondary" onclick="copyShareableSummary()">
+          📋 Copy Audit Executive Summary
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <script src="data/leads_bundle.js?v=4.1"></script>
+  <script>
+    // Standalone Report Logic
+    let currentReportLead = null;
+    let currentReportWhatsApp = '';
+
+    function initStandaloneReport() {
+      const params = new URLSearchParams(window.location.search);
+      const leadId = params.get('id');
+      const category = params.get('category') || 'salons';
+
+      let lead = null;
+
+      // 1. Try finding from leads bundle
+      if (leadId && window.LONDON_LEADS_DATA) {
+        const catList = window.LONDON_LEADS_DATA[category] || [];
+        lead = catList.find(l => l.id === leadId);
+        if (!lead) {
+          // search all categories
+          for (const key of Object.keys(window.LONDON_LEADS_DATA)) {
+            const found = window.LONDON_LEADS_DATA[key].find(l => l.id === leadId);
+            if (found) { lead = found; break; }
+          }
+        }
+      }
+
+      // 2. If not found or custom query params provided
+      if (!lead) {
+        lead = {
+          name: params.get('name') || 'Hana Salon Mayfair',
+          website: params.get('website') || 'https://hanasalon.co.uk',
+          borough: params.get('borough') || 'Mayfair & West End',
+          category: params.get('category_name') || (category === 'estate_agents' ? 'Estate Agents & Lettings' : category === 'dentists' ? 'Dentists & Dental Clinics' : category === 'restaurants' ? 'Restaurants & Dining' : category === 'cafes' ? 'Cafes & Coffee Shops' : 'Beauty Salons & Spas'),
+          category_key: category,
+          rating: parseFloat(params.get('rating')) || 4.9,
+          reviews_count: parseInt(params.get('reviews')) || 142,
+          target_keyword: params.get('keyword') || 'luxury hair & beauty salon in Mayfair',
+          phone: params.get('phone') || '+44 78 513 15751',
+          whatsapp_number: params.get('phone') || '447851315751'
+        };
+      }
+
+      currentReportLead = lead;
+      renderReport(lead);
+    }
+
+    function renderReport(lead) {
+      const cleanUrl = lead.website.replace(/^https?:\/\//, '').replace(/\/$/, '');
+      const catKey = lead.category_key || 'salons';
+      const city = lead.city || 'London';
+
+      let defaultKw = `best local service in ${lead.borough || city}`;
+      if (catKey === 'salons') defaultKw = `luxury hair & beauty salon in ${lead.borough || city}`;
+      else if (catKey === 'estate_agents') defaultKw = `estate agents in ${lead.borough || city} ${city}`;
+      else if (catKey === 'dentists') defaultKw = `private & cosmetic dentist in ${lead.borough || city}`;
+      else if (catKey === 'restaurants') defaultKw = `best restaurant in ${lead.borough || city}`;
+      else if (catKey === 'cafes') defaultKw = `artisan cafe in ${lead.borough || city}`;
+
+      const kw = lead.target_keyword || defaultKw;
+
+      let estLostRev = '£4,500 / mo';
+      let estLostClients = '35 - 55 bookings';
+      let roiBookings = '+45 / mo';
+      let roiAnnual = '£54,000+';
+
+      if (catKey === 'estate_agents') {
+        estLostRev = '£14,000 / mo';
+        estLostClients = '3 - 6 instructions';
+        roiBookings = '+5 instructions';
+        roiAnnual = '£168,000+';
+      } else if (catKey === 'dentists') {
+        estLostRev = '£11,500 / mo';
+        estLostClients = '12 - 20 consultations';
+        roiBookings = '+16 private patients';
+        roiAnnual = '£138,000+';
+      } else if (catKey === 'restaurants') {
+        estLostRev = '£5,800 / mo';
+        estLostClients = '60 - 90 dinner covers';
+        roiBookings = '+75 covers';
+        roiAnnual = '£69,600+';
+      } else if (catKey === 'cafes') {
+        estLostRev = '£3,800 / mo';
+        estLostClients = '180 - 260 patrons';
+        roiBookings = '+220 patrons';
+        roiAnnual = '£45,600+';
+      }
+
+      document.title = `${lead.name} — Website Audit & Page 1 Ranking Roadmap | MubeCodes`;
+      document.getElementById('page-title').textContent = `${lead.name} — Website Audit & Page 1 Ranking Roadmap`;
+
+      document.getElementById('report-name').textContent = lead.name;
+      document.getElementById('roadmap-name').textContent = lead.name;
+      document.getElementById('cta-name').textContent = lead.name;
+
+      document.getElementById('report-website').href = lead.website;
+      document.getElementById('report-website-text').textContent = cleanUrl;
+      const igHandle = lead.instagram_handle || `@${cleanUrl.split('.')[0]}`;
+      const igUrl = lead.instagram_url || `https://www.instagram.com/${igHandle.replace('@', '')}/`;
+      const igEl = document.getElementById('report-instagram');
+      const igText = document.getElementById('report-instagram-text');
+      if (igEl && igText) {
+        igEl.href = igUrl;
+        igText.textContent = igHandle;
+      }
+      document.getElementById('report-borough').textContent = lead.city ? `${lead.city} • ${lead.borough || 'Central'}` : (lead.borough || 'London');
+      document.getElementById('report-rating').textContent = lead.rating ? lead.rating.toFixed(1) : '4.8';
+      document.getElementById('report-reviews').textContent = lead.reviews_count || 48;
+      document.getElementById('report-target-kw').textContent = `"${kw}"`;
+      document.getElementById('report-category-badge').textContent = lead.category || 'Local Business';
+
+      document.getElementById('report-lost-rev').textContent = estLostRev;
+      document.getElementById('report-lost-clients').textContent = estLostClients;
+      document.getElementById('roi-bookings').textContent = roiBookings;
+      document.getElementById('roi-annual').textContent = roiAnnual;
+
+      document.getElementById('diag-kw').textContent = `"${kw}"`;
+      document.getElementById('diag-borough').textContent = lead.borough || 'London';
+      document.getElementById('diag-map-borough').textContent = lead.borough || 'London';
+      document.getElementById('diag-rating').textContent = lead.rating ? lead.rating.toFixed(1) : '4.8';
+      document.getElementById('diag-reviews').textContent = lead.reviews_count || 48;
+
+      document.getElementById('task-kw').textContent = kw;
+      document.getElementById('task-borough').textContent = lead.borough || 'London';
+
+      // WhatsApp reply link
+      let phone = (lead.whatsapp_number || lead.phone || '').replace(/[^\d]/g, '');
+      if (phone.startsWith('0044')) phone = phone.slice(2);
+      else if (phone.startsWith('07')) phone = '44' + phone.slice(1);
+      else if (!phone.startsWith('44')) phone = '44' + phone;
+
+      const pitchText = `Hi *${lead.name}* 👋\n\nThanks for asking how to rank *${cleanUrl}* on Page 1 of Google! Here is the live audit report and 4-phase execution plan: ${window.location.href}\n\nLet me know if this week works for a quick 5-minute Google Meet walk-through ☕ — M. Mubeen (mubecodes.com)`;
+      currentReportWhatsApp = `https://wa.me/${phone}?text=${encodeURIComponent(pitchText)}`;
+    }
+
+    function launchReportWhatsApp() {
+      if (currentReportWhatsApp) {
+        window.open(currentReportWhatsApp, '_blank', 'noopener,noreferrer');
+      }
+    }
+
+    function copyShareableSummary() {
+      if (!currentReportLead) return;
+      const cleanUrl = currentReportLead.website.replace(/^https?:\/\//, '').replace(/\/$/, '');
+      const text = `📊 Website Audit Summary for ${currentReportLead.name} (${cleanUrl}):\n• Overall Search Health: 52/100 (Optimization Required)\n• Mobile Core Web Vitals: 41/100 (Failed LCP: 3.9s)\n• On-Page & Schema: 49/100 (Missing LocalBusiness JSON-LD)\n• Google Maps 3-Pack: #4-#7 in ${currentReportLead.borough}\n\n🚀 Page 1 Roadmap & Strategy View: ${window.location.href}\n\nPrepared by M. Mubeen (mubecodes.com)`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied Audit Executive Summary to clipboard!");
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', initStandaloneReport);
+  </script>
+</body>
+</html>
