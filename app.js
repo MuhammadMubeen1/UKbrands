@@ -3,6 +3,21 @@
  * Multi-Category Engine: Beauty Salons, Estate Agents, Dentists, Restaurants
  */
 
+// Universal High-Converting WhatsApp & SEO Outreach Pitch
+const UNIVERSAL_PITCH_TEMPLATE = `Hi *{name}* team 👋
+
+Your visual content and brand presence look great! I noticed you already have an engaged audience of *{followers}* followers.
+
+However, when local customers search Google for *"{keyword}"* in *{city}*, competitors are appearing ahead of you.
+
+I help local businesses improve their *Google Maps visibility and local SEO* so they can attract more high-intent customers and bookings.
+
+Would you be open to a *2-minute video audit* showing the top 3 SEO opportunities I found for your business?
+
+Best regards,
+*M. Mubeen* | Digital Growth Specialist
+🌐 https://mubecodes.com`;
+
 // Category Specifications & Tailored High-Converting Scripts
 const CATEGORIES = {
   salons: {
@@ -15,28 +30,10 @@ const CATEGORIES = {
     tabId: 'tab-salons',
     retainerRate: 1200,
     storageStatusKey: 'london_salons_status_v2',
-    storageScriptKey: 'london_salons_script_v2',
+    storageScriptKey: 'london_salons_script_v3',
     storageCustomKey: 'london_salons_custom_v2',
     storagePhoneKey: 'london_salons_phone_v4',
-    defaultScript: `Hi *{name}* 👋
-
-Checked your website ({website}) — your salon looks stunning! 
-
-I noticed a big opportunity: you're currently missing out on daily booking clients searching for "{keyword}" on Google.
-
-We provide monthly SEO & online brand growth to:
-✅ Rank your website on Google Page 1 & 2
-✅ Get more customers, inquiries & daily appointment bookings
-✅ Strengthen your brand's online visibility & social authority
-✅ Outrank nearby competitors in {borough} on Google Maps
-
-Would you be open to a quick 5-minute Google Meet (or a 2-minute video) showing how we can outrank nearby competitors? 
-
-No pressure at all, just wanted to share the insights! Let me know if this week works for you ☕
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_PITCH_TEMPLATE
   },
 
   estate_agents: {
@@ -49,28 +46,10 @@ Best regards,
     tabId: 'tab-estate_agents',
     retainerRate: 1800,
     storageStatusKey: 'london_estate_status_v2',
-    storageScriptKey: 'london_estate_script_v2',
+    storageScriptKey: 'london_estate_script_v3',
     storageCustomKey: 'london_estate_custom_v2',
     storagePhoneKey: 'london_estate_phone_v4',
-    defaultScript: `Hi *{name}* 👋
-
-Checked your website ({website}) — your property portfolio looks fantastic! 
-
-I noticed an opportunity: you're currently missing out on high-intent vendors, buyers & landlords searching for "{keyword}" on Google.
-
-We provide monthly SEO & digital authority to:
-✅ Rank your website on Google Page 1 & 2 for prime property searches
-✅ Win direct vendor valuation requests without paying hefty portal fees
-✅ Attract high-net-worth buyers & luxury landlord instructions
-✅ Dominate the Google Local 3-Pack in {borough}
-
-Would you be open to a quick 5-minute Google Meet (or a 2-minute video) showing where you can outrank competing agencies in {borough}? 
-
-No pressure at all, just wanted to share the insights! Let me know if this week works for you ☕
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_PITCH_TEMPLATE
   },
 
   dentists: {
@@ -83,28 +62,10 @@ Best regards,
     tabId: 'tab-dentists',
     retainerRate: 1500,
     storageStatusKey: 'london_dentists_status_v2',
-    storageScriptKey: 'london_dentists_script_v2',
+    storageScriptKey: 'london_dentists_script_v3',
     storageCustomKey: 'london_dentists_custom_v2',
     storagePhoneKey: 'london_dentists_phone_v4',
-    defaultScript: `Hi *{name}* 👋
-
-Checked your website ({website}) — your clinic and patient care look exceptional! 
-
-I noticed a big opportunity: you're currently missing out on private patients searching for "{keyword}" on Google.
-
-We provide monthly healthcare SEO & patient acquisition to:
-✅ Rank your clinic on Google Page 1 & 2 for cosmetic & implant searches
-✅ Attract high-value private patients for Invisalign, implants & smile makeovers
-✅ Outrank nearby dental practices in {borough} on Google Maps
-✅ Increase direct monthly consultation inquiries
-
-Would you be open to a quick 5-minute Google Meet (or a 2-minute video) showing where you can outrank nearby dental practices? 
-
-No pressure at all, just wanted to share the insights! Let me know if this week works for you ☕
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_PITCH_TEMPLATE
   },
 
   restaurants: {
@@ -117,28 +78,10 @@ Best regards,
     tabId: 'tab-restaurants',
     retainerRate: 1000,
     storageStatusKey: 'london_restaurants_status_v2',
-    storageScriptKey: 'london_restaurants_script_v2',
+    storageScriptKey: 'london_restaurants_script_v3',
     storageCustomKey: 'london_restaurants_custom_v2',
     storagePhoneKey: 'london_restaurants_phone_v4',
-    defaultScript: `Hi *{name}* 👋
-
-Checked your website ({website}) and menu — the dining experience looks incredible! 
-
-I noticed an opportunity: you're currently missing out on high-intent diners searching for "{keyword}" on Google.
-
-We provide monthly hospitality SEO & brand growth to:
-✅ Rank your restaurant on Google Page 1 & 2 for local and tourist dining searches
-✅ Drive direct, commission-free table reservations
-✅ Capture high-spend private dining, celebratory parties & corporate events
-✅ Outrank competing restaurants in {borough} on Google Maps
-
-Would you be open to a quick 5-minute Google Meet (or a 2-minute video) showing how we can drive more direct covers? 
-
-No pressure at all, just wanted to share the insights! Let me know if this week works for you ☕
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_PITCH_TEMPLATE
   },
 
   cafes: {
@@ -151,28 +94,10 @@ Best regards,
     tabId: 'tab-cafes',
     retainerRate: 950,
     storageStatusKey: 'london_cafes_status_v2',
-    storageScriptKey: 'london_cafes_script_v2',
+    storageScriptKey: 'london_cafes_script_v3',
     storageCustomKey: 'london_cafes_custom_v2',
     storagePhoneKey: 'london_cafes_phone_v4',
-    defaultScript: `Hi *{name}* 👋
-
-Checked your website ({website}) and coffee/brunch menu — your cafe looks amazing! 
-
-I noticed a big opportunity: you're currently missing out on local coffee lovers, brunch seekers & remote workers searching for "{keyword}" on Google.
-
-We provide monthly local SEO & footfall growth to:
-✅ Rank your cafe on Google Page 1 & the Local Map 3-Pack
-✅ Drive steady daily footfall, weekend brunch queues & catering orders
-✅ Capture corporate event catering, celebration cakes & private hire bookings
-✅ Outrank nearby chain cafes in {borough} on Google Maps
-
-Would you be open to a quick 5-minute Google Meet (or a 2-minute video) showing how we can get you ranking #1 in {borough}? 
-
-No pressure at all, just wanted to share the insights! Let me know if this week works for you ☕
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_PITCH_TEMPLATE
   },
 
   fitness: {
@@ -185,28 +110,10 @@ Best regards,
     tabId: 'tab-fitness',
     retainerRate: 1400,
     storageStatusKey: 'london_fitness_status_v2',
-    storageScriptKey: 'london_fitness_script_v2',
+    storageScriptKey: 'london_fitness_script_v3',
     storageCustomKey: 'london_fitness_custom_v2',
     storagePhoneKey: 'london_fitness_phone_v4',
-    defaultScript: `Hi *{name}* 👋
-
-Checked your facility & classes ({website}) — your gym looks world-class! 
-
-I noticed an opportunity: you're currently missing out on high-value members and personal training clients searching for "{keyword}" on Google.
-
-We provide monthly fitness SEO & member acquisition to:
-✅ Rank your gym on Google Page 1 & Google Maps 3-Pack for high-intent workout searches
-✅ Drive direct recurring trial pass signups & membership tours
-✅ Monopolize corporate wellness partnerships & private personal training inquiries
-✅ Convert your social media / Instagram followers into paying recurring memberships
-
-Would you be open to a quick 5-minute Google Meet (or a 2-minute video) showing how we can fill your membership slots in {borough}? 
-
-No pressure at all, just wanted to share the insights! Let me know if this week works for you ☕
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_PITCH_TEMPLATE
   }
 };
 
@@ -1143,6 +1050,7 @@ function generatePitchMessage(lead) {
   const keyword = getTargetKeyword(lead);
   const city = lead.city || state.activeCity || 'London';
   const borough = lead.borough || city;
+  const followers = lead.instagram_followers || lead.followers || '10k+';
   
   msg = msg.replace(/\{name\}/g, lead.name)
            .replace(/\{website\}/g, lead.website)
@@ -1151,7 +1059,11 @@ function generatePitchMessage(lead) {
            .replace(/\{opportunity\}/g, opp)
            .replace(/\{keyword\}/g, keyword)
            .replace(/\{target_keyword\}/g, keyword)
+           .replace(/\{followers\}/g, followers)
            .replace(/\{instagram\}/g, lead.instagram_handle || '');
+
+  // Convert markdown bold (**text**) to WhatsApp native bold (*text*) for crisp WhatsApp rendering
+  msg = msg.replace(/\*\*([^*]+)\*\*/g, '*$1*');
            
   return msg;
 }
@@ -1727,7 +1639,9 @@ function updateBannerPreview() {
   const sampleLead = state.leads[0] || {
     name: `Premier ${cat.singular}`,
     website: 'https://example-london.co.uk',
-    borough: 'Mayfair & West End'
+    borough: 'Mayfair & West End',
+    city: state.activeCity || 'London',
+    instagram_followers: '10.5k'
   };
   elements.bannerPitchPreview.textContent = generatePitchMessage(sampleLead);
 }

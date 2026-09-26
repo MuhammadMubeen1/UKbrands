@@ -5,6 +5,21 @@
  * Direct Instagram DM outreach across Singapore, UAE, UK, and USA.
  */
 
+// Universal High-Converting Outreach Pitch Template
+const UNIVERSAL_IG_PITCH_TEMPLATE = `Hi *{name}* team 👋
+
+Your visual content and brand presence look great! I noticed you already have an engaged audience of *{followers}* followers.
+
+However, when local customers search Google for *"{keyword}"* in *{city}*, competitors are appearing ahead of you.
+
+I help local businesses improve their *Google Maps visibility and local SEO* so they can attract more high-intent customers and bookings.
+
+Would you be open to a *2-minute video audit* showing the top 3 SEO opportunities I found for your business?
+
+Best regards,
+*M. Mubeen* | Digital Growth Specialist
+🌐 https://mubecodes.com`;
+
 // Category Definitions & Tailored Instagram DM Pitch Templates
 const IG_CATEGORIES = {
   salons: {
@@ -15,19 +30,9 @@ const IG_CATEGORIES = {
     badgeId: 'badge-salons',
     tabId: 'tab-salons',
     storageStatusKey: 'ig_salons_status_v1',
-    storageScriptKey: 'ig_salons_script_v1',
+    storageScriptKey: 'ig_salons_script_v2',
     storageCustomKey: 'ig_salons_custom_v1',
-    defaultScript: `Hey *{name}* 👋 Love your salon aesthetic on IG! 
-
-Quick question: I noticed your page has great engagement ({followers}), but when local clients in {borough} search Google for "{keyword}", your website doesn't appear in the top 3 Map results.
-
-We help luxury beauty salons bridge their social audience with Google Page 1 SEO so you capture daily walk-in bookings without relying solely on algorithm reach.
-
-Would you be open to a 2-minute video breakdown of how you can outrank nearby competitors? No pitch, just some easy wins you can implement right away! ☕
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_IG_PITCH_TEMPLATE
   },
 
   estate_agents: {
@@ -38,19 +43,9 @@ Best regards,
     badgeId: 'badge-estate_agents',
     tabId: 'tab-estate_agents',
     storageStatusKey: 'ig_estate_status_v1',
-    storageScriptKey: 'ig_estate_script_v1',
+    storageScriptKey: 'ig_estate_script_v2',
     storageCustomKey: 'ig_estate_custom_v1',
-    defaultScript: `Hi *{name}* team 👋 Your luxury property portfolio in {borough} is fantastic!
-
-Quick note: with {followers} on IG, you've built great brand prestige, but when high-net-worth homeowners search Google for "{keyword}", competitors are capturing the valuation requests.
-
-We help leading estate agents dominate Google Page 1 & Maps to generate exclusive, direct vendor instruction leads.
-
-Would you like a 2-minute video audit showing how to monopolize local seller searches in {city}?
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_IG_PITCH_TEMPLATE
   },
 
   dentists: {
@@ -61,19 +56,9 @@ Best regards,
     badgeId: 'badge-dentists',
     tabId: 'tab-dentists',
     storageStatusKey: 'ig_dentists_status_v1',
-    storageScriptKey: 'ig_dentists_script_v1',
+    storageScriptKey: 'ig_dentists_script_v2',
     storageCustomKey: 'ig_dentists_custom_v1',
-    defaultScript: `Hi *{name}* team 👋 Your cosmetic smile transformations and clinic look incredible!
-
-I noticed your clinic has an engaged following ({followers}), but patients searching Google for high-value treatments like "{keyword}" in {city} are currently finding other practices.
-
-We specialize in medical & dental practice SEO to rank your site at the top of Google Page 1 for high-ticket implants & Invisalign inquiries.
-
-May I send a 2-minute video audit of the top 3 opportunities for your clinic?
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_IG_PITCH_TEMPLATE
   },
 
   restaurants: {
@@ -84,19 +69,9 @@ Best regards,
     badgeId: 'badge-restaurants',
     tabId: 'tab-restaurants',
     storageStatusKey: 'ig_restaurants_status_v1',
-    storageScriptKey: 'ig_restaurants_script_v1',
+    storageScriptKey: 'ig_restaurants_script_v2',
     storageCustomKey: 'ig_restaurants_custom_v1',
-    defaultScript: `Hey *{name}* team 🍽️ Your food content and dining ambiance look so delicious!
-
-You have a solid IG presence ({followers}), but thousands of diners searching Google weekly for "{keyword}" in {borough} are getting routed to third-party booking apps or competitors.
-
-We help top dining spots rank #1 on Google Maps to drive direct, commission-free table bookings and private event inquiries.
-
-Would you be open to a quick 2-minute video showing how to capture more direct covers?
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_IG_PITCH_TEMPLATE
   },
 
   cafes: {
@@ -107,19 +82,9 @@ Best regards,
     badgeId: 'badge-cafes',
     tabId: 'tab-cafes',
     storageStatusKey: 'ig_cafes_status_v1',
-    storageScriptKey: 'ig_cafes_script_v1',
+    storageScriptKey: 'ig_cafes_script_v2',
     storageCustomKey: 'ig_cafes_custom_v1',
-    defaultScript: `Hey *{name}* team ☕ Your cafe aesthetics, specialty brews and brunch look unreal!
-
-Your {followers} IG community is awesome, but locals and tourists searching Google for "{keyword}" in {borough} are missing you on the Local 3-Pack.
-
-We help specialty cafes dominate Google Maps & local SEO to turn weekend footfall into steady daily rush hours and catering gigs.
-
-Could I send a quick 2-minute video showing the top SEO gaps in your local area?
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_IG_PITCH_TEMPLATE
   },
 
   fitness: {
@@ -130,19 +95,9 @@ Best regards,
     badgeId: 'badge-fitness',
     tabId: 'tab-fitness',
     storageStatusKey: 'ig_fitness_status_v1',
-    storageScriptKey: 'ig_fitness_script_v1',
+    storageScriptKey: 'ig_fitness_script_v2',
     storageCustomKey: 'ig_fitness_custom_v1',
-    defaultScript: `Hey *{name}* team! 💪 Your workout content and community vibes look world-class.
-
-I was auditing fitness studios in {city} and noticed you have an amazing {followers} IG community, but when high-ticket members search Google for "{keyword}", nearby gym chains are monopolizing the top spots.
-
-We help premium fitness clubs turn their social media brand into automated trial pass signups and rank #1 on Google Maps for local high-intent searches.
-
-Could I send over a quick 2-minute video showing the 3 quick fixes to capture an extra 40-70 trial inquiries every month?
-
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`
+    defaultScript: UNIVERSAL_IG_PITCH_TEMPLATE
   }
 };
 
@@ -626,7 +581,7 @@ function getTailoredPitch(lead) {
   const keyword = lead.target_keyword || `${cat.singular} in ${lead.city}`;
   const gap = lead.instagram_audit_gap || 'Instagram bio lacks direct booking link';
 
-  return savedTemplate
+  let msg = savedTemplate
     .replace(/{name}/g, lead.name)
     .replace(/{handle}/g, `@${cleanHandle}`)
     .replace(/{city}/g, lead.city)
@@ -635,6 +590,10 @@ function getTailoredPitch(lead) {
     .replace(/{keyword}/g, keyword)
     .replace(/{website}/g, lead.website)
     .replace(/{gap}/g, gap);
+
+  // Normalize markdown bold (**text**) to clean bold (*text*)
+  msg = msg.replace(/\*\*([^*]+)\*\*/g, '*$1*');
+  return msg;
 }
 
 // Launch Instagram DM + Auto-copy Pitch
