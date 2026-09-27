@@ -103,7 +103,7 @@ const IG_CATEGORIES = {
 
 // Application State
 const igState = {
-  activeCity: localStorage.getItem('uk_leads_selected_city') || 'Singapore',
+  activeCity: localStorage.getItem('uk_leads_selected_city') || 'Lahore',
   activeCategory: 'salons',
   categoryData: {
     salons: [],

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Leads • No Website • London, New York, Dubai, Pakistan</title>
+  <meta name="description" content="London, New York, Dubai and Pakistan Google Maps businesses that are live on WhatsApp but have no website or app.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4.2">
+</head>
+<body>
+  <div class="glow-orb glow-top-left" aria-hidden="true"></div>
+  <div class="glow-orb glow-bottom-right" aria-hidden="true"></div>
+
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-section">
+        <div class="brand-badge">
+          <span class="live-pulse"></span>
+          <span>WHATSAPP ONLY • NO WEBSITE / NO APP • LONDON • NYC • DUBAI • PK</span>
+        </div>
+        <h1 class="main-title">
+          <span id="title-city-name">London</span> • Live WhatsApp businesses <span class="gradient-text">without a website</span>
+        </h1>
+        <p class="subtitle">
+          Google Maps listings in London, New York, Dubai, Lahore, Karachi and Islamabad that are <strong>on WhatsApp</strong> and have <strong>no website or app</strong>.
+          Pitch a simple website + Google Maps ranking so more customers message them.
+        </p>
+      </div>
+      <div class="header-actions">
+        <div class="action-buttons-wrap">
+          <a href="index.html" class="btn btn-secondary" style="text-decoration:none;font-weight:700;">← Website + WhatsApp Hub</a>
+          <button id="btn-export-csv" class="btn btn-primary">Export CSV (<span id="export-count">0</span>)</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="city-selector-bar" aria-label="Pakistan city selection">
+    <div class="city-selector-container">
+      <div class="city-selector-lead">
+        <div class="city-pin-icon" aria-hidden="true">📍</div>
+        <div class="city-selector-texts">
+          <span class="city-selector-eyebrow">CITIES</span>
+          <span class="city-selector-helper">Only live WhatsApp numbers. No website. No app. Pitch is ready on each card.</span>
+        </div>
+      </div>
+      <div class="city-pills-list" role="tablist">
+        <button type="button" class="city-pill-btn city-pill-featured" data-city="Lahore">
+          <span class="city-flag">🇵🇰</span>
+          <span class="city-name">Lahore</span>
+          <span class="city-counter" id="counter-city-lahore">0</span>
+        </button>
+        <button type="button" class="city-pill-btn city-pill-featured" data-city="Karachi">
+          <span class="city-flag">🇵🇰</span>
+          <span class="city-name">Karachi</span>
+          <span class="city-counter" id="counter-city-karachi">0</span>
+        </button>
+        <button type="button" class="city-pill-btn city-pill-featured" data-city="Islamabad">
+          <span class="city-flag">🇵🇰</span>
+          <span class="city-name">Islamabad</span>
+          <span class="city-counter" id="counter-city-islamabad">0</span>
+        </button>
+        <button type="button" class="city-pill-btn city-pill-featured" data-city="Dubai">
+          <span class="city-flag">🇦🇪</span>
+          <span class="city-name">Dubai</span>
+          <span class="city-counter" id="counter-city-dubai">0</span>
+        </button>
+        <button type="button" class="city-pill-btn city-pill-featured active" data-city="London">
+          <span class="city-flag">🇬🇧</span>
+          <span class="city-name">London</span>
+          <span class="city-counter" id="counter-city-london">0</span>
+        </button>
+        <button type="button" class="city-pill-btn city-pill-featured" data-city="New York">
+          <span class="city-flag">🇺🇸</span>
+          <span class="city-name">New York</span>
+          <span class="city-counter" id="counter-city-new-york">0</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <nav class="category-tabs-nav" aria-label="Business category">
+    <div class="category-tabs-container">
+      <button class="category-tab active" data-category="salons">💆 Beauty Salons <span class="category-badge" id="badge-salons">0</span></button>
+      <button class="category-tab" data-category="estate_agents">🏠 Real Estate <span class="category-badge" id="badge-estate_agents">0</span></button>
+      <button class="category-tab" data-category="aesthetic">✨ Aesthetic Clinics <span class="category-badge" id="badge-aesthetic">0</span></button>
+      <button class="category-tab" data-category="fitness">🏋️ Fitness <span class="category-badge" id="badge-fitness">0</span></button>
+      <button class="category-tab" data-category="restaurants">🍽️ Restaurants <span class="category-badge" id="badge-restaurants">0</span></button>
+      <button class="category-tab" data-category="dentists">🦷 Dentists <span class="category-badge" id="badge-dentists">0</span></button>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <section class="pitch-banner" aria-label="WhatsApp pitch">
+      <div class="pitch-banner-content">
+        <div class="pitch-banner-tag">ACTIVE PITCH — NO WEBSITE / NO APP</div>
+        <p class="pitch-preview-text" id="banner-pitch-preview">Hi *{name}* team 👋 I found your Google Maps listing in *{city}*. You are already on WhatsApp, but you do not have a website or booking app...</p>
+      </div>
+    </section>
+
+    <section class="results-meta-bar">
+      <span id="results-count">0</span> live WhatsApp businesses in <span id="results-city">Lahore</span>
+      · <span id="results-category">Beauty Salons</span>
+      · no website · no app
+    </section>
+
+    <section id="leads-grid" class="leads-grid"></section>
+    <section id="empty-state" class="empty-state" style="display:none;">
+      <h3>No live WhatsApp + no-website listings in this tab yet</h3>
+      <p>Switch city or category. Every card here must pass the live WhatsApp API and have no website.</p>
+    </section>
+  </main>
+
+  <script src="data/pakistan_no_website_bundle.js?v=9"></script>
+  <script src="pakistan-no-website.js?v=9"></script>
+</body>
+</html>

@@ -55,6 +55,9 @@
         </div>
 
         <div class="action-buttons-wrap">
+          <a href="pakistan-no-website.html" class="btn btn-outline-emerald" style="text-decoration: none; font-weight: 700;" title="Pakistan WhatsApp businesses with no website">
+            🇵🇰 No-Website WhatsApp (PK)
+          </a>
           <a href="instagram-businesses.html" class="btn btn-instagram" style="text-decoration: none; font-weight: 700;" title="Open Page 2: Instagram Business Hub">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             Page 2: Instagram Hub (6 Categories)
@@ -86,8 +89,8 @@
       <div class="city-selector-lead">
         <div class="city-pin-icon" aria-hidden="true">📍</div>
         <div class="city-selector-texts">
-          <span class="city-selector-eyebrow">SELECT TARGET CITY (USA, UK, UAE & SINGAPORE)</span>
-          <span class="city-selector-helper">Showing 100% verified active businesses for selected city across all tabs</span>
+          <span class="city-selector-eyebrow">SELECT TARGET CITY (PAKISTAN, SINGAPORE, UAE, USA & UK)</span>
+          <span class="city-selector-helper">City pills show the full live WhatsApp total. Category tabs below split that city (Lahore salons is only 2 of 25).</span>
         </div>
       </div>
 
@@ -95,6 +98,11 @@
         <div class="city-dropdown-box">
           <label for="city-selector-dropdown" class="filter-label city-dropdown-label">Target City:</label>
           <select id="city-selector-dropdown" class="city-dropdown-select" aria-label="Select Target City">
+            <optgroup label="🇵🇰 Pakistan (Lahore, Karachi, Islamabad)">
+              <option value="Lahore" selected>🇵🇰 Lahore (Website + WhatsApp API)</option>
+              <option value="Karachi">🇵🇰 Karachi (Website + WhatsApp API)</option>
+              <option value="Islamabad">🇵🇰 Islamabad (Website + WhatsApp API)</option>
+            </optgroup>
             <optgroup label="🇸🇬 Singapore (APAC Business & Tech Hub)">
               <option value="Singapore">🇸🇬 Singapore (50 Leads • Meta Verified)</option>
             </optgroup>
@@ -103,7 +111,7 @@
               <option value="Abu Dhabi">🇦🇪 Abu Dhabi (40 Leads)</option>
             </optgroup>
             <optgroup label="🇺🇸 United States (Top Growth Markets)">
-              <option value="Houston">⭐ Houston, Texas (Start Here) (30 Leads)</option>
+              <option value="Houston">⭐ Houston, Texas (30 Leads)</option>
               <option value="Miami">🏖️ Miami, Florida (⭐ 100% WhatsApp Active) (30 Leads)</option>
               <option value="Dallas">🏙️ Dallas, Texas (30 Leads)</option>
               <option value="Austin">🎸 Austin, Texas (30 Leads)</option>
@@ -127,12 +135,27 @@
         </div>
 
         <div class="city-pills-list" role="tablist" aria-label="Quick City Selection">
+          <button type="button" class="city-pill-btn city-pill-featured active" data-city="Lahore" id="pill-city-lahore" title="🇵🇰 Lahore — Cultural & Commercial Hub (Website + WhatsApp API Verified)">
+            <span class="city-flag">🇵🇰</span>
+            <span class="city-name">Lahore <span class="start-here-tag" style="background: #15803d; color: #fff;">Start here 🇵🇰</span></span>
+            <span class="city-counter" id="counter-city-lahore">25</span>
+          </button>
+          <button type="button" class="city-pill-btn city-pill-featured" data-city="Karachi" id="pill-city-karachi" title="🇵🇰 Karachi — Maritime & Financial Capital (31 Leads • Meta Verified)">
+            <span class="city-flag">🇵🇰</span>
+            <span class="city-name">Karachi</span>
+            <span class="city-counter" id="counter-city-karachi">30</span>
+          </button>
+          <button type="button" class="city-pill-btn city-pill-featured" data-city="Islamabad" id="pill-city-islamabad" title="🇵🇰 Islamabad — Federal Capital & Diplomatic Enclave (31 Leads • Meta Verified)">
+            <span class="city-flag">🇵🇰</span>
+            <span class="city-name">Islamabad</span>
+            <span class="city-counter" id="counter-city-islamabad">10</span>
+          </button>
           <button type="button" class="city-pill-btn city-pill-featured" data-city="Singapore" id="pill-city-singapore" title="🇸🇬 Singapore — APAC Business Hub (50 Leads • Meta Verified)">
             <span class="city-flag">🇸🇬</span>
             <span class="city-name">Singapore <span class="start-here-tag" style="background: #0284c7; color: #fff;">NEW 🇸🇬</span></span>
             <span class="city-counter" id="counter-city-singapore">50</span>
           </button>
-          <button type="button" class="city-pill-btn city-pill-featured active" data-city="Houston" id="pill-city-houston" title="⭐ Houston, Texas — Start here">
+          <button type="button" class="city-pill-btn city-pill-featured" data-city="Houston" id="pill-city-houston" title="⭐ Houston, Texas">
             <span class="city-flag">⭐</span>
             <span class="city-name">Houston, TX <span class="start-here-tag">Start here</span></span>
             <span class="city-counter" id="counter-city-houston">30</span>
@@ -348,6 +371,11 @@
         <div class="filter-group">
           <label for="filter-city" class="filter-label">City:</label>
           <select id="filter-city" class="select-input select-city-input">
+            <optgroup label="🇵🇰 Pakistan">
+              <option value="Lahore" selected>🇵🇰 Lahore</option>
+              <option value="Karachi">🇵🇰 Karachi</option>
+              <option value="Islamabad">🇵🇰 Islamabad</option>
+            </optgroup>
             <optgroup label="🇸🇬 Singapore">
               <option value="Singapore">🇸🇬 Singapore</option>
             </optgroup>
@@ -356,7 +384,7 @@
               <option value="Abu Dhabi">🇦🇪 Abu Dhabi</option>
             </optgroup>
             <optgroup label="🇺🇸 United States">
-              <option value="Houston" selected>⭐ Houston, TX (Start Here)</option>
+              <option value="Houston">⭐ Houston, TX</option>
               <option value="Miami">🏖️ Miami, FL (⭐ 100% WhatsApp Active)</option>
               <option value="Dallas">🏙️ Dallas, TX</option>
               <option value="Austin">🎸 Austin, TX</option>
@@ -577,6 +605,11 @@
                 <option value="Denver">Denver, Colorado</option>
                 <option value="Las Vegas">Las Vegas, Nevada</option>
               </optgroup>
+              <optgroup label="🇵🇰 Pakistan">
+                <option value="Lahore">Lahore</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Islamabad">Islamabad</option>
+              </optgroup>
               <optgroup label="🇸🇬 Singapore">
                 <option value="Singapore">Singapore</option>
               </optgroup>
@@ -596,8 +629,8 @@
           </div>
 
           <div class="form-group">
-            <label for="new-phone" class="form-label">WhatsApp Mobile (+1... / +44 7... / +971 5... / +65...) *</label>
-            <input type="text" id="new-phone" class="text-input" placeholder="+1 (xxx) xxx-xxxx, +44 7..., +971 5..., or +65 ..." required>
+            <label for="new-phone" class="form-label">WhatsApp Mobile (+92 3... / +1... / +44 7... / +971 5... / +65...) *</label>
+            <input type="text" id="new-phone" class="text-input" placeholder="+92 3xx xxx-xxxx, +1 (xxx) xxx-xxxx, +44 7..., +971 5..., or +65 ..." required>
           </div>
 
           <div class="form-group span-2">
@@ -880,7 +913,7 @@
     </div>
   </footer>
 
-  <script src="data/leads_bundle.js?v=4.0"></script>
-  <script src="app.js?v=4.0"></script>
+  <script src="data/leads_bundle.js?v=4.2"></script>
+  <script src="app.js?v=4.2"></script>
 </body>
 </html>

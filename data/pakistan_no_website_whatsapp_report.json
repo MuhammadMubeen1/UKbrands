@@ -1,0 +1,1439 @@
+{
+  "metadata": {
+    "title": "Pakistan no-website live WhatsApp audit",
+    "rule": "No website/app + live WhatsApp API registration",
+    "cities": [
+      "Lahore",
+      "Karachi",
+      "Islamabad"
+    ],
+    "total_live": 54,
+    "checked": 141,
+    "audit_executed_at": "2026-09-26 23:22:50 UTC"
+  },
+  "city_counts": {
+    "Lahore": 9,
+    "Karachi": 40,
+    "Islamabad": 5
+  },
+  "category_counts": {
+    "salons": 12,
+    "estate_agents": 10,
+    "aesthetic": 5,
+    "fitness": 11,
+    "restaurants": 16,
+    "dentists": 0
+  },
+  "leads_audit": [
+    {
+      "id": "lhr-sal-nw-001",
+      "name": "Madni Traders",
+      "city": "Lahore",
+      "category": "salons",
+      "whatsapp_number": "923214481300",
+      "is_registered": true,
+      "account_name": "Madni Traders",
+      "has_website": false
+    },
+    {
+      "id": "lhr-aes-nw-001",
+      "name": "Dr. Nighat Tahira Consultant Acupuncturist",
+      "city": "Lahore",
+      "category": "aesthetic",
+      "whatsapp_number": "923224269221",
+      "is_registered": true,
+      "account_name": "Dr Nighat Tahira Acupuncturist",
+      "has_website": false
+    },
+    {
+      "id": "lhr-aes-nw-002",
+      "name": "Hijama Medication & Cupping Therapy",
+      "city": "Lahore",
+      "category": "aesthetic",
+      "whatsapp_number": "923350705802",
+      "is_registered": true,
+      "account_name": "Hijama Medication Cupping Therapy",
+      "has_website": false
+    },
+    {
+      "id": "lhr-aes-nw-003",
+      "name": "Dr. Mehmood Ali Malik",
+      "city": "Lahore",
+      "category": "aesthetic",
+      "whatsapp_number": "923454237136",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-aes-nw-004",
+      "name": "Dr. Sindhu Ear, Nose specialist",
+      "city": "Lahore",
+      "category": "aesthetic",
+      "whatsapp_number": "923044625207",
+      "is_registered": true,
+      "account_name": "...... have",
+      "has_website": false
+    },
+    {
+      "id": "lhr-aes-nw-005",
+      "name": "Prof. Dr. Atif Kazmi",
+      "city": "Lahore",
+      "category": "aesthetic",
+      "whatsapp_number": "923008440840",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-001",
+      "name": "Lassani Foods",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923224633000",
+      "is_registered": true,
+      "account_name": "Lasani Burger",
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-002",
+      "name": "Yasir Broast (Fateh Garh Road Br)",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923211111753",
+      "is_registered": true,
+      "account_name": "Yasir Broast Fateh Garh",
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-003",
+      "name": "SHOKAT HOTEL",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923085193105",
+      "is_registered": true,
+      "account_name": "AT",
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-004",
+      "name": "Hot Roast (2nd floor)",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923060470470",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-005",
+      "name": "Cheeky Joe's",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923218478824",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-006",
+      "name": "shahbaz tikka house",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923114352540",
+      "is_registered": true,
+      "account_name": "SHAHBAZ TIKKA HOUSE",
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-007",
+      "name": "Chai Rock",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923021478163",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-008",
+      "name": "The Veranda",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923100572222",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-009",
+      "name": "Bashir Nan Pakoray",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923214988616",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-010",
+      "name": "Fazal Din Phajja Siri Paye - Since 1953",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923024029001",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-011",
+      "name": "Arif Chatkhara",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923214916479",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-012",
+      "name": "Shah Chicken Tawa Roast",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923214512341",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-013",
+      "name": "Pizza Da Napoli, Lahore",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923275656555",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-014",
+      "name": "GATE OF BURGERS",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923293381116",
+      "is_registered": true,
+      "account_name": "Gate of burgers",
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-015",
+      "name": "Ahmad Dahi Bhaly",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923078821352",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-res-nw-016",
+      "name": "KFC",
+      "city": "Lahore",
+      "category": "restaurants",
+      "whatsapp_number": "923016313555",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-den-nw-001",
+      "name": "Smile Hub Clinics",
+      "city": "Lahore",
+      "category": "dentists",
+      "whatsapp_number": "923204411688",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "lhr-den-nw-002",
+      "name": "Dentist",
+      "city": "Lahore",
+      "category": "dentists",
+      "whatsapp_number": "923008862350",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-001",
+      "name": "Mr&Ms Salon",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923012877764",
+      "is_registered": true,
+      "account_name": "_*Mr and Ms Salon*_",
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-002",
+      "name": "Nimra Khan Saloon",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923100707222",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-003",
+      "name": "lavish men’s salon",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923365244452",
+      "is_registered": true,
+      "account_name": "Lavish Men's Salon Dha Branch",
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-004",
+      "name": "Anabiya's Beauty saloon",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923152823216",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-005",
+      "name": "Glamour Girls Beauty Spa and Makeup Studio",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923122134664",
+      "is_registered": true,
+      "account_name": "glamour gurls",
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-006",
+      "name": "Jaynaan Beauty Saloon Tariq Road Branch",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923092187036",
+      "is_registered": true,
+      "account_name": "Jaynaan Beauty Saloon",
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-007",
+      "name": "RocK HaiR SaLooN",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923092581064",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-008",
+      "name": "Macho Men Salon",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923012200645",
+      "is_registered": true,
+      "account_name": "Abid Ahmed",
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-009",
+      "name": "REX Hair Dresser & Saloon",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923212911901",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-010",
+      "name": "Ladies Item",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923035161958",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-011",
+      "name": "lvory Salon by Anum Zubair (Gulshan Branch)",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923452345055",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-012",
+      "name": "National Hair Dresser shah faisal",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923422575546",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-013",
+      "name": "Mukta's Beauty Saloon",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923062956920",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-014",
+      "name": "Silk Cut Hair Saloon",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923232416761",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-015",
+      "name": "Style N Style Beauty Parlor",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923312444147",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-016",
+      "name": "Dubai Wella for Men",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923183607761",
+      "is_registered": true,
+      "account_name": "dubai wella hair salon",
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-017",
+      "name": "The Cut Studio Men's Salon",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923012725596",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-018",
+      "name": "Momoz Hair Salon for men",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923009249295",
+      "is_registered": true,
+      "account_name": "usamausmani78",
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-019",
+      "name": "Perfect hair club",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923323597207",
+      "is_registered": true,
+      "account_name": "Subhan",
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-020",
+      "name": "Oriflame.pk03",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923258967938",
+      "is_registered": true,
+      "account_name": "Wellthbites",
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-021",
+      "name": "Arishba's Academy & Saloon",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923360365616",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-022",
+      "name": "Rukhsar Beauty Salon & Training Center",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923111028622",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-sal-nw-023",
+      "name": "Bushra's Beauty Parlour",
+      "city": "Karachi",
+      "category": "salons",
+      "whatsapp_number": "923242644547",
+      "is_registered": true,
+      "account_name": "Bushras beauty parlour",
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-001",
+      "name": "New Al Karam Associates Estate Agency",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923002298950",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-002",
+      "name": "Febs Marketing Network",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923000210375",
+      "is_registered": true,
+      "account_name": "Febs Builders",
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-003",
+      "name": "F.B Area Azizabad Estate",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923162840568",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-004",
+      "name": "Abdul Ghani Estate Agency",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923212117857",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-005",
+      "name": "SHA SAHAB ESTATE AGENCY",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923176152211",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-006",
+      "name": "Zubair Associate & Amira Construction",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923152618883",
+      "is_registered": true,
+      "account_name": "Bari Alvi",
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-007",
+      "name": "Shaheen Estate",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923452348406",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-008",
+      "name": "Gulshan Estate",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923333260821",
+      "is_registered": true,
+      "account_name": "Al Mujaddid Estate",
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-009",
+      "name": "Mazhar Enterprises Real Estate",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923002960776",
+      "is_registered": true,
+      "account_name": "Mazhar Enterprise Real Estate",
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-010",
+      "name": "Mudasir & Brothers Associates",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923182583701",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-011",
+      "name": "Dua Estate & Marketing",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923332903000",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-012",
+      "name": "IP Real Estate & Builders",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923333255731",
+      "is_registered": true,
+      "account_name": "Real Estate",
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-013",
+      "name": "7cs real estate",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923313393688",
+      "is_registered": true,
+      "account_name": "7Cs Real Estate The World  Best Marketing Services",
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-014",
+      "name": "Pakistan Real Estate & Construction Company",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923333446703",
+      "is_registered": true,
+      "account_name": "kamran ali shaikh",
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-015",
+      "name": "RAB-E-KAREEM",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923332344085",
+      "is_registered": true,
+      "account_name": "Adnan Estate",
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-016",
+      "name": "Hassan Associates S.24 oxford rise",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923009245145",
+      "is_registered": true,
+      "account_name": "Hassan Assosiate",
+      "has_website": false
+    },
+    {
+      "id": "khi-est-nw-017",
+      "name": "KAT'S MARKETING",
+      "city": "Karachi",
+      "category": "estate_agents",
+      "whatsapp_number": "923343892475",
+      "is_registered": true,
+      "account_name": "Ecomifyx",
+      "has_website": false
+    },
+    {
+      "id": "khi-aes-nw-001",
+      "name": "Pinjani Limb Care",
+      "city": "Karachi",
+      "category": "aesthetic",
+      "whatsapp_number": "923146612856",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-aes-nw-002",
+      "name": "Zehra's Aesthetix",
+      "city": "Karachi",
+      "category": "aesthetic",
+      "whatsapp_number": "923333062006",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-aes-nw-003",
+      "name": "Shani Clinic",
+      "city": "Karachi",
+      "category": "aesthetic",
+      "whatsapp_number": "923002776898",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-aes-nw-004",
+      "name": "Dr. Ali Clinic",
+      "city": "Karachi",
+      "category": "aesthetic",
+      "whatsapp_number": "923002180656",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-aes-nw-005",
+      "name": "shaikh clinic",
+      "city": "Karachi",
+      "category": "aesthetic",
+      "whatsapp_number": "923333443630",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-aes-nw-006",
+      "name": "Al Qasim Specialist Clinic",
+      "city": "Karachi",
+      "category": "aesthetic",
+      "whatsapp_number": "923337307259",
+      "is_registered": true,
+      "account_name": "Dr. Hareesh Kumar",
+      "has_website": false
+    },
+    {
+      "id": "khi-aes-nw-007",
+      "name": "Al Jannat Medical and Dental Care",
+      "city": "Karachi",
+      "category": "aesthetic",
+      "whatsapp_number": "923422626256",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-aes-nw-008",
+      "name": "hijama Clinic Honey centre",
+      "city": "Karachi",
+      "category": "aesthetic",
+      "whatsapp_number": "923122001310",
+      "is_registered": true,
+      "account_name": "harbel",
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-001",
+      "name": "Fitness SCNZ",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923171033387",
+      "is_registered": true,
+      "account_name": "Fitness Scnz",
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-002",
+      "name": "Genetix Gym",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923132838148",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-003",
+      "name": "Fitnasium Studio",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923368073142",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-004",
+      "name": "Fitness Emporium - Best Gym In Gulshan",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923392120444",
+      "is_registered": true,
+      "account_name": "fitness Emporium",
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-005",
+      "name": "T.R Body Fitness Studio - Chapter 2",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923010310928",
+      "is_registered": true,
+      "account_name": "Tr Body Fitness",
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-006",
+      "name": "GYM X",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923121057858",
+      "is_registered": true,
+      "account_name": "gymx",
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-007",
+      "name": "Life Fitness Gym",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923154725155",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-008",
+      "name": "Treadmill repairs and services Maintenance by Saim Brothers",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923323569034",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-009",
+      "name": "The Fit Camp",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923118260598",
+      "is_registered": true,
+      "account_name": "Muhammad Saad",
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-010",
+      "name": "Fitness Art",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923332104731",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-011",
+      "name": "Pure Fitness Gym (Branch 3)",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923352846360",
+      "is_registered": true,
+      "account_name": "Aamir Khan",
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-012",
+      "name": "Haris Gym Bodybuilding and Fitness Club",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923484681097",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-013",
+      "name": "Fittastic The Gym",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923094995248",
+      "is_registered": true,
+      "account_name": "The Fittastic Club",
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-014",
+      "name": "i Fitness gym",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923060293697",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-015",
+      "name": "Total Fitness Gym",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923142262994",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-016",
+      "name": "The Muscle Factory",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923212812232",
+      "is_registered": true,
+      "account_name": "Noorani Fast Food & BBQ",
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-017",
+      "name": "Fit Your Life Gym",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923131068502",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-018",
+      "name": "Alpha Mix Martial Arts",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923082957319",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-019",
+      "name": "Edge physique",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923341155553",
+      "is_registered": true,
+      "account_name": "Edge Physique",
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-020",
+      "name": "Ali Fitness Zone",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923218917556",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-fit-nw-021",
+      "name": "The Venom Gym Official",
+      "city": "Karachi",
+      "category": "fitness",
+      "whatsapp_number": "923060037330",
+      "is_registered": true,
+      "account_name": "حمزہ خان",
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-001",
+      "name": "Shaheen Shinwari BBQ Restraunt & Caterers",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923333503303",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-002",
+      "name": "Afghan Bukhari Restaurant",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923453353374",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-003",
+      "name": "Balochistan Sajji",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923170337733",
+      "is_registered": true,
+      "account_name": "Balochistan Sajji Official",
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-004",
+      "name": "Sabri Nihari House",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923009280189",
+      "is_registered": true,
+      "account_name": "Sabir Restaurant",
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-005",
+      "name": "Tasty Fish House",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923452727948",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-006",
+      "name": "Master Biryani",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923212704093",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-007",
+      "name": "Chief BarbQ and Resturent",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923198600900",
+      "is_registered": true,
+      "account_name": "CHIEF RESTAURANT",
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-008",
+      "name": "Agha Sajji Corner",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923218378712",
+      "is_registered": true,
+      "account_name": "faisalagha818",
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-009",
+      "name": "Delhi Rabri House",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923312547381",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-010",
+      "name": "Maryam and mama - DHA",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923337173017",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-011",
+      "name": "Black bean",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923012111334",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-012",
+      "name": "Shahi Ballroom",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923132069995",
+      "is_registered": true,
+      "account_name": "shahiballroombanquet",
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-013",
+      "name": "Have a bite",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923316682000",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-014",
+      "name": "K Town Burger Co.",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923355869626",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-015",
+      "name": "K Town Burger Co.",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923345869626",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-016",
+      "name": "Burgerism",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923318828088",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-017",
+      "name": "Cafe 12 Masala",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923332008124",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-018",
+      "name": "Bhookemoo",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923152750976",
+      "is_registered": true,
+      "account_name": "Mariam",
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-019",
+      "name": "Moreish Resturant",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923363550066",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-020",
+      "name": "Shah One Shinwari",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923351336167",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-021",
+      "name": "Jazzy Foods",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923177708884",
+      "is_registered": true,
+      "account_name": "Jazzy Foods",
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-022",
+      "name": "Crispy Connection Abbas",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923302515540",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-023",
+      "name": "Junkies",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923343738972",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-024",
+      "name": "A1 Pizza & Chinese",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923142393668",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-025",
+      "name": "Pizza Master G",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923312925868",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-026",
+      "name": "Foodie Dot",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923233229255",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-027",
+      "name": "Ali Bar B Q And Restaurant",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923462521993",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "khi-res-nw-028",
+      "name": "FOOD CRUNCH",
+      "city": "Karachi",
+      "category": "restaurants",
+      "whatsapp_number": "923142724324",
+      "is_registered": true,
+      "account_name": "FOOD CRUNCH",
+      "has_website": false
+    },
+    {
+      "id": "khi-den-nw-001",
+      "name": "Saeedabad Dental Clinic",
+      "city": "Karachi",
+      "category": "dentists",
+      "whatsapp_number": "923152106954",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-sal-nw-001",
+      "name": "Estheva's Beauty Spa",
+      "city": "Islamabad",
+      "category": "salons",
+      "whatsapp_number": "923331594221",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-sal-nw-002",
+      "name": "Joshua Saloon",
+      "city": "Islamabad",
+      "category": "salons",
+      "whatsapp_number": "923421534479",
+      "is_registered": true,
+      "account_name": "Joshua-saloon",
+      "has_website": false
+    },
+    {
+      "id": "isb-est-nw-001",
+      "name": "Al-Rashid Associates",
+      "city": "Islamabad",
+      "category": "estate_agents",
+      "whatsapp_number": "923335164436",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-est-nw-002",
+      "name": "Khattak Properties",
+      "city": "Islamabad",
+      "category": "estate_agents",
+      "whatsapp_number": "923334253222",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-est-nw-003",
+      "name": "Shahab Enterprises And Builders",
+      "city": "Islamabad",
+      "category": "estate_agents",
+      "whatsapp_number": "923165371898",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-fit-nw-001",
+      "name": "Army swimming pool",
+      "city": "Islamabad",
+      "category": "fitness",
+      "whatsapp_number": "923326659159",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-fit-nw-002",
+      "name": "Ladies Fitness Gym",
+      "city": "Islamabad",
+      "category": "fitness",
+      "whatsapp_number": "923354622511",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-fit-nw-003",
+      "name": "Fit Zone Gym",
+      "city": "Islamabad",
+      "category": "fitness",
+      "whatsapp_number": "923150745666",
+      "is_registered": true,
+      "account_name": "fitzoneg10",
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-001",
+      "name": "Food station ayub park",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923315556649",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-002",
+      "name": "Asian Pulao",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923222524000",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-003",
+      "name": "Sattar Tikka House",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923005388319",
+      "is_registered": true,
+      "account_name": "Abdul Sattar Tikka House",
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-004",
+      "name": "Al-Madina Restaurant",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923009707915",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-005",
+      "name": "MashAllah Restaurant",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923225068395",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-006",
+      "name": "The Secret Garden",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923090012222",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-007",
+      "name": "TKR Restaurant, Taramri",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923041110857",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-008",
+      "name": "Baoo Jee Murgh Pulao & Restaurant Tarlai",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923135720302",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-009",
+      "name": "Punjab Chaat Palace",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923335177966",
+      "is_registered": false,
+      "account_name": null,
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-010",
+      "name": "Burgers Mafia",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923055284882",
+      "is_registered": true,
+      "account_name": "Burgers Mafia",
+      "has_website": false
+    },
+    {
+      "id": "isb-res-nw-011",
+      "name": "Noorani Restaurant",
+      "city": "Islamabad",
+      "category": "restaurants",
+      "whatsapp_number": "923460112174",
+      "is_registered": true,
+      "account_name": "food grocery pharmacy",
+      "has_website": false
+    }
+  ]
+}

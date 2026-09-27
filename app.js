@@ -119,7 +119,7 @@ const CATEGORIES = {
 
 // Application State
 const state = {
-  activeCity: localStorage.getItem('uk_leads_selected_city') || 'Singapore',
+  activeCity: localStorage.getItem('uk_leads_selected_city') || 'Lahore',
   activeCategory: 'salons',
   categoryData: {
     salons: [],
@@ -241,7 +241,7 @@ async function initApp() {
   await loadAllCategoryDatasets();
   const urlParams = new URLSearchParams(window.location.search);
   const cityParam = urlParams.get('city');
-  let initialCity = 'Singapore';
+  let initialCity = 'Lahore';
   if (cityParam) {
     initialCity = cityParam;
   } else {
@@ -251,7 +251,7 @@ async function initApp() {
     }
   }
   switchCity(initialCity, false);
-  switchCategory('salons', false);
+  switchCategory(richestCategoryForCity(initialCity), false);
 }
 
 // Retrieve custom saved script for a category or fallback to default
@@ -269,15 +269,30 @@ function getCategoryScript(categoryKey) {
   return cat.defaultScript;
 }
 
-// Universal WhatsApp Phone Formatter & Validator (US +1, UK +44 7..., UAE +971 5..., Singapore +65)
+// Universal WhatsApp Phone Formatter & Validator (Pakistan +92 3..., US +1, UK +44 7..., UAE +971 5..., Singapore +65)
 function formatAndValidateWhatsapp(raw, city = state.activeCity) {
   if (!raw) return { valid: false, error: 'Phone number is required.' };
   let digits = raw.replace(/[^\d]/g, '');
 
+  const pakCities = ['Lahore', 'Karachi', 'Islamabad', 'Rawalpindi', 'Faisalabad'];
   const usCities = ['Houston', 'Miami', 'Dallas', 'Austin', 'Phoenix', 'Atlanta', 'Tampa', 'Orlando', 'Charlotte', 'Denver', 'Las Vegas'];
-  const isSingaporeContext = city === 'Singapore' || digits.startsWith('65') || (digits.length === 8 && !digits.startsWith('0') && !digits.startsWith('1'));
-  const isUsContext = usCities.includes(city) || (digits.length === 10 && !digits.startsWith('0') && !digits.startsWith('44') && !digits.startsWith('971') && !digits.startsWith('65')) || (digits.startsWith('1') && digits.length === 11);
+  const isPakContext = pakCities.includes(city) || digits.startsWith('92') || digits.startsWith('03') || (digits.length === 10 && digits.startsWith('3'));
+  const isSingaporeContext = city === 'Singapore' || digits.startsWith('65') || (digits.length === 8 && !digits.startsWith('0') && !digits.startsWith('1') && !digits.startsWith('3'));
+  const isUsContext = usCities.includes(city) || (digits.length === 10 && !digits.startsWith('0') && !digits.startsWith('44') && !digits.startsWith('971') && !digits.startsWith('65') && !digits.startsWith('3')) || (digits.startsWith('1') && digits.length === 11);
   const isUaeContext = city === 'Dubai' || city === 'Abu Dhabi' || digits.startsWith('971') || digits.startsWith('05');
+
+  // Pakistan Context (+92 3...)
+  if (isPakContext) {
+    if (digits.startsWith('0092')) digits = digits.slice(2);
+    else if (digits.startsWith('03')) digits = '92' + digits.slice(1);
+    else if (digits.startsWith('3') && digits.length === 10) digits = '92' + digits;
+    else if (!digits.startsWith('92')) digits = '92' + digits;
+
+    if (digits.startsWith('923') && digits.length === 12) {
+      const disp = `+92 ${digits.slice(2, 5)} ${digits.slice(5, 8)} ${digits.slice(8)}`;
+      return { valid: true, number: digits, display: disp, country: 'PK' };
+    }
+  }
 
   // Singapore Context (+65 ...)
   if (isSingaporeContext) {
@@ -326,6 +341,10 @@ function formatAndValidateWhatsapp(raw, city = state.activeCity) {
   }
 
   // Fallback checks
+  if (digits.startsWith('923') && digits.length === 12) {
+    const disp = `+92 ${digits.slice(2, 5)} ${digits.slice(5, 8)} ${digits.slice(8)}`;
+    return { valid: true, number: digits, display: disp, country: 'PK' };
+  }
   if (digits.startsWith('65') && digits.length === 10) {
     const disp = `+65 ${digits.slice(2, 6)} ${digits.slice(6)}`;
     return { valid: true, number: digits, display: disp, country: 'SG' };
@@ -341,7 +360,7 @@ function formatAndValidateWhatsapp(raw, city = state.activeCity) {
 
   return { 
     valid: false, 
-    error: 'Please enter a valid WhatsApp mobile (+1 for US, +44 7... for UK, +971 5... for UAE, or +65... for Singapore) for direct outreach!' 
+    error: 'Please enter a valid WhatsApp mobile (+92 3... for Pakistan, +1 for US, +44 7... for UK, +971 5... for UAE, or +65... for Singapore) for direct outreach!' 
   };
 }
 
@@ -369,7 +388,8 @@ async function loadAllCategoryDatasets() {
         if (savedCustom) {
           customLeads = JSON.parse(savedCustom).filter(l => {
             const num = (l.whatsapp_number || '').replace(/[^\d]/g, '');
-            return (num.startsWith('1') && num.length === 11) || 
+            return (num.startsWith('923') && num.length === 12) ||
+                   (num.startsWith('1') && num.length === 11) || 
                    ((num.startsWith('447') || num.startsWith('9715')) && num.length === 12) ||
                    (num.startsWith('65') && num.length === 10);
           });
@@ -384,7 +404,8 @@ async function loadAllCategoryDatasets() {
         const hasWeb = lead.has_website !== false && Boolean(lead.website) && lead.website.trim() !== '';
         let wa = (lead.whatsapp_number || '').replace(/[^\d]/g, '');
         if (wa.startsWith('6565') && wa.length === 12) wa = wa.slice(2);
-        const isWaMobile = (wa.startsWith('1') && wa.length === 11) || 
+        const isWaMobile = (wa.startsWith('923') && wa.length === 12) ||
+                           (wa.startsWith('1') && wa.length === 11) || 
                            ((wa.startsWith('447') || wa.startsWith('9715') || wa.startsWith('971')) && wa.length >= 10 && wa.length <= 13) ||
                            (wa.startsWith('65') && wa.length === 10) ||
                            lead.whatsapp_live_verified === true;
@@ -413,7 +434,8 @@ async function loadAllCategoryDatasets() {
         if (!item.city) item.city = 'London';
         if (savedPhones[lead.id] && savedPhones[lead.id].whatsapp_number) {
           const pDigits = (savedPhones[lead.id].whatsapp_number || '').replace(/[^\d]/g, '');
-          const isPValid = (pDigits.startsWith('1') && pDigits.length === 11) || 
+          const isPValid = (pDigits.startsWith('923') && pDigits.length === 12) ||
+                           (pDigits.startsWith('1') && pDigits.length === 11) || 
                            ((pDigits.startsWith('447') || pDigits.startsWith('9715')) && pDigits.length === 12) ||
                            (pDigits.startsWith('65') && pDigits.length === 10);
           if (isPValid) {
@@ -449,6 +471,7 @@ function updateCityBadgesAndTabs() {
   const activeCity = state.activeCity;
   const categories = Object.keys(CATEGORIES);
   const verifiedCities = [
+    'Lahore', 'Karachi', 'Islamabad',
     'Houston', 'Miami', 'Dallas', 'Austin', 'Phoenix', 'Atlanta', 'Tampa', 'Orlando', 'Charlotte', 'Denver', 'Las Vegas',
     'London', 'Manchester', 'Birmingham', 'Leeds', 'Liverpool', 'Edinburgh',
     'Dubai', 'Abu Dhabi', 'Singapore'
@@ -470,6 +493,7 @@ function updateCityBadgesAndTabs() {
 
   // Update overall city counters on the pills
   const cities = [
+    'Lahore', 'Karachi', 'Islamabad',
     'Houston', 'Miami', 'Dallas', 'Austin', 'Phoenix', 'Atlanta', 'Tampa', 'Orlando', 'Charlotte', 'Denver', 'Las Vegas',
     'London', 'Manchester', 'Birmingham', 'Leeds', 'Liverpool', 'Edinburgh',
     'Dubai', 'Abu Dhabi', 'Singapore'
@@ -521,6 +545,32 @@ function populateBoroughFilter() {
   elements.filterBorough.value = 'all';
 }
 
+function cityLeadCount(cityName, catKey) {
+  const all = state.categoryData[catKey] || [];
+  return all.filter(lead => {
+    if ((lead.city || 'London') !== cityName) return false;
+    if (state.whatsappFilter === 'verified' && lead.whatsapp_live_verified !== true) return false;
+    return true;
+  }).length;
+}
+
+function richestCategoryForCity(cityName) {
+  let best = 'salons';
+  let max = -1;
+  Object.keys(CATEGORIES).forEach(catKey => {
+    const n = cityLeadCount(cityName, catKey);
+    if (n > max) {
+      max = n;
+      best = catKey;
+    }
+  });
+  return best;
+}
+
+function cityTotalLeads(cityName) {
+  return Object.keys(CATEGORIES).reduce((sum, catKey) => sum + cityLeadCount(cityName, catKey), 0);
+}
+
 // Extract leads strictly for the active category and active city
 function updateActiveLeads() {
   const allCatLeads = state.categoryData[state.activeCategory] || [];
@@ -563,6 +613,14 @@ function switchCity(cityName, notify = true) {
   // Populate Area/Borough Filter with this City's Districts
   populateBoroughFilter();
 
+  // For Pakistan, open the tab that actually has the most live WhatsApp businesses
+  if (['Lahore', 'Karachi', 'Islamabad'].includes(cityName)) {
+    const best = richestCategoryForCity(cityName);
+    if (best !== state.activeCategory && cityLeadCount(cityName, best) > cityLeadCount(cityName, state.activeCategory)) {
+      switchCategory(best, false);
+    }
+  }
+
   // Update Active Leads for Current Category in this City
   updateActiveLeads();
 
@@ -586,7 +644,7 @@ function switchCity(cityName, notify = true) {
   render();
 
   if (notify) {
-    showToast(`📍 Switched to ${cityName} — showing ${state.leads.length} verified ${cat.name}`);
+    showToast(`📍 Switched to ${cityName} — ${cityTotalLeads(cityName)} live WhatsApp businesses across all tabs (${state.leads.length} in ${cat.name})`);
   }
 }
 
@@ -960,6 +1018,7 @@ function applyFilters() {
     let wa = (lead.whatsapp_number || '').replace(/[^\d]/g, '');
     if (wa.startsWith('6565') && wa.length === 12) wa = wa.slice(2);
     const isMobile = lead.whatsapp_live_verified === true ||
+      (wa.startsWith('923') && wa.length === 12) ||
       ((wa.startsWith('447') || wa.startsWith('9715') || wa.startsWith('971')) && wa.length >= 10 && wa.length <= 13) ||
       (wa.startsWith('1') && wa.length === 11) ||
       (wa.startsWith('44') && wa.length >= 11 && wa.length <= 13) ||
@@ -968,9 +1027,10 @@ function applyFilters() {
       return false;
     }
 
-    // Strict Meta Live Verified WhatsApp Filter for US, UK, and UAE leads
+    // Strict Meta Live Verified WhatsApp Filter for Pakistan, US, UK, and UAE leads
     if (state.whatsappFilter === 'verified') {
       const verifiedCities = [
+        'Lahore', 'Karachi', 'Islamabad',
         'Houston', 'Miami', 'Dallas', 'Austin', 'Phoenix', 'Atlanta', 'Tampa', 'Orlando', 'Charlotte', 'Denver', 'Las Vegas',
         'London', 'Manchester', 'Birmingham', 'Leeds', 'Liverpool', 'Edinburgh',
         'Dubai', 'Abu Dhabi', 'Singapore'
@@ -1071,24 +1131,29 @@ function generatePitchMessage(lead) {
 // Generate WhatsApp Deep Link
 function generateWhatsAppUrl(lead) {
   let phone = (lead.whatsapp_number || '').replace(/[^\d]/g, '');
-  if (phone.startsWith('0044')) phone = phone.slice(2);
+  if (phone.startsWith('0092')) phone = phone.slice(2);
+  else if (phone.startsWith('0044')) phone = phone.slice(2);
   else if (phone.startsWith('00971')) phone = phone.slice(2);
   else if (phone.startsWith('001')) phone = phone.slice(2);
   else if (phone.startsWith('0065')) phone = phone.slice(2);
+  else if (phone.startsWith('03')) phone = '92' + phone.slice(1);
   else if (phone.startsWith('07')) phone = '44' + phone.slice(1);
   else if (phone.startsWith('05')) phone = '971' + phone.slice(1);
 
+  const isPak = (['Lahore', 'Karachi', 'Islamabad'].includes(lead.city) || phone.startsWith('92'));
   const isSingapore = (lead.city === 'Singapore' || phone.startsWith('65'));
-  if (isSingapore) {
+  if (isPak) {
+    if (phone.startsWith('3') && phone.length === 10) phone = '92' + phone;
+  } else if (isSingapore) {
     if (phone.length === 8) phone = '65' + phone;
   } else if (phone.startsWith('1') && phone.length === 11) {
     // Valid US
-  } else if (phone.length === 10 && !phone.startsWith('65')) {
+  } else if (phone.length === 10 && !phone.startsWith('65') && !phone.startsWith('92')) {
     phone = '1' + phone;
-  } else if (!phone.startsWith('44') && !phone.startsWith('971') && !phone.startsWith('1') && !phone.startsWith('65')) {
+  } else if (!phone.startsWith('44') && !phone.startsWith('971') && !phone.startsWith('1') && !phone.startsWith('65') && !phone.startsWith('92')) {
     const isUae = (lead.city === 'Dubai' || lead.city === 'Abu Dhabi');
     const isUs = ['Houston', 'Miami', 'Dallas', 'Austin', 'Phoenix', 'Atlanta', 'Tampa', 'Orlando', 'Charlotte', 'Denver', 'Las Vegas'].includes(lead.city);
-    phone = (isSingapore ? '65' : (isUs ? '1' : (isUae ? '971' : '44'))) + phone;
+    phone = (isPak ? '92' : (isSingapore ? '65' : (isUs ? '1' : (isUae ? '971' : '44')))) + phone;
   }
   const pitch = generatePitchMessage(lead);
   return `https://wa.me/${phone}?text=${encodeURIComponent(pitch)}`;
@@ -1216,7 +1281,7 @@ function render() {
       if (state.whatsappFilter === 'verified') {
         emptyTitle.textContent = `No Meta-Verified WhatsApp Accounts for ${cat.name} in ${state.activeCity}`;
         if (emptyDesc) {
-          emptyDesc.innerHTML = `Businesses in this specific category published wireline front-desk numbers. Switch to <strong><a href="javascript:void(0)" onclick="switchCity('London')" style="color: #25D366; text-decoration: underline;">London (56 Verified)</a></strong>, <strong><a href="javascript:void(0)" onclick="switchCity('Manchester')" style="color: #25D366; text-decoration: underline;">Manchester</a></strong>, <strong><a href="javascript:void(0)" onclick="switchCity('Miami')" style="color: #38bdf8; text-decoration: underline;">Miami, FL</a></strong>, or <strong><a href="javascript:void(0)" onclick="switchCity('Houston')" style="color: #38bdf8; text-decoration: underline;">Houston, TX</a></strong> to browse verified accounts, or toggle the filter to <strong><a href="javascript:void(0)" onclick="toggleOnlyVerifiedWhatsApp()" style="color: #f59e0b; text-decoration: underline;">💬 All Businesses</a></strong> to reach office lines via direct SMS Pitch!`;
+          emptyDesc.innerHTML = `Switch to <strong><a href="javascript:void(0)" onclick="switchCity('Lahore')" style="color: #25D366; text-decoration: underline;">Lahore</a></strong>, <strong><a href="javascript:void(0)" onclick="switchCity('Karachi')" style="color: #25D366; text-decoration: underline;">Karachi</a></strong>, or <strong><a href="javascript:void(0)" onclick="switchCity('Islamabad')" style="color: #25D366; text-decoration: underline;">Islamabad</a></strong> — each listing has a website and a WhatsApp API-checked number. You can also browse <strong><a href="javascript:void(0)" onclick="switchCity('London')" style="color: #25D366; text-decoration: underline;">London</a></strong> or toggle <strong><a href="javascript:void(0)" onclick="toggleOnlyVerifiedWhatsApp()" style="color: #f59e0b; text-decoration: underline;">All Businesses</a></strong>.`;
         }
       } else {
         emptyTitle.textContent = `No ${cat.name} Found Matching Your Filters`;
@@ -1900,11 +1965,14 @@ function checkWhatsAppApiLive(leadId) {
   currentCheckingLeadId = leadId;
 
   const num = (lead.whatsapp_number || '').replace(/[^\d]/g, '');
+  const isPak = (['Lahore', 'Karachi', 'Islamabad'].includes(lead.city) || num.startsWith('92'));
   const isSingapore = (lead.city === 'Singapore' || num.startsWith('65'));
   const isUae = (lead.city === 'Dubai' || lead.city === 'Abu Dhabi' || num.startsWith('971'));
   const isUs = ['Houston', 'Miami', 'Dallas', 'Austin', 'Phoenix', 'Atlanta', 'Tampa', 'Orlando', 'Charlotte', 'Denver', 'Las Vegas'].includes(lead.city) || (num.startsWith('1') && num.length === 11);
   let defaultDisp = `+44 ${num.slice(2, 4)} ${num.slice(4, 7)} ${num.slice(7)}`;
-  if (isUs && num.length === 11) {
+  if (isPak && num.startsWith('923') && num.length === 12) {
+    defaultDisp = `+92 ${num.slice(2, 5)} ${num.slice(5, 8)} ${num.slice(8)}`;
+  } else if (isUs && num.length === 11) {
     defaultDisp = `+1 (${num.slice(1, 4)}) ${num.slice(4, 7)}-${num.slice(7)}`;
   } else if (isSingapore) {
     if (num.length === 10) {
@@ -1952,7 +2020,8 @@ function checkWhatsAppApiLive(leadId) {
 
   const carrierEl = document.getElementById('wa-api-val-carrier');
   if (carrierEl) {
-    if (isUs) carrierEl.textContent = 'US / North America Mobile/VoIP Standard (+1)';
+    if (isPak) carrierEl.textContent = 'Pakistan Mobile Standard (+92 3x Cellular WhatsApp)';
+    else if (isUs) carrierEl.textContent = 'US / North America Mobile/VoIP Standard (+1)';
     else if (isSingapore) {
       if (num.startsWith('658') || num.startsWith('659')) carrierEl.textContent = 'Singapore Mobile Standard (+65 8x/9x Cellular)';
       else carrierEl.textContent = 'Singapore Business Standard Registered on Meta WhatsApp (+65)';

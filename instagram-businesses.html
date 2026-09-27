@@ -118,7 +118,7 @@
       <div class="city-selector-lead">
         <div class="city-pin-icon" aria-hidden="true" style="color: #fb7185;">📍</div>
         <div class="city-selector-texts">
-          <span class="city-selector-eyebrow">SELECT TARGET CITY (SINGAPORE, UAE, UK, USA)</span>
+          <span class="city-selector-eyebrow">SELECT TARGET CITY (PAKISTAN, SINGAPORE, UAE, UK, USA)</span>
           <h2 class="city-selector-heading">
             Targeting: <span id="current-active-city-display" style="color: #fb7185;">Singapore</span>
           </h2>
@@ -129,8 +129,13 @@
         <div class="city-dropdown-box">
           <label for="city-selector-dropdown" class="filter-label city-dropdown-label">Target City:</label>
           <select id="city-selector-dropdown" class="city-dropdown-select" aria-label="Select Target City">
+            <optgroup label="🇵🇰 Pakistan (Lahore, Karachi, Islamabad)">
+              <option value="Lahore" selected>🇵🇰 Lahore (Website + WhatsApp)</option>
+              <option value="Karachi">🇵🇰 Karachi (Website + WhatsApp)</option>
+              <option value="Islamabad">🇵🇰 Islamabad (Website + WhatsApp)</option>
+            </optgroup>
             <optgroup label="🇸🇬 Singapore (APAC Business & Tech Hub)">
-              <option value="Singapore" selected>🇸🇬 Singapore (50 Leads • Verified)</option>
+              <option value="Singapore">🇸🇬 Singapore (50 Leads • Verified)</option>
             </optgroup>
             <optgroup label="🇦🇪 United Arab Emirates">
               <option value="Dubai">🇦🇪 Dubai (100 Leads • Verified)</option>
@@ -161,7 +166,22 @@
         </div>
 
         <div class="city-pills-list" role="tablist" aria-label="Quick City Selection">
-          <button type="button" class="city-pill-btn city-pill-featured active" data-city="Singapore" id="pill-city-singapore" title="🇸🇬 Singapore — APAC Business Hub">
+          <button type="button" class="city-pill-btn city-pill-featured active" data-city="Lahore" id="pill-city-lahore" title="🇵🇰 Lahore — Cultural & Commercial Hub">
+            <span class="city-flag">🇵🇰</span>
+            <span class="city-name">Lahore <span class="start-here-tag" style="background: #15803d; color: #fff;">Start here 🇵🇰</span></span>
+            <span class="city-counter" id="counter-city-lahore">25</span>
+          </button>
+          <button type="button" class="city-pill-btn city-pill-featured" data-city="Karachi" id="pill-city-karachi" title="🇵🇰 Karachi — Maritime & Financial Capital">
+            <span class="city-flag">🇵🇰</span>
+            <span class="city-name">Karachi</span>
+            <span class="city-counter" id="counter-city-karachi">30</span>
+          </button>
+          <button type="button" class="city-pill-btn city-pill-featured" data-city="Islamabad" id="pill-city-islamabad" title="🇵🇰 Islamabad — Federal Capital">
+            <span class="city-flag">🇵🇰</span>
+            <span class="city-name">Islamabad</span>
+            <span class="city-counter" id="counter-city-islamabad">10</span>
+          </button>
+          <button type="button" class="city-pill-btn city-pill-featured" data-city="Singapore" id="pill-city-singapore" title="🇸🇬 Singapore — APAC Business Hub">
             <span class="city-flag">🇸🇬</span>
             <span class="city-name">Singapore <span class="start-here-tag" style="background: #0284c7; color: #fff;">APAC HUB</span></span>
             <span class="city-counter" id="counter-city-singapore">50</span>
