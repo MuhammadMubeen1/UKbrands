@@ -6,304 +6,317 @@
   <title>Website preview</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f6f1ea;
-      --ink: #1c1917;
-      --muted: #6b625b;
-      --card: #fffdf9;
-      --accent: #b45309;
-      --accent-ink: #fff;
-      --hero: linear-gradient(135deg, #2b2118 0%, #7c4a1e 55%, #c47a32 100%);
+      --bg: #f4efe8;
+      --ink: #171412;
+      --muted: #6d645c;
+      --card: #fffcf8;
+      --accent: #be123c;
+      --line: rgba(23,20,18,.08);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: Manrope, system-ui, sans-serif;
       background: var(--bg);
       color: var(--ink);
       line-height: 1.55;
     }
-    a { color: inherit; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+    a { color: inherit; text-decoration: none; }
+    img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 18px 0;
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(244,239,232,.86);
+      border-bottom: 1px solid var(--line);
     }
-    .brand {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.45rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 12px; padding: 14px 0;
     }
-    .badge {
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
+    .brand { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 700; }
+    .nav-links { display: flex; gap: 18px; color: var(--muted); font-size: 14px; font-weight: 600; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      padding: 12px 20px;
-      font-weight: 700;
-      text-decoration: none;
-      background: var(--accent);
-      color: var(--accent-ink);
-      box-shadow: 0 10px 24px rgba(28, 25, 23, 0.12);
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border-radius: 999px; padding: 12px 18px; font-weight: 800; font-size: 14px;
+      background: var(--accent); color: #fff; border: 0;
+      box-shadow: 0 12px 28px rgba(190,18,60,.28);
     }
-    .btn.ghost {
-      background: transparent;
-      color: var(--ink);
-      border: 1px solid rgba(28,25,23,0.14);
-      box-shadow: none;
-    }
+    .btn.light { background: #fff; color: #171412; box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+    .btn.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); box-shadow: none; }
     .hero {
-      background: var(--hero);
-      color: #fffaf3;
-      border-radius: 28px;
-      padding: 54px 36px;
-      margin-bottom: 28px;
-      position: relative;
-      overflow: hidden;
+      position: relative; min-height: 78vh; border-radius: 0 0 36px 36px;
+      overflow: hidden; color: #fff; display: grid; align-items: end;
     }
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -40px;
-      bottom: -50px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.12);
+    .hero-bg { position: absolute; inset: 0; }
+    .hero-bg img { filter: saturate(1.05); }
+    .hero-bg::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(16,10,12,.15) 0%, rgba(16,10,12,.82) 100%);
     }
+    .hero-copy { position: relative; z-index: 1; padding: 48px 20px 56px; max-width: 1080px; margin: 0 auto; width: 100%; }
+    .kicker { letter-spacing: .18em; text-transform: uppercase; font-size: 11px; opacity: .8; margin-bottom: 10px; }
     .hero h1 {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(2.3rem, 6vw, 4.2rem);
-      line-height: 0.95;
-      max-width: 14ch;
-      margin: 10px 0 16px;
+      font-size: clamp(3rem, 8vw, 6.2rem); line-height: .9; max-width: 12ch;
     }
-    .hero p { max-width: 46ch; color: rgba(255,250,243,0.86); }
-    .cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
-    .hero .btn { background: #fff; color: #1c1917; }
-    .hero .btn.ghost {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.4);
-      box-shadow: none;
+    .hero p { max-width: 42ch; margin: 16px 0 26px; color: rgba(255,255,255,.86); font-size: 1.05rem; }
+    .cta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .stats {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      margin: -28px auto 36px; max-width: 1080px; padding: 0 20px; position: relative; z-index: 2;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-bottom: 28px;
+    .stat {
+      background: var(--card); border-radius: 20px; padding: 18px;
+      box-shadow: 0 18px 40px rgba(23,20,18,.08);
     }
+    .stat b { display: block; font-size: 1.6rem; font-family: "Cormorant Garamond", serif; }
+    .stat span { color: var(--muted); font-size: 13px; }
+    h2 { font-family: "Cormorant Garamond", serif; font-size: 2.4rem; margin-bottom: 8px; }
+    .section { padding: 10px 0 42px; }
+    .gallery { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 10px; height: 380px; }
+    .gallery div { border-radius: 22px; overflow: hidden; }
+    .gallery div:first-child { grid-row: span 2; }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
     .card {
-      background: var(--card);
-      border-radius: 22px;
-      padding: 22px;
-      min-height: 160px;
-      box-shadow: 0 10px 30px rgba(28,25,23,0.05);
+      background: var(--card); border-radius: 24px; overflow: hidden;
+      box-shadow: 0 16px 40px rgba(23,20,18,.06);
     }
-    .card h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.5rem;
-      margin-bottom: 8px;
+    .card .pic { height: 150px; }
+    .card .body { padding: 18px 18px 22px; }
+    .price { color: var(--accent); font-weight: 800; font-size: 13px; margin-top: 10px; }
+    .split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
+    .dark {
+      background: #161210; color: #f7f0e8; border-radius: 28px; padding: 32px;
     }
-    .about {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
-      margin-bottom: 40px;
+    .reviews { display: grid; gap: 12px; }
+    .review { background: var(--card); border-radius: 20px; padding: 16px; }
+    .stars { color: #d4a017; letter-spacing: 2px; font-size: 12px; margin-bottom: 6px; }
+    .hours p { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
+    .fab {
+      position: fixed; right: 18px; bottom: 18px; z-index: 30;
+      padding: 16px 20px; box-shadow: 0 16px 40px rgba(37,211,102,.4);
+      background: #25D366;
     }
-    .panel {
-      background: #231c17;
-      color: #f8efe6;
-      border-radius: 22px;
-      padding: 28px;
-    }
-    .panel h2 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding: 18px 0 40px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .note {
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    @media (max-width: 760px) {
-      .grid, .about { grid-template-columns: 1fr; }
-      .hero { padding: 36px 22px; }
+    footer { padding: 20px 0 90px; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 800px) {
+      .nav-links { display: none; }
+      .stats, .services, .split, .gallery { grid-template-columns: 1fr; height: auto; }
+      .gallery { height: auto; }
+      .gallery div { height: 180px; }
+      .hero { min-height: 88vh; border-radius: 0 0 24px 24px; }
     }
   </style>
 </head>
 <body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand" id="brand">Your Business</div>
+      <nav class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#book">Book</a>
+        <a href="#reviews">Reviews</a>
+      </nav>
+      <a class="btn" id="top-wa" href="#">Book WhatsApp</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-bg"><img id="hero-img" alt="" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80"></div>
+    <div class="hero-copy">
+      <div class="kicker" id="place">London</div>
+      <h1 id="headline">Your Business</h1>
+      <p id="tagline">A polished booking website designed around WhatsApp.</p>
+      <div class="cta">
+        <a class="btn light" id="hero-wa" href="#">Book appointment</a>
+        <a class="btn ghost" id="maps" href="#" target="_blank" rel="noopener">Find us on Maps</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><b>4.9</b><span>Google rating look</span></div>
+    <div class="stat"><b>1 tap</b><span>WhatsApp booking</span></div>
+    <div class="stat"><b id="stat-city">Local</b><span>made for this city</span></div>
+  </section>
+
+  <section class="wrap section" id="work">
+    <div class="kicker" id="cat">Salon</div>
+    <h2>Look the part before they walk in.</h2>
+    <div class="gallery" style="margin-top:18px">
+      <div><img id="g1" alt=""></div>
+      <div><img id="g2" alt=""></div>
+      <div><img id="g3" alt=""></div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="book">
+    <h2>Services they actually search.</h2>
+    <div class="services" style="margin-top:18px">
+      <article class="card">
+        <div class="pic"><img id="s1img" alt=""></div>
+        <div class="body"><h3 id="s1">Service</h3><p id="d1"></p><div class="price" id="p1">Book now</div></div>
+      </article>
+      <article class="card">
+        <div class="pic"><img id="s2img" alt=""></div>
+        <div class="body"><h3 id="s2">Service</h3><p id="d2"></p><div class="price" id="p2">Book now</div></div>
+      </article>
+      <article class="card">
+        <div class="pic"><img id="s3img" alt=""></div>
+        <div class="body"><h3 id="s3">Service</h3><p id="d3"></p><div class="price" id="p3">Book now</div></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="wrap section split" id="reviews">
+    <div>
+      <h2>Loved nearby.</h2>
+      <div class="reviews" style="margin-top:16px">
+        <div class="review"><div class="stars">★★★★★</div><p id="r1">Beautiful finish and easy to book.</p></div>
+        <div class="review"><div class="stars">★★★★★</div><p id="r2">The WhatsApp booking is instant.</p></div>
+      </div>
+    </div>
+    <div class="dark hours">
+      <div class="kicker" style="color:#d4a017">Visit</div>
+      <h2 style="color:#fff" id="for-name">Hours</h2>
+      <p><span>Mon – Fri</span><b>10:00 – 19:00</b></p>
+      <p><span>Saturday</span><b>10:00 – 18:00</b></p>
+      <p><span>Sunday</span><b>Closed / by request</b></p>
+      <p id="foot-addr" style="display:block;border:0;padding-top:14px;opacity:.75"></p>
+      <a class="btn light" id="mid-wa" href="#" style="margin-top:18px">Chat to book</a>
+    </div>
+  </section>
+
   <div class="wrap">
-    <header>
-      <div>
-        <div class="badge" id="cat">Local business</div>
-        <div class="brand" id="brand">Your Business</div>
-      </div>
-      <a class="btn" id="top-wa" href="#">WhatsApp</a>
-    </header>
-
-    <section class="hero">
-      <div class="badge" id="place">City</div>
-      <h1 id="headline">A simple site that sends customers to WhatsApp.</h1>
-      <p id="tagline">Customers already find you on Google Maps. This page makes it easy to book in one tap.</p>
-      <div class="cta-row">
-        <a class="btn" id="hero-wa" href="#">Book on WhatsApp</a>
-        <a class="btn ghost" id="maps" href="#" target="_blank" rel="noopener">Google Maps</a>
-      </div>
-    </section>
-
-    <section class="grid">
-      <article class="card"><h3 id="s1">Service one</h3><p id="d1"></p></article>
-      <article class="card"><h3 id="s2">Service two</h3><p id="d2"></p></article>
-      <article class="card"><h3 id="s3">Service three</h3><p id="d3"></p></article>
-    </section>
-
-    <section class="about">
-      <div class="panel">
-        <h2>Why this works</h2>
-        <p>You are already on WhatsApp. This website gives Google something to rank, shows your best services, and sends every customer straight into a chat.</p>
-      </div>
-      <div class="card">
-        <div class="badge">Designed for</div>
-        <h3 id="for-name">this business</h3>
-        <p id="for-copy">A clean one-page website. No app. No clutter. Just bookings.</p>
-      </div>
-    </section>
-
     <footer>
       <div>
-        <div id="foot-name">Business</div>
-        <div id="foot-addr"></div>
+        <div class="brand" id="foot-name">Business</div>
+        <div>Demo website · booking on WhatsApp</div>
       </div>
-      <div class="note">Simple website preview · M. Mubeen</div>
+      <div>Designed by M. Mubeen · mubecodes.com</div>
     </footer>
   </div>
+  <a class="btn fab" id="fab-wa" href="#">WhatsApp</a>
 
   <script>
+    const PHOTOS = {
+      salons: [
+        "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1632345031435-8217dc64ceee?auto=format&fit=crop&w=900&q=80"
+      ],
+      restaurants: [
+        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
+      ],
+      fitness: [
+        "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=900&q=80"
+      ],
+      aesthetic: [
+        "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=80"
+      ],
+      estate_agents: [
+        "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1505691938895-1758d7ceb701?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80"
+      ],
+      dentists: [
+        "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1600&q=80",
+        "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"
+      ]
+    };
+
     function paint(name, city, area, cat, phone, maps) {
       phone = String(phone || "").replace(/[^\d]/g, "");
       maps = maps || ("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + " " + city));
-      const wa = phone ? ("https://wa.me/" + phone + "?text=" + encodeURIComponent("Hi " + name + ", I would like to book.")) : "#";
+      const wa = phone ? ("https://wa.me/" + phone + "?text=" + encodeURIComponent("Hi " + name + ", I would like to book an appointment.")) : "#";
       const themes = {
         salons: {
-          label: "Beauty Salon & Spa",
-          hero: "linear-gradient(135deg,#3b1020 0%,#9d174d 52%,#e11d48 100%)",
-          accent: "#be123c",
-          tag: "Look booked, not busy. A calm salon page that turns Google searches into WhatsApp appointments.",
-          services: [
-            ["Signature cut & colour", "Show your best looks and let clients message you in one tap."],
-            ["Bridal & events", "Packages look premium. Booking stays on WhatsApp."],
-            ["Nails, spa & glow", "Simple cards for the services people actually search."]
-          ]
+          label: "Beauty Salon & Spa", accent: "#be123c",
+          tag: "A calm, high-end salon site. Clients see your look, then book on WhatsApp in one tap.",
+          services: [["Cut & colour", "Signature looks that photograph well and book fast.", "From consult"], ["Bridal & events", "Packages that feel premium before the big day.", "Bridal desk"], ["Nails, spa & glow", "The services people actually search in " + city + ".", "Same-day"]],
+          reviews: ["Left looking expensive. Booking on WhatsApp was instant.", "Best salon page I have seen locally — then the chat was easy."]
         },
         restaurants: {
-          label: "Restaurant",
-          hero: "linear-gradient(135deg,#1c1410 0%,#7c2d12 55%,#c2410c 100%)",
-          accent: "#c2410c",
-          tag: "Hungry customers already find you on Maps. This menu page sends them to WhatsApp for a table.",
-          services: [
-            ["Today's menu", "A clean first impression before they walk in."],
-            ["WhatsApp booking", "Reserve, takeaway or catering in one chat."],
-            ["Local favourite", "Built to rank for food searches in " + city + "."]
-          ]
+          label: "Restaurant", accent: "#c2410c",
+          tag: "A warm dining site. Hungry customers find the mood, then reserve on WhatsApp.",
+          services: [["Tonight's table", "Atmosphere first. Booking in one message.", "Reserve"], ["Weekend menu", "Show the dishes people search for.", "Order"], ["Private dining", "Events without a clunky form.", "Enquire"]],
+          reviews: ["Booked a table in 20 seconds on WhatsApp.", "Looks like a proper restaurant brand, not a Google listing."]
         },
         fitness: {
-          label: "Gym & Fitness",
-          hero: "linear-gradient(135deg,#0b1220 0%,#0f766e 55%,#22c55e 100%)",
-          accent: "#0f766e",
-          tag: "A sharp gym page that turns walk-ins and Google searches into WhatsApp trial bookings.",
-          services: [
-            ["Memberships", "Clear plans. Instant WhatsApp join."],
-            ["Personal training", "Let people book a trainer without an app."],
-            ["Trial session", "One tap from Google to your chat."]
-          ]
+          label: "Gym & Fitness", accent: "#0f766e",
+          tag: "A sharp gym site that turns Google searches into trial sessions.",
+          services: [["Memberships", "Clear plans. Instant WhatsApp join.", "Join"], ["Personal training", "Book a trainer without an app.", "PT"], ["Trial session", "One tap from this page to your chat.", "Trial"]],
+          reviews: ["Signed up from the website, then WhatsApp confirmed my trial.", "Looks serious. Booking was easy."]
         },
         aesthetic: {
-          label: "Aesthetic Clinic",
-          hero: "linear-gradient(135deg,#102018 0%,#115e59 50%,#99f6e4 100%)",
-          accent: "#0f766e",
-          tag: "A quiet, premium clinic page. Treatments first. WhatsApp consult in one tap.",
-          services: [
-            ["Skin consult", "A private first message instead of a form."],
-            ["Signature treatments", "Show 3 services people search in " + city + "."],
-            ["Aftercare", "Look trusted before they book."]
-          ]
+          label: "Aesthetic Clinic", accent: "#0f766e",
+          tag: "Quiet, clinical, premium. Treatments first. Consult on WhatsApp.",
+          services: [["Skin consult", "Private first message instead of a long form.", "Consult"], ["Signature facial", "Show 3 treatments people search in " + city + ".", "Treat"], ["Aftercare", "Look trusted before they book.", "Care"]],
+          reviews: ["Felt like a real clinic website. Chat was discreet.", "Booked a consult without calling reception."]
         },
         estate_agents: {
-          label: "Real Estate",
-          hero: "linear-gradient(135deg,#0f172a 0%,#1e3a8a 55%,#c5a46e 100%)",
-          accent: "#1d4ed8",
+          label: "Real Estate", accent: "#1d4ed8",
           tag: "A listing page that looks expensive and still sends every buyer to WhatsApp.",
-          services: [
-            ["Featured homes", "Show 3 properties without a heavy portal."],
-            ["Buyer enquiry", "WhatsApp is faster than a contact form."],
-            ["Area expert", "Rank for " + city + " property searches."]
-          ]
+          services: [["Featured homes", "Show stock without a heavy portal.", "View"], ["Buyer enquiry", "WhatsApp is faster than a contact form.", "Enquire"], ["Area expert", "Rank for " + city + " property searches.", "Call"]],
+          reviews: ["Looked like a proper agency. Replied on WhatsApp immediately.", "Clean, premium, easy to enquire."]
         },
         dentists: {
-          label: "Dental Clinic",
-          hero: "linear-gradient(135deg,#0b1c2c 0%,#0369a1 55%,#7dd3fc 100%)",
-          accent: "#0284c7",
-          tag: "Clean, calm, bookable. Patients find you on Maps and message you from this page.",
-          services: [
-            ["New patient", "Book a check-up on WhatsApp."],
-            ["Smile design", "Show treatments without medical clutter."],
-            ["Emergency slot", "One tap when it hurts."]
-          ]
+          label: "Dental Clinic", accent: "#0284c7",
+          tag: "Clean, calm, bookable. Patients find you on Maps and message from this page.",
+          services: [["New patient", "Book a check-up on WhatsApp.", "Check-up"], ["Smile design", "Treatments without medical clutter.", "Consult"], ["Emergency slot", "One tap when it hurts.", "Urgent"]],
+          reviews: ["Felt trustworthy. Booked the next morning on WhatsApp.", "Much better than a Facebook page."]
         }
       };
-      const t = themes[cat] || {
-        label: "Local business",
-        hero: "linear-gradient(135deg,#2b2118 0%,#7c4a1e 55%,#c47a32 100%)",
-        accent: "#b45309",
-        tag: "A simple website that sends Google customers straight to WhatsApp.",
-        services: [
-          ["Google Maps", "You already have a listing."],
-          ["WhatsApp", "Now bookings happen in chat."],
-          ["Simple site", "No app. No clutter."]
-        ]
-      };
-      document.documentElement.style.setProperty("--hero", t.hero);
+      const t = themes[cat] || themes.salons;
+      const pics = PHOTOS[cat] || PHOTOS.salons;
       document.documentElement.style.setProperty("--accent", t.accent);
       document.title = name + " · " + city;
       document.getElementById("brand").textContent = name;
-      document.getElementById("cat").textContent = t.label;
-      document.getElementById("place").textContent = [area, city].filter(Boolean).join(" · ");
       document.getElementById("headline").textContent = name;
       document.getElementById("tagline").textContent = t.tag;
+      document.getElementById("cat").textContent = t.label;
+      document.getElementById("place").textContent = [area, city].filter(Boolean).join(" · ");
+      document.getElementById("stat-city").textContent = city || "Local";
+      document.getElementById("hero-img").src = pics[0];
+      document.getElementById("g1").src = pics[0];
+      document.getElementById("g2").src = pics[1];
+      document.getElementById("g3").src = pics[2];
+      document.getElementById("s1img").src = pics[1];
+      document.getElementById("s2img").src = pics[2];
+      document.getElementById("s3img").src = pics[3];
       document.getElementById("s1").textContent = t.services[0][0];
       document.getElementById("d1").textContent = t.services[0][1];
+      document.getElementById("p1").textContent = t.services[0][2];
       document.getElementById("s2").textContent = t.services[1][0];
       document.getElementById("d2").textContent = t.services[1][1];
+      document.getElementById("p2").textContent = t.services[1][2];
       document.getElementById("s3").textContent = t.services[2][0];
       document.getElementById("d3").textContent = t.services[2][1];
+      document.getElementById("p3").textContent = t.services[2][2];
+      document.getElementById("r1").textContent = t.reviews[0];
+      document.getElementById("r2").textContent = t.reviews[1];
       document.getElementById("for-name").textContent = name;
       document.getElementById("foot-name").textContent = name;
       document.getElementById("foot-addr").textContent = [area, city].filter(Boolean).join(", ");
-      document.getElementById("top-wa").href = wa;
-      document.getElementById("hero-wa").href = wa;
+      ["top-wa", "hero-wa", "mid-wa", "fab-wa"].forEach(function (id) {
+        document.getElementById(id).href = wa;
+      });
       document.getElementById("maps").href = maps;
     }
 
@@ -315,14 +328,14 @@
       s.onload = function () {
         const all = Object.values(window.PAKISTAN_NO_WEBSITE_LEADS || {}).flat();
         const lead = all.find(function (l) { return l.id === id; });
-        if (!lead) return paint(q.get("name") || "Your Business", q.get("city") || "", q.get("area") || "", q.get("cat") || "business", q.get("phone") || "", q.get("maps") || "");
+        if (!lead) return paint(q.get("name") || "Your Business", q.get("city") || "", q.get("area") || "", q.get("cat") || "salons", q.get("phone") || "", q.get("maps") || "");
         paint(lead.name, lead.city, lead.borough || lead.city, lead.category_key, lead.whatsapp_number, lead.google_maps_url);
       };
       document.head.appendChild(s);
     } else {
       const name = q.get("name") || "Your Business";
       const city = q.get("city") || "";
-      paint(name, city, q.get("area") || city, q.get("cat") || "business", q.get("phone") || "", q.get("maps") || "");
+      paint(name, city, q.get("area") || city, q.get("cat") || "salons", q.get("phone") || "", q.get("maps") || "");
     }
   </script>
 </body>

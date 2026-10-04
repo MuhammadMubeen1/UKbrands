@@ -1,20 +1,18 @@
+const LIVE_SITE = "https://muhammadmubeen1.github.io/UKbrands/";
+
 const PITCH = `Hi *{name}* team 👋
 
-I found your Google Maps listing in *{borough}, {city}*.
+I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:
 
-You are already on *WhatsApp*, but you do *not have a website*.
+{site}
 
-I designed a *simple website* for *{name}* so customers can book you on WhatsApp:
+If you’re interested, I can create a fully customized website + mobile booking app where customers can easily book appointments online 📱, along with Local SEO to help you rank higher than competitors and get more customers.
 
-Open website: {site}
-
-When people search Google for *"{keyword}"*, this page can send them straight to your chat.
-
-Shall I put this live for *{name}*?
+Interested? I’d be happy to discuss it.
 
 Best regards,
 *M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`;
+https://mubecodes.com`;
 
 const CATS = {
   salons: "Beauty Salons",
@@ -58,7 +56,7 @@ function sitePreviewUrl(lead) {
 
 function shortSiteUrl(lead) {
   const id = lead.id || String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
-  return new URL("w.html?id=" + encodeURIComponent(id), window.location.href).href.split("#")[0];
+  return LIVE_SITE + "w.html?id=" + encodeURIComponent(id);
 }
 
 function pitchFor(lead) {
