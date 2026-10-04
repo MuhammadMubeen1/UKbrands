@@ -8,115 +8,124 @@
   <meta property="og:description" content="Open the booking website demo designed for this business.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=80">
-  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600&family=Outfit:wght@400;600;800&family=Playfair+Display:wght@600;700&family=Space+Grotesk:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f4efe8;
-      --ink: #171412;
-      --muted: #6d645c;
-      --card: #fffcf8;
-      --accent: #be123c;
-      --line: rgba(23,20,18,.08);
+      --bg: #f4efe8; --ink: #171412; --muted: #6d645c; --card: #fffcf8;
+      --accent: #be123c; --line: rgba(23,20,18,.08); --display: "Cormorant Garamond", serif;
+      --body: Manrope, system-ui, sans-serif; --radius: 24px; --btn-radius: 999px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: Manrope, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.55;
-    }
+    body { font-family: var(--body); background: var(--bg); color: var(--ink); line-height: 1.55; }
     a { color: inherit; text-decoration: none; }
     img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
-    header {
-      position: sticky; top: 0; z-index: 20;
-      backdrop-filter: blur(16px);
-      background: rgba(244,239,232,.86);
-      border-bottom: 1px solid var(--line);
-    }
-    .nav {
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 12px; padding: 14px 0;
-    }
-    .brand { font-family: "Cormorant Garamond", serif; font-size: 1.5rem; font-weight: 700; }
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(16px); background: color-mix(in srgb, var(--bg) 86%, transparent); border-bottom: 1px solid var(--line); }
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; }
+    .brand { font-family: var(--display); font-size: 1.5rem; font-weight: 700; }
     .nav-links { display: flex; gap: 18px; color: var(--muted); font-size: 14px; font-weight: 600; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      border-radius: 999px; padding: 12px 18px; font-weight: 800; font-size: 14px;
+      border-radius: var(--btn-radius); padding: 12px 18px; font-weight: 800; font-size: 14px;
       background: var(--accent); color: #fff; border: 0;
-      box-shadow: 0 12px 28px rgba(190,18,60,.28);
     }
-    .btn.light { background: #fff; color: #171412; box-shadow: 0 8px 24px rgba(0,0,0,.12); }
-    .btn.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); box-shadow: none; }
-    .hero {
-      position: relative; min-height: 78vh; border-radius: 0 0 36px 36px;
-      overflow: hidden; color: #fff; display: grid; align-items: end;
-    }
+    .btn.light { background: #fff; color: #171412; }
+    .btn.ghost { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.4); }
+    .hero { position: relative; min-height: 78vh; overflow: hidden; color: #fff; display: grid; align-items: end; }
     .hero-bg { position: absolute; inset: 0; }
-    .hero-bg img { filter: saturate(1.05); }
-    .hero-bg::after {
-      content: ""; position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(16,10,12,.15) 0%, rgba(16,10,12,.82) 100%);
-    }
+    .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16,10,12,.12) 0%, rgba(16,10,12,.82) 100%); }
     .hero-copy { position: relative; z-index: 1; padding: 48px 20px 56px; max-width: 1080px; margin: 0 auto; width: 100%; }
     .kicker { letter-spacing: .18em; text-transform: uppercase; font-size: 11px; opacity: .8; margin-bottom: 10px; }
-    .hero h1 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(3rem, 8vw, 6.2rem); line-height: .9; max-width: 12ch;
-    }
-    .hero p { max-width: 42ch; margin: 16px 0 26px; color: rgba(255,255,255,.86); font-size: 1.05rem; }
+    .hero h1 { font-family: var(--display); font-size: clamp(2.6rem, 7vw, 5.8rem); line-height: .92; max-width: 14ch; }
+    .hero p { max-width: 44ch; margin: 16px 0 26px; color: rgba(255,255,255,.86); font-size: 1.05rem; }
     .cta { display: flex; gap: 10px; flex-wrap: wrap; }
-    .stats {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
-      margin: -28px auto 36px; max-width: 1080px; padding: 0 20px; position: relative; z-index: 2;
-    }
-    .stat {
-      background: var(--card); border-radius: 20px; padding: 18px;
-      box-shadow: 0 18px 40px rgba(23,20,18,.08);
-    }
-    .stat b { display: block; font-size: 1.6rem; font-family: "Cormorant Garamond", serif; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: -28px auto 36px; max-width: 1080px; padding: 0 20px; position: relative; z-index: 2; }
+    .stat { background: var(--card); border-radius: var(--radius); padding: 18px; }
+    .stat b { display: block; font-size: 1.6rem; font-family: var(--display); }
     .stat span { color: var(--muted); font-size: 13px; }
-    h2 { font-family: "Cormorant Garamond", serif; font-size: 2.4rem; margin-bottom: 8px; }
+    h2 { font-family: var(--display); font-size: 2.3rem; margin-bottom: 8px; }
     .section { padding: 10px 0 42px; }
     .gallery { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 10px; height: 380px; }
-    .gallery div { border-radius: 22px; overflow: hidden; }
+    .gallery div { border-radius: var(--radius); overflow: hidden; }
     .gallery div:first-child { grid-row: span 2; }
     .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .card {
-      background: var(--card); border-radius: 24px; overflow: hidden;
-      box-shadow: 0 16px 40px rgba(23,20,18,.06);
-    }
+    .card { background: var(--card); border-radius: var(--radius); overflow: hidden; }
     .card .pic { height: 150px; }
     .card .body { padding: 18px 18px 22px; }
     .price { color: var(--accent); font-weight: 800; font-size: 13px; margin-top: 10px; }
     .split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 16px; }
-    .dark {
-      background: #161210; color: #f7f0e8; border-radius: 28px; padding: 32px;
-    }
+    .dark { background: #161210; color: #f7f0e8; border-radius: var(--radius); padding: 32px; }
     .reviews { display: grid; gap: 12px; }
-    .review { background: var(--card); border-radius: 20px; padding: 16px; }
+    .review { background: var(--card); border-radius: var(--radius); padding: 16px; }
     .stars { color: #d4a017; letter-spacing: 2px; font-size: 12px; margin-bottom: 6px; }
     .hours p { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,.08); }
-    .fab {
-      position: fixed; right: 18px; bottom: 18px; z-index: 30;
-      padding: 16px 20px; box-shadow: 0 16px 40px rgba(37,211,102,.4);
-      background: #25D366;
-    }
+    .fab { position: fixed; right: 18px; bottom: 18px; z-index: 30; padding: 16px 20px; background: #25D366; }
     footer { padding: 20px 0 90px; color: var(--muted); font-size: 13px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    body.skin-editorial { --bg:#f4efe8; --ink:#171412; --card:#fffcf8; --accent:#be123c; --display:"Cormorant Garamond",serif; --body:Manrope,sans-serif; --radius:24px; --btn-radius:999px; }
+    body.skin-editorial .hero { border-radius: 0 0 36px 36px; }
+
+    body.skin-noir { --bg:#0c0c0e; --ink:#f4efe6; --muted:#b7aea2; --card:#17171c; --accent:#d4af37; --line:rgba(255,255,255,.08); --display:"Playfair Display",serif; --body:Outfit,sans-serif; --radius:4px; --btn-radius:2px; }
+    body.skin-noir header { background: rgba(12,12,14,.9); }
+    body.skin-noir .hero { min-height: 92vh; border-radius: 0; }
+    body.skin-noir .hero-bg::after { background: linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.2) 70%); }
+    body.skin-noir .hero-copy { padding-bottom: 80px; }
+    body.skin-noir .stats { margin-top: 24px; }
+    body.skin-noir .dark { background: #000; }
+
+    body.skin-studio { --bg:#f7f7f4; --ink:#111; --muted:#666; --card:#fff; --accent:#111; --display:Syne,sans-serif; --body:Outfit,sans-serif; --radius:0; --btn-radius:0; }
+    body.skin-studio .hero { display:grid; grid-template-columns:1fr 1fr; min-height:100vh; color:var(--ink); align-items:stretch; }
+    body.skin-studio .hero-bg { position:relative; }
+    body.skin-studio .hero-bg::after { display:none; }
+    body.skin-studio .hero-copy { color:var(--ink); padding:72px 40px; align-self:center; }
+    body.skin-studio .hero p { color:var(--muted); }
+    body.skin-studio .btn.ghost { color:var(--ink); border-color:var(--ink); }
+    body.skin-studio .stats { margin-top: 28px; }
+
+    body.skin-neon { --bg:#041512; --ink:#e8fff8; --muted:#9ad9c6; --card:#0b2a24; --accent:#22c55e; --line:rgba(34,197,94,.2); --display:"Space Grotesk",sans-serif; --body:"Space Grotesk",sans-serif; --radius:28px; --btn-radius:18px; }
+    body.skin-neon header { background: rgba(4,21,18,.88); }
+    body.skin-neon .hero { min-height: 70vh; border-radius: 0 0 48px 48px; }
+    body.skin-neon .hero-bg::after { background: linear-gradient(180deg, rgba(4,21,18,.2), rgba(4,21,18,.88)); }
+    body.skin-neon .gallery { grid-template-columns: 1fr 1fr 1fr; height: 240px; }
+    body.skin-neon .gallery div:first-child { grid-row: auto; }
+
+    body.skin-heritage { --bg:#f3ead7; --ink:#1c1910; --muted:#6b624c; --card:#fff8ea; --accent:#92400e; --display:Fraunces,serif; --body:Manrope,sans-serif; --radius:8px; --btn-radius:6px; }
+    body.skin-heritage .hero { min-height: 62vh; }
+    body.skin-heritage .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); max-width: 18ch; }
+    body.skin-heritage .gallery { grid-template-columns: 1fr 1fr; height: 420px; }
+    body.skin-heritage .gallery div:first-child { grid-row: auto; }
+
+    body.skin-pastel { --bg:#f6f0f7; --ink:#3b2048; --muted:#7a6286; --card:#fff; --accent:#a21caf; --display:Fraunces,serif; --body:Outfit,sans-serif; --radius:32px; --btn-radius:999px; }
+    body.skin-pastel .hero { min-height: 84vh; border-radius: 0 0 80px 80px; }
+    body.skin-pastel .hero-copy { text-align: center; display:flex; flex-direction:column; align-items:center; }
+    body.skin-pastel .hero h1 { max-width: none; }
+    body.skin-pastel .hero p { text-align:center; }
+
+    body.skin-industrial { --bg:#eceae6; --ink:#111; --muted:#5c5c5c; --card:#fff; --accent:#ea580c; --display:Oswald,sans-serif; --body:Outfit,sans-serif; --radius:0; --btn-radius:0; }
+    body.skin-industrial .hero { min-height: 58vh; }
+    body.skin-industrial .hero h1 { text-transform: uppercase; letter-spacing: .04em; }
+    body.skin-industrial .services { grid-template-columns: 1fr; }
+    body.skin-industrial .card { display:grid; grid-template-columns: 180px 1fr; }
+    body.skin-industrial .card .pic { height: 100%; min-height: 120px; }
+
+    body.skin-luxe { --bg:#111111; --ink:#f8f1e3; --muted:#c4b59a; --card:#1b1b1b; --accent:#b45309; --line:rgba(180,83,9,.25); --display:Cinzel,serif; --body:Manrope,sans-serif; --radius:2px; --btn-radius:0; }
+    body.skin-luxe header { background: rgba(17,17,17,.92); }
+    body.skin-luxe .hero { min-height: 88vh; }
+    body.skin-luxe .hero-bg::after { background: linear-gradient(180deg, rgba(17,17,17,.15), rgba(17,17,17,.9)); }
+    body.skin-luxe .hero h1 { letter-spacing: .08em; text-transform: uppercase; font-size: clamp(2rem, 5vw, 3.6rem); }
+
     @media (max-width: 800px) {
       .nav-links { display: none; }
-      .stats, .services, .split, .gallery { grid-template-columns: 1fr; height: auto; }
-      .gallery { height: auto; }
-      .gallery div { height: 180px; }
-      .hero { min-height: 88vh; border-radius: 0 0 24px 24px; }
+      .stats, .services, .split, .gallery, body.skin-studio .hero, body.skin-industrial .card { grid-template-columns: 1fr; height: auto; }
+      .gallery div, body.skin-industrial .card .pic { height: 180px; }
+      .hero { min-height: 78vh; }
     }
   </style>
 </head>
-<body>
+<body class="skin-editorial">
   <header>
     <div class="wrap nav">
       <div class="brand" id="brand">Your Business</div>
@@ -143,14 +152,14 @@
   </section>
 
   <section class="stats">
-    <div class="stat"><b>4.9</b><span>Google rating look</span></div>
+    <div class="stat"><b id="stat-rating">4.9</b><span>Google rating look</span></div>
     <div class="stat"><b>1 tap</b><span>WhatsApp booking</span></div>
     <div class="stat"><b id="stat-city">Local</b><span>made for this city</span></div>
   </section>
 
   <section class="wrap section" id="work">
     <div class="kicker" id="cat">Salon</div>
-    <h2>Look the part before they walk in.</h2>
+    <h2 id="work-title">Look the part before they walk in.</h2>
     <div class="gallery" style="margin-top:18px">
       <div><img id="g1" alt=""></div>
       <div><img id="g2" alt=""></div>
@@ -159,7 +168,7 @@
   </section>
 
   <section class="wrap section" id="book">
-    <h2>Services they actually search.</h2>
+    <h2 id="book-title">Services they actually search.</h2>
     <div class="services" style="margin-top:18px">
       <article class="card">
         <div class="pic"><img id="s1img" alt=""></div>
@@ -178,7 +187,7 @@
 
   <section class="wrap section split" id="reviews">
     <div>
-      <h2>Loved nearby.</h2>
+      <h2 id="rev-title">Loved nearby.</h2>
       <div class="reviews" style="margin-top:16px">
         <div class="review"><div class="stars">★★★★★</div><p id="r1">Beautiful finish and easy to book.</p></div>
         <div class="review"><div class="stars">★★★★★</div><p id="r2">The WhatsApp booking is instant.</p></div>
@@ -186,7 +195,7 @@
     </div>
     <div class="dark hours">
       <div class="kicker" style="color:#d4a017">Visit</div>
-      <h2 style="color:#fff" id="for-name">Hours</h2>
+      <h2 style="color:inherit" id="for-name">Hours</h2>
       <p><span>Mon – Fri</span><b>10:00 – 19:00</b></p>
       <p><span>Saturday</span><b>10:00 – 18:00</b></p>
       <p><span>Sunday</span><b>Closed / by request</b></p>
@@ -199,7 +208,7 @@
     <footer>
       <div>
         <div class="brand" id="foot-name">Business</div>
-        <div>Demo website · booking on WhatsApp</div>
+        <div>Custom demo website · booking on WhatsApp</div>
       </div>
       <div>Designed by M. Mubeen · mubecodes.com</div>
     </footer>
@@ -207,97 +216,127 @@
   <a class="btn fab" id="fab-wa" href="#">WhatsApp</a>
 
   <script>
+    const SKINS = ["skin-editorial", "skin-noir", "skin-studio", "skin-neon", "skin-heritage", "skin-pastel", "skin-industrial", "skin-luxe"];
     const PHOTOS = {
       salons: [
         "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1600&q=80",
-        "https://images.unsplash.com/photo-1503951914875-834188fe471d?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1521590836062-34b4b502d0c0?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1503951914875-834188fe471d?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1521590836062-34b4b502d0c0?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&w=1200&q=80"
       ],
       restaurants: [
         "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80",
-        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=80"
       ],
       fitness: [
         "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=80",
-        "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1200&q=80"
       ],
       aesthetic: [
         "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1600&q=80",
-        "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=1200&q=80"
       ],
       estate_agents: [
         "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80",
-        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1505691938895-1758d7ceb701?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1505691938895-1758d7ceb701?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80"
       ],
       dentists: [
         "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1600&q=80",
-        "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=900&q=80"
+        "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=1200&q=80",
+        "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1200&q=80"
       ]
     };
 
-    function paint(name, city, area, cat, phone, maps) {
+    function hash(s) {
+      s = String(s || "brand");
+      let h = 2166136261;
+      for (let i = 0; i < s.length; i++) {
+        h ^= s.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+      }
+      return h >>> 0;
+    }
+
+    function paint(name, city, area, cat, phone, maps, seed) {
       phone = String(phone || "").replace(/[^\d]/g, "");
       maps = maps || ("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + " " + city));
       const wa = phone ? ("https://wa.me/" + phone + "?text=" + encodeURIComponent("Hi " + name + ", I would like to book an appointment.")) : "#";
+      const h = hash(seed || name);
+      const skin = SKINS[h % SKINS.length];
+      document.body.className = skin;
       const themes = {
         salons: {
-          label: "Beauty Salon & Spa", accent: "#be123c",
-          tag: "A calm, high-end salon site. Clients see your look, then book on WhatsApp in one tap.",
-          services: [["Cut & colour", "Signature looks that photograph well and book fast.", "From consult"], ["Bridal & events", "Packages that feel premium before the big day.", "Bridal desk"], ["Nails, spa & glow", "The services people actually search in " + city + ".", "Same-day"]],
-          reviews: ["Left looking expensive. Booking on WhatsApp was instant.", "Best salon page I have seen locally — then the chat was easy."]
+          label: "Beauty Salon & Spa",
+          services: [["Cut & colour", "Signature looks that photograph well and book fast.", "From consult"], ["Bridal & events", "Packages that feel premium before the big day.", "Bridal desk"], ["Nails, spa & glow", "The services people actually search in " + city + ".", "Same-day"]]
         },
         restaurants: {
-          label: "Restaurant", accent: "#c2410c",
-          tag: "A warm dining site. Hungry customers find the mood, then reserve on WhatsApp.",
-          services: [["Tonight's table", "Atmosphere first. Booking in one message.", "Reserve"], ["Weekend menu", "Show the dishes people search for.", "Order"], ["Private dining", "Events without a clunky form.", "Enquire"]],
-          reviews: ["Booked a table in 20 seconds on WhatsApp.", "Looks like a proper restaurant brand, not a Google listing."]
+          label: "Restaurant",
+          services: [["Tonight's table", "Atmosphere first. Booking in one message.", "Reserve"], ["Weekend menu", "Show the dishes people search for.", "Order"], ["Private dining", "Events without a clunky form.", "Enquire"]]
         },
         fitness: {
-          label: "Gym & Fitness", accent: "#0f766e",
-          tag: "A sharp gym site that turns Google searches into trial sessions.",
-          services: [["Memberships", "Clear plans. Instant WhatsApp join.", "Join"], ["Personal training", "Book a trainer without an app.", "PT"], ["Trial session", "One tap from this page to your chat.", "Trial"]],
-          reviews: ["Signed up from the website, then WhatsApp confirmed my trial.", "Looks serious. Booking was easy."]
+          label: "Gym & Fitness",
+          services: [["Memberships", "Clear plans. Instant WhatsApp join.", "Join"], ["Personal training", "Book a trainer without an app.", "PT"], ["Trial session", "One tap from this page to your chat.", "Trial"]]
         },
         aesthetic: {
-          label: "Aesthetic Clinic", accent: "#0f766e",
-          tag: "Quiet, clinical, premium. Treatments first. Consult on WhatsApp.",
-          services: [["Skin consult", "Private first message instead of a long form.", "Consult"], ["Signature facial", "Show 3 treatments people search in " + city + ".", "Treat"], ["Aftercare", "Look trusted before they book.", "Care"]],
-          reviews: ["Felt like a real clinic website. Chat was discreet.", "Booked a consult without calling reception."]
+          label: "Aesthetic Clinic",
+          services: [["Skin consult", "Private first message instead of a long form.", "Consult"], ["Signature facial", "Show 3 treatments people search in " + city + ".", "Treat"], ["Aftercare", "Look trusted before they book.", "Care"]]
         },
         estate_agents: {
-          label: "Real Estate", accent: "#1d4ed8",
-          tag: "A listing page that looks expensive and still sends every buyer to WhatsApp.",
-          services: [["Featured homes", "Show stock without a heavy portal.", "View"], ["Buyer enquiry", "WhatsApp is faster than a contact form.", "Enquire"], ["Area expert", "Rank for " + city + " property searches.", "Call"]],
-          reviews: ["Looked like a proper agency. Replied on WhatsApp immediately.", "Clean, premium, easy to enquire."]
+          label: "Real Estate",
+          services: [["Featured homes", "Show stock without a heavy portal.", "View"], ["Buyer enquiry", "WhatsApp is faster than a contact form.", "Enquire"], ["Area expert", "Rank for " + city + " property searches.", "Call"]]
         },
         dentists: {
-          label: "Dental Clinic", accent: "#0284c7",
-          tag: "Clean, calm, bookable. Patients find you on Maps and message from this page.",
-          services: [["New patient", "Book a check-up on WhatsApp.", "Check-up"], ["Smile design", "Treatments without medical clutter.", "Consult"], ["Emergency slot", "One tap when it hurts.", "Urgent"]],
-          reviews: ["Felt trustworthy. Booked the next morning on WhatsApp.", "Much better than a Facebook page."]
+          label: "Dental Clinic",
+          services: [["New patient", "Book a check-up on WhatsApp.", "Check-up"], ["Smile design", "Treatments without medical clutter.", "Consult"], ["Emergency slot", "One tap when it hurts.", "Urgent"]]
         }
       };
       const t = themes[cat] || themes.salons;
-      const pics = PHOTOS[cat] || PHOTOS.salons;
-      document.documentElement.style.setProperty("--accent", t.accent);
+      const bank = PHOTOS[cat] || PHOTOS.salons;
+      const off = h % bank.length;
+      const pics = [0, 1, 2, 3].map(function (i) { return bank[(off + i * 2) % bank.length]; });
+      const heads = [name, name, "Welcome to " + name, name + "."];
+      const tags = [
+        "A custom website built for " + name + " in " + city + ". Clients see the brand, then book on WhatsApp.",
+        name + " gets its own look — not a template clone. One tap to WhatsApp booking.",
+        "Designed around " + (area || city) + ". Premium first impression, then chat to book.",
+        "Google found them. This site converts the visit into a WhatsApp appointment."
+      ];
+      const works = ["Look the part before they walk in.", "The room before the booking.", "A gallery that sells the visit.", "Your work, not a stock homepage."];
+      const books = ["Services they actually search.", "What locals book first.", "Three reasons to message today.", "Clear services. Instant chat."];
+      const revs = [
+        ["Left looking expensive. Booking on WhatsApp was instant.", "This feels like a real brand, not a Google listing."],
+        ["Booked from the website in under a minute.", "Clean, local, and easy to message."],
+        ["Looked premium on my phone. Chat was easy.", "Much better than a Facebook page."]
+      ];
+      const rv = revs[h % revs.length];
+
       document.title = name + " · " + city;
       document.getElementById("brand").textContent = name;
-      document.getElementById("headline").textContent = name;
-      document.getElementById("tagline").textContent = t.tag;
+      document.getElementById("headline").textContent = heads[h % heads.length];
+      document.getElementById("tagline").textContent = tags[h % tags.length];
       document.getElementById("cat").textContent = t.label;
+      document.getElementById("work-title").textContent = works[(h >> 3) % works.length];
+      document.getElementById("book-title").textContent = books[(h >> 5) % books.length];
+      document.getElementById("rev-title").textContent = city ? "Loved in " + city + "." : "Loved nearby.";
       document.getElementById("place").textContent = [area, city].filter(Boolean).join(" · ");
       document.getElementById("stat-city").textContent = city || "Local";
+      document.getElementById("stat-rating").textContent = (4.4 + ((h % 6) / 10)).toFixed(1);
       document.getElementById("hero-img").src = pics[0];
       document.getElementById("g1").src = pics[0];
       document.getElementById("g2").src = pics[1];
@@ -314,8 +353,8 @@
       document.getElementById("s3").textContent = t.services[2][0];
       document.getElementById("d3").textContent = t.services[2][1];
       document.getElementById("p3").textContent = t.services[2][2];
-      document.getElementById("r1").textContent = t.reviews[0];
-      document.getElementById("r2").textContent = t.reviews[1];
+      document.getElementById("r1").textContent = rv[0];
+      document.getElementById("r2").textContent = rv[1];
       document.getElementById("for-name").textContent = name;
       document.getElementById("foot-name").textContent = name;
       document.getElementById("foot-addr").textContent = [area, city].filter(Boolean).join(", ");
@@ -333,27 +372,27 @@
         el.setAttribute("content", content);
       }
       setMeta("og:title", name + " · VIEW DEMO WEBSITE");
-      setMeta("og:description", t.tag);
+      setMeta("og:description", tags[h % tags.length]);
       setMeta("og:image", pics[0]);
       setMeta("og:url", location.href);
     }
 
     const q = new URLSearchParams(location.search);
-    const id = q.get("id");
+    const id = (q.get("id") || "").replace(/^l(?=lon-)/, "");
     if (id) {
       const s = document.createElement("script");
       s.src = "data/pakistan_no_website_bundle.js";
       s.onload = function () {
         const all = Object.values(window.PAKISTAN_NO_WEBSITE_LEADS || {}).flat();
         const lead = all.find(function (l) { return l.id === id; });
-        if (!lead) return paint(q.get("name") || "Your Business", q.get("city") || "", q.get("area") || "", q.get("cat") || "salons", q.get("phone") || "", q.get("maps") || "");
-        paint(lead.name, lead.city, lead.borough || lead.city, lead.category_key, lead.whatsapp_number, lead.google_maps_url);
+        if (!lead) return paint(q.get("name") || "Your Business", q.get("city") || "", q.get("area") || "", q.get("cat") || "salons", q.get("phone") || "", q.get("maps") || "", id);
+        paint(lead.name, lead.city, lead.borough || lead.city, lead.category_key, lead.whatsapp_number, lead.google_maps_url, lead.id);
       };
       document.head.appendChild(s);
     } else {
       const name = q.get("name") || "Your Business";
       const city = q.get("city") || "";
-      paint(name, city, q.get("area") || city, q.get("cat") || "salons", q.get("phone") || "", q.get("maps") || "");
+      paint(name, city, q.get("area") || city, q.get("cat") || "salons", q.get("phone") || "", q.get("maps") || "", name);
     }
   </script>
 </body>
