@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open website</title>
+  <title>VIEW DEMO WEBSITE</title>
+  <meta property="og:title" content="VIEW DEMO WEBSITE">
+  <meta property="og:description" content="Open the booking website demo designed for this business.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
   <script>
     const id = new URLSearchParams(location.search).get("id") || "";
     location.replace("site-preview.html?id=" + encodeURIComponent(id));
   </script>
 </head>
 <body>
-  <p>Opening website…</p>
+  <p><a href="site-preview.html">Opening website…</a></p>
 </body>
 </html>
