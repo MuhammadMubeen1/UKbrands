@@ -136,7 +136,7 @@ function render() {
         <a class="pitch-demo-btn" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
       </div>
       <div class="card-action-row">
-        <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">Open template</a>
+        <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">Share designed card</a>
         <a class="btn btn-primary" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
         <a class="btn btn-secondary" href="${escapeHtml(lead.google_maps_url)}" target="_blank" rel="noopener">Google Maps</a>
       </div>

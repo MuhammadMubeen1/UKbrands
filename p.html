@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -50,23 +51,21 @@
       text-decoration: none; border: 0; cursor: pointer; width: 100%;
       font-family: inherit; font-size: 1rem;
     }
-    .send[hidden] { display: none; }
+    .send:disabled { opacity: .7; }
     .warn {
-      display: none;
-      background: #3b2a08;
-      border: 1px solid #f59e0b;
-      color: #fde68a;
+      background: #0b2a22;
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      color: #d9fff0;
       border-radius: 14px;
       padding: 12px 14px;
       font-size: .9rem;
       line-height: 1.45;
     }
-    .warn.show { display: block; }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <article class="card">
+    <article class="card" id="card">
       <div class="tag">MESSAGE TEMPLATE</div>
       <div class="msg" id="msg">
         Hi <strong id="brand">there</strong> team 👋<br><br>
@@ -78,8 +77,8 @@
         <a href="https://mubecodes.com" target="_blank" rel="noopener">https://mubecodes.com</a></div>
       </div>
     </article>
-    <p class="warn" id="warn">WhatsApp is still showing the old unsent script (Hi *Merric Barbers*… w.html). In the WhatsApp box: Select All → Delete. The template link is copied — paste it, then send.</p>
-    <button class="send" id="send" type="button" hidden>Send this template on WhatsApp</button>
+    <p class="warn" id="warn">WhatsApp cannot draw this HTML card in the text box. This button turns the card into a photo and puts it on WhatsApp. Delete any old “Hi Merric…” script, then press Cmd+V to paste the designed card.</p>
+    <button class="send" id="send" type="button">Share designed card on WhatsApp</button>
   </div>
   <script>
     const LIVE = "https://muhammadmubeen1.github.io/UKbrands/";
@@ -88,8 +87,8 @@
     const phone = String(q.get("wa") || "").replace(/[^\d]/g, "");
     let name = q.get("n") || "there";
 
-    function templateLink() {
-      return LIVE + "p.html?id=" + encodeURIComponent(id) + "&n=" + encodeURIComponent(name);
+    function demoUrl() {
+      return LIVE + "w.html?id=" + encodeURIComponent(id);
     }
 
     function paint(n, demoId) {
@@ -100,18 +99,64 @@
 
     paint(name, id);
 
-    const send = document.getElementById("send");
-    if (phone) {
-      send.hidden = false;
-      document.getElementById("warn").classList.add("show");
-      send.addEventListener("click", function () {
-        const share = templateLink();
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(share).catch(function () {});
-        }
-        window.open("https://web.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(share), "_blank");
-      });
+    function canvasToBlob(canvas) {
+      return new Promise(function (resolve) { canvas.toBlob(resolve, "image/png"); });
     }
+
+    async function cardFile() {
+      const canvas = await html2canvas(document.getElementById("card"), {
+        scale: 2,
+        backgroundColor: "#07110f",
+        useCORS: true
+      });
+      const blob = await canvasToBlob(canvas);
+      return new File([blob], (name || "template").replace(/\s+/g, "-") + "-card.png", { type: "image/png" });
+    }
+
+    async function copyImage(file) {
+      if (navigator.clipboard && window.ClipboardItem) {
+        await navigator.clipboard.write([new ClipboardItem({ "image/png": file })]);
+        return true;
+      }
+      return false;
+    }
+
+    function downloadFile(file) {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(file);
+      a.download = file.name;
+      a.click();
+    }
+
+    document.getElementById("send").addEventListener("click", async function () {
+      const btn = document.getElementById("send");
+      btn.disabled = true;
+      btn.textContent = "Preparing designed card…";
+      try {
+        const file = await cardFile();
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            files: [file],
+            title: name + " designed template"
+          });
+        } else {
+          const copied = await copyImage(file).catch(function () { return false; });
+          downloadFile(file);
+          document.getElementById("warn").textContent = copied
+            ? "Designed card copied. In WhatsApp: delete the old text, press Cmd+V, then send the photo."
+            : "Designed card photo downloaded. Drag that PNG into the WhatsApp chat and send it.";
+          if (phone) {
+            window.open("https://web.whatsapp.com/send?phone=" + phone, "_blank");
+          } else {
+            window.open("https://web.whatsapp.com/", "_blank");
+          }
+        }
+      } catch (err) {
+        document.getElementById("warn").textContent = "Could not build the card photo. Try Chrome, then click again.";
+      }
+      btn.disabled = false;
+      btn.textContent = "Share designed card on WhatsApp";
+    });
 
     const s = document.createElement("script");
     s.src = LIVE + "data/pakistan_no_website_bundle.js";
