@@ -69,13 +69,13 @@ function fillPitch(lead, siteValue) {
 }
 
 function pitchFor(lead) {
-  return fillPitch(lead, lead.name || "your brand");
+  return fillPitch(lead, (lead.name || "your brand") + "\n" + shortSiteUrl(lead));
 }
 
 function pitchPreviewHtml(lead) {
-  const name = escapeHtml(lead.name || "your brand");
   const url = escapeHtml(shortSiteUrl(lead));
-  const link = `<a class="pitch-brand-link" href="${url}" target="_blank" rel="noopener">${name}</a>`;
+  const name = escapeHtml(lead.name || "your brand");
+  const link = `<a class="pitch-brand-link" href="${url}" target="_blank" rel="noopener">${name}</a><br><a class="pitch-brand-link" href="${url}" target="_blank" rel="noopener">${url}</a>`;
   return escapeHtml(fillPitch(lead, "%%SITE%%")).replace(/\n/g, "<br>").replace("%%SITE%%", link);
 }
 
