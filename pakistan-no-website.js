@@ -4,15 +4,15 @@ const PITCH = `Hi *{name}* team 👋
 
 I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:
 
-{site}
+🌐 {site}
 
-If you’re interested, I can create a fully customized website + mobile booking app where customers can easily book appointments online 📱, along with Local SEO to help you rank higher than competitors and get more customers.
+If you’re interested, I can create a *fully customized website + mobile booking app* where customers can easily book appointments online 📱, along with *Local SEO* to help you rank higher than competitors and get more customers.
 
 Interested? I’d be happy to discuss it.
 
 Best regards,
 *M. Mubeen* | Digital Growth Specialist
-https://mubecodes.com`;
+🌐 https://mubecodes.com`;
 
 const CATS = {
   salons: "Beauty Salons",
@@ -75,7 +75,10 @@ function pitchFor(lead) {
 function pitchPreviewHtml(lead) {
   const url = escapeHtml(shortSiteUrl(lead));
   const link = `<a class="pitch-brand-link" href="${url}" target="_blank" rel="noopener">${url}</a>`;
-  return escapeHtml(fillPitch(lead, "%%SITE%%")).replace(/\n/g, "<br>").replace("%%SITE%%", link);
+  return escapeHtml(fillPitch(lead, "%%SITE%%"))
+    .replace(/\n/g, "<br>")
+    .replace("%%SITE%%", link)
+    .replace("https://mubecodes.com", `<a class="pitch-brand-link" href="https://mubecodes.com" target="_blank" rel="noopener">https://mubecodes.com</a>`);
 }
 
 function waUrl(lead) {
