@@ -6,7 +6,7 @@ You are already on *WhatsApp*, but you do *not have a website*.
 
 I designed a *simple website* for *{name}* so customers can book you on WhatsApp:
 
-👉 {site}
+Open website: {site}
 
 When people search Google for *"{keyword}"*, this page can send them straight to your chat.
 
@@ -56,13 +56,18 @@ function sitePreviewUrl(lead) {
   return `${base}?${params.toString()}`;
 }
 
+function shortSiteUrl(lead) {
+  const id = lead.id || String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
+  return new URL("w.html?id=" + encodeURIComponent(id), window.location.href).href.split("#")[0];
+}
+
 function pitchFor(lead) {
   return PITCH
     .replace(/\{name\}/g, lead.name || "there")
     .replace(/\{city\}/g, lead.city || state.city)
     .replace(/\{borough\}/g, lead.borough || lead.city || state.city)
     .replace(/\{keyword\}/g, lead.target_keyword || `${CATS[state.category]} in ${lead.city}`)
-    .replace(/\{site\}/g, sitePreviewUrl(lead));
+    .replace(/\{site\}/g, shortSiteUrl(lead));
 }
 
 function waUrl(lead) {
