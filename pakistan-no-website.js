@@ -1,6 +1,10 @@
+const LIVE_SITE = "https://muhammadmubeen1.github.io/UKbrands/";
+
 const PITCH = `Hi *{name}* team 👋
 
-I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you.
+I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:
+
+{site}
 
 If you’re interested, I can create a *fully customized website + mobile booking app* where customers can easily book appointments online 📱, along with *Local SEO* to help you rank higher than competitors and get more customers.
 
@@ -39,24 +43,28 @@ function cityLeads(city, cat) {
 
 function viewSiteUrl(lead) {
   const id = lead.id || String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
-  return new URL("w.html?id=" + encodeURIComponent(id), window.location.href).href.split("#")[0];
+  return LIVE_SITE + "w.html?id=" + encodeURIComponent(id);
 }
 
-function fillPitch(lead) {
+function fillPitch(lead, siteValue) {
   return PITCH
     .replace(/\{name\}/g, lead.name || "there")
     .replace(/\{city\}/g, lead.city || state.city)
     .replace(/\{borough\}/g, lead.borough || lead.city || state.city)
-    .replace(/\{keyword\}/g, lead.target_keyword || `${CATS[state.category]} in ${lead.city}`);
+    .replace(/\{keyword\}/g, lead.target_keyword || `${CATS[state.category]} in ${lead.city}`)
+    .replace(/\{site\}/g, siteValue);
 }
 
 function pitchFor(lead) {
-  return fillPitch(lead);
+  return fillPitch(lead, "VIEW DEMO WEBSITE\n" + viewSiteUrl(lead));
 }
 
 function pitchPreviewHtml(lead) {
-  return escapeHtml(fillPitch(lead))
+  const url = escapeHtml(viewSiteUrl(lead));
+  const link = `<a class="pitch-demo-link" href="${url}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>`;
+  return escapeHtml(fillPitch(lead, "%%SITE%%"))
     .replace(/\n/g, "<br>")
+    .replace("%%SITE%%", link)
     .replace("https://mubecodes.com", `<a class="pitch-brand-link" href="https://mubecodes.com" target="_blank" rel="noopener">https://mubecodes.com</a>`);
 }
 
@@ -111,7 +119,7 @@ function render() {
       <p class="card-info-list">${escapeHtml((lead.seo_opportunity && lead.seo_opportunity.audit) || "")}</p>
       <div class="card-action-row">
         <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">WhatsApp Pitch</a>
-        <a class="btn btn-primary" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">View website</a>
+        <a class="btn btn-primary" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
         <a class="btn btn-secondary" href="${escapeHtml(lead.google_maps_url)}" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </article>
