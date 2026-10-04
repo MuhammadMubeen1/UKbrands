@@ -47,9 +47,21 @@
       display: flex; align-items: center; justify-content: center;
       padding: 14px 18px; border-radius: 14px;
       background: #128c7e; color: #fff; font-weight: 800;
-      text-decoration: none;
+      text-decoration: none; border: 0; cursor: pointer; width: 100%;
+      font-family: inherit; font-size: 1rem;
     }
     .send[hidden] { display: none; }
+    .warn {
+      display: none;
+      background: #3b2a08;
+      border: 1px solid #f59e0b;
+      color: #fde68a;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: .9rem;
+      line-height: 1.45;
+    }
+    .warn.show { display: block; }
   </style>
 </head>
 <body>
@@ -66,7 +78,8 @@
         <a href="https://mubecodes.com" target="_blank" rel="noopener">https://mubecodes.com</a></div>
       </div>
     </article>
-    <a class="send" id="send" hidden href="#" target="_blank" rel="noopener">Send this template on WhatsApp</a>
+    <p class="warn" id="warn">WhatsApp is still showing the old unsent script (Hi *Merric Barbers*… w.html). In the WhatsApp box: Select All → Delete. The template link is copied — paste it, then send.</p>
+    <button class="send" id="send" type="button" hidden>Send this template on WhatsApp</button>
   </div>
   <script>
     const LIVE = "https://muhammadmubeen1.github.io/UKbrands/";
@@ -74,6 +87,10 @@
     const id = String(q.get("id") || "").replace(/^l(?=lon-)/, "");
     const phone = String(q.get("wa") || "").replace(/[^\d]/g, "");
     let name = q.get("n") || "there";
+
+    function templateLink() {
+      return LIVE + "p.html?id=" + encodeURIComponent(id) + "&n=" + encodeURIComponent(name);
+    }
 
     function paint(n, demoId) {
       document.getElementById("brand").textContent = n || "there";
@@ -83,25 +100,28 @@
 
     paint(name, id);
 
+    const send = document.getElementById("send");
     if (phone) {
-      const share = LIVE + "p.html?id=" + encodeURIComponent(id) + "&n=" + encodeURIComponent(name);
-      const send = document.getElementById("send");
-      send.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(share);
       send.hidden = false;
+      document.getElementById("warn").classList.add("show");
+      send.addEventListener("click", function () {
+        const share = templateLink();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(share).catch(function () {});
+        }
+        window.open("https://web.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(share), "_blank");
+      });
     }
 
     const s = document.createElement("script");
     s.src = LIVE + "data/pakistan_no_website_bundle.js";
     s.onload = function () {
       const all = Object.values(window.PAKISTAN_NO_WEBSITE_LEADS || {}).flat();
-      const lead = all.find(function (l) { return l.id === id; });
+      const lead = all.find(function (l) { return l.id === id; })
+        || all.find(function (l) { return l.id === String(id || "").replace(/^l(?=lon-)/, ""); });
       if (!lead) return;
       name = lead.name || name;
       paint(name, lead.id);
-      if (phone) {
-        const share = LIVE + "p.html?id=" + encodeURIComponent(lead.id) + "&n=" + encodeURIComponent(name);
-        document.getElementById("send").href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(share);
-      }
     };
     document.head.appendChild(s);
   </script>

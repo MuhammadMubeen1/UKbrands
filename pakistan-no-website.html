@@ -28,7 +28,7 @@
         </h1>
         <p class="subtitle">
           Google Maps listings in London, New York, Dubai, Lahore, Karachi and Islamabad that are <strong>on WhatsApp</strong> and have <strong>no website or app</strong>.
-          Share template opens the designed card. Do not use an old WhatsApp draft of the long script.
+          Open template shows the designed card. If WhatsApp still shows the old Hi Merric script, delete that unsent draft.
         </p>
       </div>
       <div class="header-actions">
@@ -120,7 +120,28 @@
     </section>
   </main>
 
-  <script src="data/pakistan_no_website_bundle.js?v=28"></script>
-  <script src="pakistan-no-website.js?v=28"></script>
+  <script src="data/pakistan_no_website_bundle.js?v=29"></script>
+  <script src="pakistan-no-website.js?v=29"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function (regs) {
+        regs.forEach(function (reg) { reg.unregister(); });
+      });
+    }
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest("a");
+      if (!a || !a.href) return;
+      var href = a.href;
+      if (href.indexOf("wa.me") === -1 && href.indexOf("web.whatsapp.com") === -1) return;
+      if (href.indexOf("text=") === -1) return;
+      try {
+        var text = decodeURIComponent((href.split("text=")[1] || "").split("&")[0]);
+      } catch (err) { return; }
+      if (text.indexOf("Hi ") === 0 || text.indexOf("w.html") !== -1) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }, true);
+  </script>
 </body>
 </html>
