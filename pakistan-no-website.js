@@ -61,10 +61,11 @@ function pitchFor(lead) {
 
 function pitchPreviewHtml(lead) {
   const url = escapeHtml(viewSiteUrl(lead));
-  const link = `<a class="pitch-demo-link" href="${url}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>`;
+  const button = `<a class="pitch-demo-btn" href="${url}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>`;
   return escapeHtml(fillPitch(lead, "%%SITE%%"))
+    .replace(/\*([^*]+)\*/g, "<strong>$1</strong>")
     .replace(/\n/g, "<br>")
-    .replace("%%SITE%%", link)
+    .replace("%%SITE%%", button)
     .replace("https://mubecodes.com", `<a class="pitch-brand-link" href="https://mubecodes.com" target="_blank" rel="noopener">https://mubecodes.com</a>`);
 }
 
@@ -99,6 +100,11 @@ function render() {
     id: "preview"
   };
   document.getElementById("banner-pitch-preview").innerHTML = pitchPreviewHtml(previewLead);
+  const sendWa = document.getElementById("banner-send-wa");
+  if (sendWa) {
+    sendWa.href = list.length ? waUrl(previewLead) : "#";
+    sendWa.style.display = list.length ? "inline-flex" : "none";
+  }
 
   const grid = document.getElementById("leads-grid");
   const empty = document.getElementById("empty-state");
@@ -117,6 +123,10 @@ function render() {
       <p class="card-info-list">📍 ${escapeHtml(lead.address || lead.city)} · ${escapeHtml(lead.category)}</p>
       <p class="card-info-list">💬 ${escapeHtml(lead.whatsapp_display)} · Meta: ${escapeHtml(lead.whatsapp_account_name || "Registered")}</p>
       <p class="card-info-list">${escapeHtml((lead.seo_opportunity && lead.seo_opportunity.audit) || "")}</p>
+      <div class="pitch-mini">
+        <span class="pitch-mini-label">Message template</span>
+        <a class="pitch-demo-btn" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
+      </div>
       <div class="card-action-row">
         <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">WhatsApp Pitch</a>
         <a class="btn btn-primary" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
