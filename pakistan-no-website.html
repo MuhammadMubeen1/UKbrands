@@ -28,7 +28,7 @@
         </h1>
         <p class="subtitle">
           Google Maps listings in London, New York, Dubai, Lahore, Karachi and Islamabad that are <strong>on WhatsApp</strong> and have <strong>no website or app</strong>.
-          Open template, then Share designed card — WhatsApp gets the card photo, not a URL.
+          WhatsApp pitch includes the live demo link clients can tap.
         </p>
       </div>
       <div class="header-actions">
@@ -100,9 +100,9 @@
       <div class="pitch-template-head">
         <div>
           <div class="pitch-banner-tag">WHATSAPP PITCH TEMPLATE</div>
-          <p class="pitch-template-hint">Opens the designed card. Share it as a WhatsApp photo so the client sees the card, not a link.</p>
+          <p class="pitch-template-hint">This is the message WhatsApp will open. The demo link is live so the client can tap it.</p>
         </div>
-        <a id="banner-send-wa" class="btn btn-whatsapp" href="#" target="_blank" rel="noopener">Share designed card</a>
+        <a id="banner-send-wa" class="btn btn-whatsapp" href="#" target="_blank" rel="noopener">Send WhatsApp</a>
       </div>
       <article class="pitch-bubble" id="banner-pitch-preview">Hi *{name}* team 👋</article>
     </section>
@@ -120,28 +120,7 @@
     </section>
   </main>
 
-  <script src="data/pakistan_no_website_bundle.js?v=31"></script>
-  <script src="pakistan-no-website.js?v=31"></script>
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.getRegistrations().then(function (regs) {
-        regs.forEach(function (reg) { reg.unregister(); });
-      });
-    }
-    document.addEventListener("click", function (e) {
-      var a = e.target.closest("a");
-      if (!a || !a.href) return;
-      var href = a.href;
-      if (href.indexOf("wa.me") === -1 && href.indexOf("web.whatsapp.com") === -1) return;
-      if (href.indexOf("text=") === -1) return;
-      try {
-        var text = decodeURIComponent((href.split("text=")[1] || "").split("&")[0]);
-      } catch (err) { return; }
-      if (text.indexOf("Hi ") === 0 || text.indexOf("w.html") !== -1) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    }, true);
-  </script>
+  <script src="data/pakistan_no_website_bundle.js?v=32"></script>
+  <script src="pakistan-no-website.js?v=32"></script>
 </body>
 </html>

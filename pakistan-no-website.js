@@ -2,19 +2,17 @@ const LIVE_SITE = "https://muhammadmubeen1.github.io/UKbrands/";
 
 const PITCH = `Hi *{name}* team 👋
 
-I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you.
+I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:
 
-Open this message template:
-
-{site}
+🌐 {site}
 
 If you’re interested, I can create a *fully customized website + mobile booking app* where customers can easily book appointments online 📱, along with *Local SEO* to help you rank higher than competitors and get more customers.
 
 Interested? I’d be happy to discuss it.
 
-Best regards,
-*M. Mubeen* | Digital Growth Specialist
-https://mubecodes.com`;
+Best regards,  
+*M. Mubeen* | Digital Growth Specialist  
+🌐 https://mubecodes.com`;
 
 const CATS = {
   salons: "Beauty Salons",
@@ -44,14 +42,12 @@ function cityLeads(city, cat) {
 }
 
 function viewPitchUrl(lead) {
-  const id = lead.id || String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
-  const phone = String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
-  const n = encodeURIComponent(lead.name || "");
-  return LIVE_SITE + "p.html?v=31&id=" + encodeURIComponent(id) + "&n=" + n + (phone ? "&wa=" + phone : "");
+  const id = String(lead.id || "").replace(/^l(?=lon-)/, "");
+  return LIVE_SITE + "p.html?id=" + encodeURIComponent(id);
 }
 
 function viewSiteUrl(lead) {
-  const id = lead.id || String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
+  const id = String(lead.id || "").replace(/^l(?=lon-)/, "");
   return LIVE_SITE + "w.html?id=" + encodeURIComponent(id);
 }
 
@@ -65,21 +61,19 @@ function fillPitch(lead, siteValue) {
 }
 
 function pitchFor(lead) {
-  return viewPitchUrl(lead);
+  return fillPitch(lead, viewSiteUrl(lead));
 }
 
 function pitchPreviewHtml(lead) {
-  const url = escapeHtml(viewSiteUrl(lead));
-  const button = `<a class="pitch-demo-btn" href="${url}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>`;
-  return escapeHtml(fillPitch(lead, "%%SITE%%"))
+  return escapeHtml(pitchFor(lead))
     .replace(/\*([^*]+)\*/g, "<strong>$1</strong>")
     .replace(/\n/g, "<br>")
-    .replace("%%SITE%%", button)
-    .replace("https://mubecodes.com", `<a class="pitch-brand-link" href="https://mubecodes.com" target="_blank" rel="noopener">https://mubecodes.com</a>`);
+    .replace(/https:\/\/[^\s<]+/g, (u) => `<a class="pitch-brand-link" href="${u}" target="_blank" rel="noopener">${u}</a>`);
 }
 
 function waUrl(lead) {
-  return viewPitchUrl(lead);
+  const phone = String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
+  return `https://wa.me/${phone}?text=${encodeURIComponent(pitchFor(lead))}`;
 }
 
 function updateBadges() {
@@ -136,7 +130,7 @@ function render() {
         <a class="pitch-demo-btn" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
       </div>
       <div class="card-action-row">
-        <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">Share designed card</a>
+        <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">Send WhatsApp</a>
         <a class="btn btn-primary" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
         <a class="btn btn-secondary" href="${escapeHtml(lead.google_maps_url)}" target="_blank" rel="noopener">Google Maps</a>
       </div>

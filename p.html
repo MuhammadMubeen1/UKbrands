@@ -4,15 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VIEW DEMO WEBSITE</title>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta property="og:title" content="VIEW DEMO WEBSITE">
-  <meta property="og:description" content="Designed website demo card">
+  <meta property="og:description" content="A designed website demo for your Google listing.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=80">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -24,139 +22,49 @@
       place-items: center;
       padding: 24px 16px;
     }
-    .wrap { width: min(560px, 100%); display: grid; gap: 14px; }
     .card {
+      width: min(560px, 100%);
       background: linear-gradient(180deg, #0e4038 0%, #0a2c28 100%);
       border: 1px solid rgba(37, 211, 102, 0.35);
       border-radius: 28px;
       padding: 28px 24px 24px;
       box-shadow: 0 24px 60px rgba(0,0,0,.4);
     }
-    .tag { font-size: 11px; font-weight: 800; letter-spacing: .16em; color: #25d366; margin-bottom: 14px; }
     .msg { font-size: 1.02rem; line-height: 1.65; color: #d9fff0; }
     .msg strong { color: #fff; }
-    .btn {
-      display: flex; align-items: center; justify-content: center;
-      margin: 18px 0; padding: 14px 18px; border-radius: 14px;
-      background: #25d366; color: #052e16; font-weight: 800;
-      letter-spacing: .08em; text-decoration: none;
-      box-shadow: 0 12px 28px rgba(37,211,102,.3);
-    }
-    .sign { margin-top: 8px; color: #b7e8d4; font-size: .95rem; }
-    .sign a { color: #7dffb3; }
-    .send, .openwa {
-      display: flex; align-items: center; justify-content: center;
-      padding: 14px 18px; border-radius: 14px;
-      background: #128c7e; color: #fff; font-weight: 800;
-      border: 0; cursor: pointer; width: 100%;
-      font-family: inherit; font-size: 1rem;
-    }
-    .openwa { background: #25d366; color: #052e16; }
-    .send:disabled { opacity: .7; }
-    .warn {
-      background: #3b2a08;
-      border: 1px solid #f59e0b;
-      color: #fde68a;
-      border-radius: 14px;
-      padding: 12px 14px;
-      font-size: .92rem;
-      line-height: 1.5;
-    }
-    #shot {
-      display: none;
-      width: 100%;
-      border-radius: 18px;
-      border: 2px solid #25d366;
-    }
-    #shot.show { display: block; }
+    .msg a { color: #7dffb3; word-break: break-all; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <article class="card" id="card">
-      <div class="tag">MESSAGE TEMPLATE</div>
-      <div class="msg">
-        Hi <strong id="brand">there</strong> team 👋<br><br>
-        I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:
-        <a class="btn" id="demo" href="w.html">VIEW DEMO WEBSITE</a>
-        If you’re interested, I can create a <strong>fully customized website + mobile booking app</strong> where customers can easily book appointments online 📱, along with <strong>Local SEO</strong> to help you rank higher than competitors and get more customers.<br><br>
-        Interested? I’d be happy to discuss it.<br><br>
-        <div class="sign">Best regards,<br><strong>M. Mubeen</strong> | Digital Growth Specialist<br>
-        <a href="https://mubecodes.com" target="_blank" rel="noopener">https://mubecodes.com</a></div>
-      </div>
-    </article>
-    <img id="shot" alt="Designed card photo">
-    <p class="warn" id="warn">Do not send the github.io link. WhatsApp only accepts this card as a photo. Click the green button, then in WhatsApp delete any URL/text and press Cmd+V to paste the card photo.</p>
-    <button class="send" id="send" type="button">Copy designed card photo</button>
-    <button class="openwa" id="openwa" type="button">Open WhatsApp and paste (Cmd+V)</button>
-  </div>
+  <article class="card">
+    <div class="msg" id="msg">Loading…</div>
+  </article>
   <script>
     const LIVE = "https://muhammadmubeen1.github.io/UKbrands/";
     const q = new URLSearchParams(location.search);
     const id = String(q.get("id") || "").replace(/^l(?=lon-)/, "");
-    const phone = String(q.get("wa") || "").replace(/[^\d]/g, "");
-    let name = q.get("n") || "there";
-    let cardBlob = null;
-
-    function paint(n, demoId) {
-      document.getElementById("brand").textContent = n || "there";
-      document.getElementById("demo").href = LIVE + "w.html?id=" + encodeURIComponent(demoId || id);
-      document.title = "VIEW DEMO WEBSITE · " + (n || "Demo");
+    const name = q.get("n") || "there";
+    const demo = LIVE + "w.html?id=" + encodeURIComponent(id);
+    function escapeHtml(v) {
+      return String(v || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
     }
-    paint(name, id);
-
-    function downloadBlob(blob) {
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(blob);
-      a.download = (name || "template").replace(/\s+/g, "-") + "-card.png";
-      a.click();
+    function render(n) {
+      document.getElementById("msg").innerHTML =
+        "Hi <strong>" + escapeHtml(n) + "</strong> team 👋<br><br>" +
+        "I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:<br><br>" +
+        "🌐 <a href=\"" + demo + "\">" + demo + "</a><br><br>" +
+        "If you’re interested, I can create a <strong>fully customized website + mobile booking app</strong> where customers can easily book appointments online 📱, along with <strong>Local SEO</strong> to help you rank higher than competitors and get more customers.<br><br>" +
+        "Interested? I’d be happy to discuss it.<br><br>" +
+        "Best regards,<br><strong>M. Mubeen</strong> | Digital Growth Specialist<br>" +
+        "🌐 <a href=\"https://mubecodes.com\" target=\"_blank\" rel=\"noopener\">https://mubecodes.com</a>";
     }
-
-    async function makePhoto() {
-      if (typeof html2canvas !== "function") throw new Error("no html2canvas");
-      const canvas = await html2canvas(document.getElementById("card"), {
-        scale: 2,
-        backgroundColor: "#07110f",
-        useCORS: true
-      });
-      return await new Promise(function (resolve) { canvas.toBlob(resolve, "image/png"); });
-    }
-
-    document.getElementById("send").addEventListener("click", async function () {
-      const btn = document.getElementById("send");
-      btn.disabled = true;
-      btn.textContent = "Making card photo…";
-      try {
-        cardBlob = await makePhoto();
-        const shot = document.getElementById("shot");
-        shot.src = URL.createObjectURL(cardBlob);
-        shot.classList.add("show");
-        downloadBlob(cardBlob);
-        if (navigator.clipboard && window.ClipboardItem) {
-          await navigator.clipboard.write([new ClipboardItem({ "image/png": cardBlob })]);
-        }
-        document.getElementById("warn").textContent = "Card photo copied and downloaded. Open WhatsApp, delete the github.io URL, press Cmd+V, send the photo.";
-      } catch (err) {
-        document.getElementById("warn").textContent = "Could not copy the photo. Use Chrome, click again, then drag the downloaded PNG into WhatsApp.";
-      }
-      btn.disabled = false;
-      btn.textContent = "Copy designed card photo";
-    });
-
-    document.getElementById("openwa").addEventListener("click", function () {
-      if (phone) window.open("https://web.whatsapp.com/send?phone=" + phone, "_blank", "noopener");
-      else window.open("https://web.whatsapp.com/", "_blank", "noopener");
-    });
-
+    render(name);
     const s = document.createElement("script");
-    s.src = LIVE + "data/pakistan_no_website_bundle.js?v=31";
+    s.src = LIVE + "data/pakistan_no_website_bundle.js";
     s.onload = function () {
       const all = Object.values(window.PAKISTAN_NO_WEBSITE_LEADS || {}).flat();
-      const lead = all.find(function (l) { return l.id === id; })
-        || all.find(function (l) { return l.id === String(id || "").replace(/^l(?=lon-)/, ""); });
-      if (!lead) return;
-      name = lead.name || name;
-      paint(name, lead.id);
+      const lead = all.find(function (l) { return l.id === id; });
+      if (lead) render(lead.name);
     };
     document.head.appendChild(s);
   </script>
