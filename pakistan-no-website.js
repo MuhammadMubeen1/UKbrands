@@ -56,7 +56,7 @@ function fillPitch(lead, siteValue) {
 }
 
 function pitchFor(lead) {
-  return fillPitch(lead, "VIEW DEMO WEBSITE\n" + viewSiteUrl(lead));
+  return fillPitch(lead, "VIEW DEMO WEBSITE");
 }
 
 function pitchPreviewHtml(lead) {
