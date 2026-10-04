@@ -2,7 +2,9 @@ const LIVE_SITE = "https://muhammadmubeen1.github.io/UKbrands/";
 
 const PITCH = `Hi *{name}* team 👋
 
-I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:
+I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you.
+
+Open this message template:
 
 {site}
 
@@ -41,6 +43,11 @@ function cityLeads(city, cat) {
   return (state.data[cat] || []).filter(l => l.city === city && l.whatsapp_live_verified === true && !l.has_website);
 }
 
+function viewPitchUrl(lead) {
+  const id = lead.id || String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
+  return LIVE_SITE + "p.html?id=" + encodeURIComponent(id);
+}
+
 function viewSiteUrl(lead) {
   const id = lead.id || String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
   return LIVE_SITE + "w.html?id=" + encodeURIComponent(id);
@@ -56,7 +63,7 @@ function fillPitch(lead, siteValue) {
 }
 
 function pitchFor(lead) {
-  return fillPitch(lead, viewSiteUrl(lead));
+  return fillPitch(lead, viewPitchUrl(lead));
 }
 
 function pitchPreviewHtml(lead) {

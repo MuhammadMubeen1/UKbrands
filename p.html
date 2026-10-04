@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VIEW DEMO WEBSITE</title>
+  <meta property="og:title" content="VIEW DEMO WEBSITE">
+  <meta property="og:description" content="A designed website demo message. Tap VIEW DEMO WEBSITE to open it.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: Manrope, system-ui, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, #16332e 0%, #07110f 45%, #05080a 100%);
+      color: #e8fff6;
+      display: grid;
+      place-items: center;
+      padding: 24px 16px;
+    }
+    .card {
+      width: min(560px, 100%);
+      background: linear-gradient(180deg, #0e4038 0%, #0a2c28 100%);
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      border-radius: 28px;
+      padding: 28px 24px 24px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.4);
+    }
+    .tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      color: #25d366;
+      margin-bottom: 14px;
+    }
+    .msg { font-size: 1.02rem; line-height: 1.65; color: #d9fff0; }
+    .msg strong { color: #fff; }
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 18px 0;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: #25d366;
+      color: #052e16;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-decoration: none;
+      box-shadow: 0 12px 28px rgba(37,211,102,.3);
+    }
+    .sign { margin-top: 8px; color: #b7e8d4; font-size: .95rem; }
+    .sign a { color: #7dffb3; }
+  </style>
+</head>
+<body>
+  <article class="card" id="card">
+    <div class="tag">MESSAGE TEMPLATE</div>
+    <div class="msg" id="msg">Loading…</div>
+  </article>
+  <script src="data/pakistan_no_website_bundle.js"></script>
+  <script>
+    function escapeHtml(s) {
+      return String(s || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+    const id = new URLSearchParams(location.search).get("id") || "";
+    const all = Object.values(window.PAKISTAN_NO_WEBSITE_LEADS || {}).flat();
+    const lead = all.find(function (l) { return l.id === id; }) || { name: "there", id: id };
+    const demo = "w.html?id=" + encodeURIComponent(lead.id || id);
+    document.title = "VIEW DEMO WEBSITE · " + (lead.name || "Demo");
+    document.getElementById("msg").innerHTML =
+      "Hi <strong>" + escapeHtml(lead.name || "there") + "</strong> team 👋<br><br>" +
+      "I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:<br>" +
+      "<a class=\"btn\" href=\"" + demo + "\">VIEW DEMO WEBSITE</a>" +
+      "If you’re interested, I can create a <strong>fully customized website + mobile booking app</strong> where customers can easily book appointments online 📱, along with <strong>Local SEO</strong> to help you rank higher than competitors and get more customers.<br><br>" +
+      "Interested? I’d be happy to discuss it.<br><br>" +
+      "<div class=\"sign\">Best regards,<br><strong>M. Mubeen</strong> | Digital Growth Specialist<br>" +
+      "<a href=\"https://mubecodes.com\" target=\"_blank\" rel=\"noopener\">https://mubecodes.com</a></div>";
+  </script>
+</body>
+</html>
