@@ -807,6 +807,25 @@ optgroup option {
   overflow: hidden;
 }
 
+.pitch-preview-text.pitch-preview-full {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+  font-style: normal;
+  line-height: 1.55;
+}
+
+.pitch-brand-link {
+  color: #fbbf24;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.salon-card h3 .pitch-brand-link {
+  color: inherit;
+}
+
 .pitch-banner-actions {
   flex-shrink: 0;
 }

@@ -59,13 +59,24 @@ function shortSiteUrl(lead) {
   return LIVE_SITE + "w.html?id=" + encodeURIComponent(id);
 }
 
-function pitchFor(lead) {
+function fillPitch(lead, siteValue) {
   return PITCH
     .replace(/\{name\}/g, lead.name || "there")
     .replace(/\{city\}/g, lead.city || state.city)
     .replace(/\{borough\}/g, lead.borough || lead.city || state.city)
     .replace(/\{keyword\}/g, lead.target_keyword || `${CATS[state.category]} in ${lead.city}`)
-    .replace(/\{site\}/g, shortSiteUrl(lead));
+    .replace(/\{site\}/g, siteValue);
+}
+
+function pitchFor(lead) {
+  return fillPitch(lead, lead.name || "your brand");
+}
+
+function pitchPreviewHtml(lead) {
+  const name = escapeHtml(lead.name || "your brand");
+  const url = escapeHtml(shortSiteUrl(lead));
+  const link = `<a class="pitch-brand-link" href="${url}" target="_blank" rel="noopener">${name}</a>`;
+  return escapeHtml(fillPitch(lead, "%%SITE%%")).replace(/\n/g, "<br>").replace("%%SITE%%", link);
 }
 
 function waUrl(lead) {
@@ -92,12 +103,13 @@ function render() {
   document.getElementById("results-city").textContent = state.city;
   document.getElementById("results-category").textContent = CATS[state.category];
   document.getElementById("export-count").textContent = list.length;
-  document.getElementById("banner-pitch-preview").textContent = pitchFor(list[0] || {
-    name: "{name}",
+  const previewLead = list[0] || {
+    name: "your brand",
     city: state.city,
     borough: state.city,
-    target_keyword: `${CATS[state.category]} in ${state.city}`
-  });
+    id: "preview"
+  };
+  document.getElementById("banner-pitch-preview").innerHTML = pitchPreviewHtml(previewLead);
 
   const grid = document.getElementById("leads-grid");
   const empty = document.getElementById("empty-state");
@@ -110,7 +122,7 @@ function render() {
   grid.innerHTML = list.map(lead => `
     <article class="salon-card">
       <div class="card-header-row">
-        <h3>${escapeHtml(lead.name)}</h3>
+        <h3><a class="pitch-brand-link" href="${escapeHtml(shortSiteUrl(lead))}" target="_blank" rel="noopener">${escapeHtml(lead.name)}</a></h3>
         <span class="badge badge-emerald">Live WhatsApp · No website</span>
       </div>
       <p class="card-info-list">📍 ${escapeHtml(lead.address || lead.city)} · ${escapeHtml(lead.category)}</p>
