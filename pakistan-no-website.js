@@ -73,7 +73,8 @@ function pitchPreviewHtml(lead) {
 
 function waUrl(lead) {
   const phone = String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
-  return `https://wa.me/${phone}?text=${encodeURIComponent(pitchFor(lead))}`;
+  const text = encodeURIComponent(pitchFor(lead));
+  return `https://api.whatsapp.com/send?phone=${phone}&text=${text}`;
 }
 
 function updateBadges() {
@@ -130,7 +131,7 @@ function render() {
         <a class="pitch-demo-btn" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
       </div>
       <div class="card-action-row">
-        <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">Send WhatsApp</a>
+        <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">Share on WhatsApp</a>
         <a class="btn btn-primary" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
         <a class="btn btn-secondary" href="${escapeHtml(lead.google_maps_url)}" target="_blank" rel="noopener">Google Maps</a>
       </div>
