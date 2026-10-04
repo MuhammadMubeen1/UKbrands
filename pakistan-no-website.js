@@ -45,7 +45,9 @@ function cityLeads(city, cat) {
 
 function viewPitchUrl(lead) {
   const id = lead.id || String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
-  return LIVE_SITE + "p.html?id=" + encodeURIComponent(id);
+  const phone = String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
+  const n = encodeURIComponent(lead.name || "");
+  return LIVE_SITE + "p.html?id=" + encodeURIComponent(id) + "&n=" + n + (phone ? "&wa=" + phone : "");
 }
 
 function viewSiteUrl(lead) {
@@ -77,8 +79,7 @@ function pitchPreviewHtml(lead) {
 }
 
 function waUrl(lead) {
-  const phone = String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
-  return `https://wa.me/${phone}?text=${encodeURIComponent(pitchFor(lead))}`;
+  return viewPitchUrl(lead);
 }
 
 function updateBadges() {
@@ -135,7 +136,7 @@ function render() {
         <a class="pitch-demo-btn" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
       </div>
       <div class="card-action-row">
-        <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">Share template</a>
+        <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">Open template</a>
         <a class="btn btn-primary" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">VIEW DEMO WEBSITE</a>
         <a class="btn btn-secondary" href="${escapeHtml(lead.google_maps_url)}" target="_blank" rel="noopener">Google Maps</a>
       </div>

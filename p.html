@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VIEW DEMO WEBSITE</title>
   <meta property="og:title" content="VIEW DEMO WEBSITE">
-  <meta property="og:description" content="A designed website demo message. Tap VIEW DEMO WEBSITE to open it.">
+  <meta property="og:description" content="Designed pitch template. Tap VIEW DEMO WEBSITE to open the demo.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://muhammadmubeen1.github.io/UKbrands/p.html">
   <meta property="og:image" content="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=80">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +23,8 @@
       place-items: center;
       padding: 24px 16px;
     }
+    .wrap { width: min(560px, 100%); display: grid; gap: 14px; }
     .card {
-      width: min(560px, 100%);
       background: linear-gradient(180deg, #0e4038 0%, #0a2c28 100%);
       border: 1px solid rgba(37, 211, 102, 0.35);
       border-radius: 28px;
@@ -42,39 +43,65 @@
     }
     .sign { margin-top: 8px; color: #b7e8d4; font-size: .95rem; }
     .sign a { color: #7dffb3; }
+    .send {
+      display: flex; align-items: center; justify-content: center;
+      padding: 14px 18px; border-radius: 14px;
+      background: #128c7e; color: #fff; font-weight: 800;
+      text-decoration: none;
+    }
+    .send[hidden] { display: none; }
   </style>
 </head>
 <body>
-  <article class="card">
-    <div class="tag">MESSAGE TEMPLATE</div>
-    <div class="msg" id="msg">Loading…</div>
-  </article>
+  <div class="wrap">
+    <article class="card">
+      <div class="tag">MESSAGE TEMPLATE</div>
+      <div class="msg" id="msg">
+        Hi <strong id="brand">there</strong> team 👋<br><br>
+        I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:
+        <a class="btn" id="demo" href="w.html">VIEW DEMO WEBSITE</a>
+        If you’re interested, I can create a <strong>fully customized website + mobile booking app</strong> where customers can easily book appointments online 📱, along with <strong>Local SEO</strong> to help you rank higher than competitors and get more customers.<br><br>
+        Interested? I’d be happy to discuss it.<br><br>
+        <div class="sign">Best regards,<br><strong>M. Mubeen</strong> | Digital Growth Specialist<br>
+        <a href="https://mubecodes.com" target="_blank" rel="noopener">https://mubecodes.com</a></div>
+      </div>
+    </article>
+    <a class="send" id="send" hidden href="#" target="_blank" rel="noopener">Send this template on WhatsApp</a>
+  </div>
   <script>
-    const BASE = new URL("./", location.href).href;
+    const LIVE = "https://muhammadmubeen1.github.io/UKbrands/";
+    const q = new URLSearchParams(location.search);
+    const id = String(q.get("id") || "").replace(/^l(?=lon-)/, "");
+    const phone = String(q.get("wa") || "").replace(/[^\d]/g, "");
+    let name = q.get("n") || "there";
+
+    function paint(n, demoId) {
+      document.getElementById("brand").textContent = n || "there";
+      document.getElementById("demo").href = LIVE + "w.html?id=" + encodeURIComponent(demoId || id);
+      document.title = "VIEW DEMO WEBSITE · " + (n || "Demo");
+    }
+
+    paint(name, id);
+
+    if (phone) {
+      const share = LIVE + "p.html?id=" + encodeURIComponent(id) + "&n=" + encodeURIComponent(name);
+      const send = document.getElementById("send");
+      send.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(share);
+      send.hidden = false;
+    }
+
     const s = document.createElement("script");
-    s.src = BASE + "data/pakistan_no_website_bundle.js";
-    s.onerror = function () { document.getElementById("msg").textContent = "Could not load the demo. Try again from the live site."; };
+    s.src = LIVE + "data/pakistan_no_website_bundle.js";
     s.onload = function () {
-      function escapeHtml(v) {
-        return String(v || "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+      const all = Object.values(window.PAKISTAN_NO_WEBSITE_LEADS || {}).flat();
+      const lead = all.find(function (l) { return l.id === id; });
+      if (!lead) return;
+      name = lead.name || name;
+      paint(name, lead.id);
+      if (phone) {
+        const share = LIVE + "p.html?id=" + encodeURIComponent(lead.id) + "&n=" + encodeURIComponent(name);
+        document.getElementById("send").href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(share);
       }
-      function findLead(id) {
-        const all = Object.values(window.PAKISTAN_NO_WEBSITE_LEADS || {}).flat();
-        return all.find(function (l) { return l.id === id; })
-          || all.find(function (l) { return l.id === String(id || "").replace(/^l(?=lon-)/, ""); });
-      }
-      const id = new URLSearchParams(location.search).get("id") || "";
-      const lead = findLead(id) || { name: "there", id: String(id || "").replace(/^l(?=lon-)/, "") };
-      const demo = new URL("w.html?id=" + encodeURIComponent(lead.id || id), BASE).href;
-      document.title = "VIEW DEMO WEBSITE · " + (lead.name || "Demo");
-      document.getElementById("msg").innerHTML =
-        "Hi <strong>" + escapeHtml(lead.name || "there") + "</strong> team 👋<br><br>" +
-        "I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:<br>" +
-        "<a class=\"btn\" href=\"" + demo + "\">VIEW DEMO WEBSITE</a>" +
-        "If you’re interested, I can create a <strong>fully customized website + mobile booking app</strong> where customers can easily book appointments online 📱, along with <strong>Local SEO</strong> to help you rank higher than competitors and get more customers.<br><br>" +
-        "Interested? I’d be happy to discuss it.<br><br>" +
-        "<div class=\"sign\">Best regards,<br><strong>M. Mubeen</strong> | Digital Growth Specialist<br>" +
-        "<a href=\"https://mubecodes.com\" target=\"_blank\" rel=\"noopener\">https://mubecodes.com</a></div>";
     };
     document.head.appendChild(s);
   </script>
