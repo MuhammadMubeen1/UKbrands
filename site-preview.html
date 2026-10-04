@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f1ea;
+      --ink: #1c1917;
+      --muted: #6b625b;
+      --card: #fffdf9;
+      --accent: #b45309;
+      --accent-ink: #fff;
+      --hero: linear-gradient(135deg, #2b2118 0%, #7c4a1e 55%, #c47a32 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Manrope, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 0;
+    }
+    .brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .badge {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 700;
+      text-decoration: none;
+      background: var(--accent);
+      color: var(--accent-ink);
+      box-shadow: 0 10px 24px rgba(28, 25, 23, 0.12);
+    }
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid rgba(28,25,23,0.14);
+      box-shadow: none;
+    }
+    .hero {
+      background: var(--hero);
+      color: #fffaf3;
+      border-radius: 28px;
+      padding: 54px 36px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -40px;
+      bottom: -50px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+    }
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.3rem, 6vw, 4.2rem);
+      line-height: 0.95;
+      max-width: 14ch;
+      margin: 10px 0 16px;
+    }
+    .hero p { max-width: 46ch; color: rgba(255,250,243,0.86); }
+    .cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px; }
+    .hero .btn { background: #fff; color: #1c1917; }
+    .hero .btn.ghost {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.4);
+      box-shadow: none;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 160px;
+      box-shadow: 0 10px 30px rgba(28,25,23,0.05);
+    }
+    .card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+    .about {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .panel {
+      background: #231c17;
+      color: #f8efe6;
+      border-radius: 22px;
+      padding: 28px;
+    }
+    .panel h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 18px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .note {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 760px) {
+      .grid, .about { grid-template-columns: 1fr; }
+      .hero { padding: 36px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="badge" id="cat">Local business</div>
+        <div class="brand" id="brand">Your Business</div>
+      </div>
+      <a class="btn" id="top-wa" href="#">WhatsApp</a>
+    </header>
+
+    <section class="hero">
+      <div class="badge" id="place">City</div>
+      <h1 id="headline">A simple site that sends customers to WhatsApp.</h1>
+      <p id="tagline">Customers already find you on Google Maps. This page makes it easy to book in one tap.</p>
+      <div class="cta-row">
+        <a class="btn" id="hero-wa" href="#">Book on WhatsApp</a>
+        <a class="btn ghost" id="maps" href="#" target="_blank" rel="noopener">Google Maps</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card"><h3 id="s1">Service one</h3><p id="d1"></p></article>
+      <article class="card"><h3 id="s2">Service two</h3><p id="d2"></p></article>
+      <article class="card"><h3 id="s3">Service three</h3><p id="d3"></p></article>
+    </section>
+
+    <section class="about">
+      <div class="panel">
+        <h2>Why this works</h2>
+        <p>You are already on WhatsApp. This website gives Google something to rank, shows your best services, and sends every customer straight into a chat.</p>
+      </div>
+      <div class="card">
+        <div class="badge">Designed for</div>
+        <h3 id="for-name">this business</h3>
+        <p id="for-copy">A clean one-page website. No app. No clutter. Just bookings.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>
+        <div id="foot-name">Business</div>
+        <div id="foot-addr"></div>
+      </div>
+      <div class="note">Simple website preview · M. Mubeen</div>
+    </footer>
+  </div>
+
+  <script>
+    const q = new URLSearchParams(location.search);
+    const name = q.get("name") || "Your Business";
+    const city = q.get("city") || "";
+    const area = q.get("area") || city;
+    const cat = q.get("cat") || "business";
+    const phone = (q.get("phone") || "").replace(/[^\d]/g, "");
+    const maps = q.get("maps") || ("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(name + " " + city));
+    const wa = phone ? ("https://wa.me/" + phone + "?text=" + encodeURIComponent("Hi " + name + ", I would like to book.")) : "#";
+
+    const themes = {
+      salons: {
+        label: "Beauty Salon & Spa",
+        hero: "linear-gradient(135deg,#3b1020 0%,#9d174d 52%,#e11d48 100%)",
+        accent: "#be123c",
+        headline: name,
+        tag: "Look booked, not busy. A calm salon page that turns Google searches into WhatsApp appointments.",
+        services: [
+          ["Signature cut & colour", "Show your best looks and let clients message you in one tap."],
+          ["Bridal & events", "Packages look premium. Booking stays on WhatsApp."],
+          ["Nails, spa & glow", "Simple cards for the services people actually search."]
+        ]
+      },
+      restaurants: {
+        label: "Restaurant",
+        hero: "linear-gradient(135deg,#1c1410 0%,#7c2d12 55%,#c2410c 100%)",
+        accent: "#c2410c",
+        headline: name,
+        tag: "Hungry customers already find you on Maps. This menu page sends them to WhatsApp for a table.",
+        services: [
+          ["Today's menu", "A clean first impression before they walk in."],
+          ["WhatsApp booking", "Reserve, takeaway or catering in one chat."],
+          ["Local favourite", "Built to rank for food searches in " + city + "."]
+        ]
+      },
+      fitness: {
+        label: "Gym & Fitness",
+        hero: "linear-gradient(135deg,#0b1220 0%,#0f766e 55%,#22c55e 100%)",
+        accent: "#0f766e",
+        headline: name,
+        tag: "A sharp gym page that turns walk-ins and Google searches into WhatsApp trial bookings.",
+        services: [
+          ["Memberships", "Clear plans. Instant WhatsApp join."],
+          ["Personal training", "Let people book a trainer without an app."],
+          ["Trial session", "One tap from Google to your chat."]
+        ]
+      },
+      aesthetic: {
+        label: "Aesthetic Clinic",
+        hero: "linear-gradient(135deg,#102018 0%,#115e59 50%,#99f6e4 100%)",
+        accent: "#0f766e",
+        headline: name,
+        tag: "A quiet, premium clinic page. Treatments first. WhatsApp consult in one tap.",
+        services: [
+          ["Skin consult", "A private first message instead of a form."],
+          ["Signature treatments", "Show 3 services people search in " + city + "."],
+          ["Aftercare", "Look trusted before they book."]
+        ]
+      },
+      estate_agents: {
+        label: "Real Estate",
+        hero: "linear-gradient(135deg,#0f172a 0%,#1e3a8a 55%,#c5a46e 100%)",
+        accent: "#1d4ed8",
+        headline: name,
+        tag: "A listing page that looks expensive and still sends every buyer to WhatsApp.",
+        services: [
+          ["Featured homes", "Show 3 properties without a heavy portal."],
+          ["Buyer enquiry", "WhatsApp is faster than a contact form."],
+          ["Area expert", "Rank for " + city + " property searches."]
+        ]
+      },
+      dentists: {
+        label: "Dental Clinic",
+        hero: "linear-gradient(135deg,#0b1c2c 0%,#0369a1 55%,#7dd3fc 100%)",
+        accent: "#0284c7",
+        headline: name,
+        tag: "Clean, calm, bookable. Patients find you on Maps and message you from this page.",
+        services: [
+          ["New patient", "Book a check-up on WhatsApp."],
+          ["Smile design", "Show treatments without medical clutter."],
+          ["Emergency slot", "One tap when it hurts."]
+        ]
+      }
+    };
+
+    const t = themes[cat] || {
+      label: "Local business",
+      hero: "linear-gradient(135deg,#2b2118 0%,#7c4a1e 55%,#c47a32 100%)",
+      accent: "#b45309",
+      headline: name,
+      tag: "A simple website that sends Google customers straight to WhatsApp.",
+      services: [
+        ["Google Maps", "You already have a listing."],
+        ["WhatsApp", "Now bookings happen in chat."],
+        ["Simple site", "No app. No clutter."]
+      ]
+    };
+
+    document.documentElement.style.setProperty("--hero", t.hero);
+    document.documentElement.style.setProperty("--accent", t.accent);
+    document.title = name + " · " + city;
+    document.getElementById("brand").textContent = name;
+    document.getElementById("cat").textContent = t.label;
+    document.getElementById("place").textContent = [area, city].filter(Boolean).join(" · ");
+    document.getElementById("headline").textContent = t.headline;
+    document.getElementById("tagline").textContent = t.tag;
+    document.getElementById("s1").textContent = t.services[0][0];
+    document.getElementById("d1").textContent = t.services[0][1];
+    document.getElementById("s2").textContent = t.services[1][0];
+    document.getElementById("d2").textContent = t.services[1][1];
+    document.getElementById("s3").textContent = t.services[2][0];
+    document.getElementById("d3").textContent = t.services[2][1];
+    document.getElementById("for-name").textContent = name;
+    document.getElementById("foot-name").textContent = name;
+    document.getElementById("foot-addr").textContent = [area, city].filter(Boolean).join(", ");
+    document.getElementById("top-wa").href = wa;
+    document.getElementById("hero-wa").href = wa;
+    document.getElementById("maps").href = maps;
+  </script>
+</body>
+</html>

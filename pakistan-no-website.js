@@ -2,15 +2,15 @@ const PITCH = `Hi *{name}* team 👋
 
 I found your Google Maps listing in *{borough}, {city}*.
 
-You are already on *WhatsApp*, but you do *not have a website or booking app*.
+You are already on *WhatsApp*, but you do *not have a website*.
 
-When local customers search Google for *"{keyword}"*, competitors with a website take the bookings — even if you are easier to message.
+I designed a *simple website* for *{name}* so customers can book you on WhatsApp:
 
-I help businesses like yours get:
-1. A simple website that sends customers to WhatsApp
-2. Stronger Google Maps ranking in {city}
+👉 {site}
 
-Would you like a *2-minute video* of the top 3 opportunities I found for *{name}*?
+When people search Google for *"{keyword}"*, this page can send them straight to your chat.
+
+Shall I put this live for *{name}*?
 
 Best regards,
 *M. Mubeen* | Digital Growth Specialist
@@ -43,12 +43,26 @@ function cityLeads(city, cat) {
   return (state.data[cat] || []).filter(l => l.city === city && l.whatsapp_live_verified === true && !l.has_website);
 }
 
+function sitePreviewUrl(lead) {
+  const base = new URL("site-preview.html", window.location.href).href.split("#")[0];
+  const params = new URLSearchParams({
+    name: lead.name || "Your Business",
+    city: lead.city || state.city,
+    area: lead.borough || lead.city || "",
+    cat: lead.category_key || state.category,
+    phone: String(lead.whatsapp_number || "").replace(/[^\d]/g, ""),
+    maps: lead.google_maps_url || ""
+  });
+  return `${base}?${params.toString()}`;
+}
+
 function pitchFor(lead) {
   return PITCH
     .replace(/\{name\}/g, lead.name || "there")
     .replace(/\{city\}/g, lead.city || state.city)
     .replace(/\{borough\}/g, lead.borough || lead.city || state.city)
-    .replace(/\{keyword\}/g, lead.target_keyword || `${CATS[state.category]} in ${lead.city}`);
+    .replace(/\{keyword\}/g, lead.target_keyword || `${CATS[state.category]} in ${lead.city}`)
+    .replace(/\{site\}/g, sitePreviewUrl(lead));
 }
 
 function waUrl(lead) {
@@ -101,6 +115,7 @@ function render() {
       <p class="card-info-list">${escapeHtml((lead.seo_opportunity && lead.seo_opportunity.audit) || "")}</p>
       <div class="card-action-row">
         <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">WhatsApp Pitch</a>
+        <a class="btn btn-primary" href="${escapeHtml(sitePreviewUrl(lead))}" target="_blank" rel="noopener">Website Design</a>
         <a class="btn btn-secondary" href="${escapeHtml(lead.google_maps_url)}" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </article>
