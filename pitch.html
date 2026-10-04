@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VIEW DEMO WEBSITE</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta property="og:title" content="VIEW DEMO WEBSITE">
-  <meta property="og:description" content="Designed pitch template. Tap VIEW DEMO WEBSITE to open the demo.">
+  <meta property="og:description" content="Designed website demo card">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://muhammadmubeen1.github.io/UKbrands/p.html">
   <meta property="og:image" content="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1200&q=80">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,30 +44,38 @@
     }
     .sign { margin-top: 8px; color: #b7e8d4; font-size: .95rem; }
     .sign a { color: #7dffb3; }
-    .send {
+    .send, .openwa {
       display: flex; align-items: center; justify-content: center;
       padding: 14px 18px; border-radius: 14px;
       background: #128c7e; color: #fff; font-weight: 800;
-      text-decoration: none; border: 0; cursor: pointer; width: 100%;
+      border: 0; cursor: pointer; width: 100%;
       font-family: inherit; font-size: 1rem;
     }
+    .openwa { background: #25d366; color: #052e16; }
     .send:disabled { opacity: .7; }
     .warn {
-      background: #0b2a22;
-      border: 1px solid rgba(37, 211, 102, 0.35);
-      color: #d9fff0;
+      background: #3b2a08;
+      border: 1px solid #f59e0b;
+      color: #fde68a;
       border-radius: 14px;
       padding: 12px 14px;
-      font-size: .9rem;
-      line-height: 1.45;
+      font-size: .92rem;
+      line-height: 1.5;
     }
+    #shot {
+      display: none;
+      width: 100%;
+      border-radius: 18px;
+      border: 2px solid #25d366;
+    }
+    #shot.show { display: block; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <article class="card" id="card">
       <div class="tag">MESSAGE TEMPLATE</div>
-      <div class="msg" id="msg">
+      <div class="msg">
         Hi <strong id="brand">there</strong> team 👋<br><br>
         I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:
         <a class="btn" id="demo" href="w.html">VIEW DEMO WEBSITE</a>
@@ -77,8 +85,10 @@
         <a href="https://mubecodes.com" target="_blank" rel="noopener">https://mubecodes.com</a></div>
       </div>
     </article>
-    <p class="warn" id="warn">WhatsApp cannot draw this HTML card in the text box. This button turns the card into a photo and puts it on WhatsApp. Delete any old “Hi Merric…” script, then press Cmd+V to paste the designed card.</p>
-    <button class="send" id="send" type="button">Share designed card on WhatsApp</button>
+    <img id="shot" alt="Designed card photo">
+    <p class="warn" id="warn">Do not send the github.io link. WhatsApp only accepts this card as a photo. Click the green button, then in WhatsApp delete any URL/text and press Cmd+V to paste the card photo.</p>
+    <button class="send" id="send" type="button">Copy designed card photo</button>
+    <button class="openwa" id="openwa" type="button">Open WhatsApp and paste (Cmd+V)</button>
   </div>
   <script>
     const LIVE = "https://muhammadmubeen1.github.io/UKbrands/";
@@ -86,80 +96,60 @@
     const id = String(q.get("id") || "").replace(/^l(?=lon-)/, "");
     const phone = String(q.get("wa") || "").replace(/[^\d]/g, "");
     let name = q.get("n") || "there";
-
-    function demoUrl() {
-      return LIVE + "w.html?id=" + encodeURIComponent(id);
-    }
+    let cardBlob = null;
 
     function paint(n, demoId) {
       document.getElementById("brand").textContent = n || "there";
       document.getElementById("demo").href = LIVE + "w.html?id=" + encodeURIComponent(demoId || id);
       document.title = "VIEW DEMO WEBSITE · " + (n || "Demo");
     }
-
     paint(name, id);
 
-    function canvasToBlob(canvas) {
-      return new Promise(function (resolve) { canvas.toBlob(resolve, "image/png"); });
+    function downloadBlob(blob) {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = (name || "template").replace(/\s+/g, "-") + "-card.png";
+      a.click();
     }
 
-    async function cardFile() {
+    async function makePhoto() {
+      if (typeof html2canvas !== "function") throw new Error("no html2canvas");
       const canvas = await html2canvas(document.getElementById("card"), {
         scale: 2,
         backgroundColor: "#07110f",
         useCORS: true
       });
-      const blob = await canvasToBlob(canvas);
-      return new File([blob], (name || "template").replace(/\s+/g, "-") + "-card.png", { type: "image/png" });
-    }
-
-    async function copyImage(file) {
-      if (navigator.clipboard && window.ClipboardItem) {
-        await navigator.clipboard.write([new ClipboardItem({ "image/png": file })]);
-        return true;
-      }
-      return false;
-    }
-
-    function downloadFile(file) {
-      const a = document.createElement("a");
-      a.href = URL.createObjectURL(file);
-      a.download = file.name;
-      a.click();
+      return await new Promise(function (resolve) { canvas.toBlob(resolve, "image/png"); });
     }
 
     document.getElementById("send").addEventListener("click", async function () {
       const btn = document.getElementById("send");
       btn.disabled = true;
-      btn.textContent = "Preparing designed card…";
+      btn.textContent = "Making card photo…";
       try {
-        const file = await cardFile();
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            files: [file],
-            title: name + " designed template"
-          });
-        } else {
-          const copied = await copyImage(file).catch(function () { return false; });
-          downloadFile(file);
-          document.getElementById("warn").textContent = copied
-            ? "Designed card copied. In WhatsApp: delete the old text, press Cmd+V, then send the photo."
-            : "Designed card photo downloaded. Drag that PNG into the WhatsApp chat and send it.";
-          if (phone) {
-            window.open("https://web.whatsapp.com/send?phone=" + phone, "_blank");
-          } else {
-            window.open("https://web.whatsapp.com/", "_blank");
-          }
+        cardBlob = await makePhoto();
+        const shot = document.getElementById("shot");
+        shot.src = URL.createObjectURL(cardBlob);
+        shot.classList.add("show");
+        downloadBlob(cardBlob);
+        if (navigator.clipboard && window.ClipboardItem) {
+          await navigator.clipboard.write([new ClipboardItem({ "image/png": cardBlob })]);
         }
+        document.getElementById("warn").textContent = "Card photo copied and downloaded. Open WhatsApp, delete the github.io URL, press Cmd+V, send the photo.";
       } catch (err) {
-        document.getElementById("warn").textContent = "Could not build the card photo. Try Chrome, then click again.";
+        document.getElementById("warn").textContent = "Could not copy the photo. Use Chrome, click again, then drag the downloaded PNG into WhatsApp.";
       }
       btn.disabled = false;
-      btn.textContent = "Share designed card on WhatsApp";
+      btn.textContent = "Copy designed card photo";
+    });
+
+    document.getElementById("openwa").addEventListener("click", function () {
+      if (phone) window.open("https://web.whatsapp.com/send?phone=" + phone, "_blank", "noopener");
+      else window.open("https://web.whatsapp.com/", "_blank", "noopener");
     });
 
     const s = document.createElement("script");
-    s.src = LIVE + "data/pakistan_no_website_bundle.js";
+    s.src = LIVE + "data/pakistan_no_website_bundle.js?v=31";
     s.onload = function () {
       const all = Object.values(window.PAKISTAN_NO_WEBSITE_LEADS || {}).flat();
       const lead = all.find(function (l) { return l.id === id; })

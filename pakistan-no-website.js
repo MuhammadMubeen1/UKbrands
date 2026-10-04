@@ -47,7 +47,7 @@ function viewPitchUrl(lead) {
   const id = lead.id || String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
   const phone = String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
   const n = encodeURIComponent(lead.name || "");
-  return LIVE_SITE + "p.html?id=" + encodeURIComponent(id) + "&n=" + n + (phone ? "&wa=" + phone : "");
+  return LIVE_SITE + "p.html?v=31&id=" + encodeURIComponent(id) + "&n=" + n + (phone ? "&wa=" + phone : "");
 }
 
 function viewSiteUrl(lead) {
