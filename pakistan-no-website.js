@@ -91,11 +91,6 @@ function render() {
     id: "preview"
   };
   document.getElementById("banner-pitch-preview").innerHTML = pitchPreviewHtml(previewLead);
-  const bannerView = document.getElementById("banner-view-website");
-  if (bannerView) {
-    bannerView.href = viewSiteUrl(previewLead);
-    bannerView.style.display = list.length ? "inline-flex" : "none";
-  }
 
   const grid = document.getElementById("leads-grid");
   const empty = document.getElementById("empty-state");
