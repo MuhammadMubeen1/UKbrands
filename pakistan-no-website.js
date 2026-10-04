@@ -1,10 +1,6 @@
-const LIVE_SITE = "https://muhammadmubeen1.github.io/UKbrands/";
-
 const PITCH = `Hi *{name}* team 👋
 
-I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you:
-
-🌐 {site}
+I found your Google listing and noticed you don’t have a website, so I designed a quick demo for you.
 
 If you’re interested, I can create a *fully customized website + mobile booking app* where customers can easily book appointments online 📱, along with *Local SEO* to help you rank higher than competitors and get more customers.
 
@@ -41,43 +37,26 @@ function cityLeads(city, cat) {
   return (state.data[cat] || []).filter(l => l.city === city && l.whatsapp_live_verified === true && !l.has_website);
 }
 
-function sitePreviewUrl(lead) {
-  const base = new URL("site-preview.html", window.location.href).href.split("#")[0];
-  const params = new URLSearchParams({
-    name: lead.name || "Your Business",
-    city: lead.city || state.city,
-    area: lead.borough || lead.city || "",
-    cat: lead.category_key || state.category,
-    phone: String(lead.whatsapp_number || "").replace(/[^\d]/g, ""),
-    maps: lead.google_maps_url || ""
-  });
-  return `${base}?${params.toString()}`;
-}
-
-function shortSiteUrl(lead) {
+function viewSiteUrl(lead) {
   const id = lead.id || String(lead.whatsapp_number || "").replace(/[^\d]/g, "");
-  return LIVE_SITE + "w.html?id=" + encodeURIComponent(id);
+  return new URL("w.html?id=" + encodeURIComponent(id), window.location.href).href.split("#")[0];
 }
 
-function fillPitch(lead, siteValue) {
+function fillPitch(lead) {
   return PITCH
     .replace(/\{name\}/g, lead.name || "there")
     .replace(/\{city\}/g, lead.city || state.city)
     .replace(/\{borough\}/g, lead.borough || lead.city || state.city)
-    .replace(/\{keyword\}/g, lead.target_keyword || `${CATS[state.category]} in ${lead.city}`)
-    .replace(/\{site\}/g, siteValue);
+    .replace(/\{keyword\}/g, lead.target_keyword || `${CATS[state.category]} in ${lead.city}`);
 }
 
 function pitchFor(lead) {
-  return fillPitch(lead, shortSiteUrl(lead));
+  return fillPitch(lead);
 }
 
 function pitchPreviewHtml(lead) {
-  const url = escapeHtml(shortSiteUrl(lead));
-  const link = `<a class="pitch-brand-link" href="${url}" target="_blank" rel="noopener">${url}</a>`;
-  return escapeHtml(fillPitch(lead, "%%SITE%%"))
+  return escapeHtml(fillPitch(lead))
     .replace(/\n/g, "<br>")
-    .replace("%%SITE%%", link)
     .replace("https://mubecodes.com", `<a class="pitch-brand-link" href="https://mubecodes.com" target="_blank" rel="noopener">https://mubecodes.com</a>`);
 }
 
@@ -112,6 +91,11 @@ function render() {
     id: "preview"
   };
   document.getElementById("banner-pitch-preview").innerHTML = pitchPreviewHtml(previewLead);
+  const bannerView = document.getElementById("banner-view-website");
+  if (bannerView) {
+    bannerView.href = viewSiteUrl(previewLead);
+    bannerView.style.display = list.length ? "inline-flex" : "none";
+  }
 
   const grid = document.getElementById("leads-grid");
   const empty = document.getElementById("empty-state");
@@ -124,7 +108,7 @@ function render() {
   grid.innerHTML = list.map(lead => `
     <article class="salon-card">
       <div class="card-header-row">
-        <h3><a class="pitch-brand-link" href="${escapeHtml(shortSiteUrl(lead))}" target="_blank" rel="noopener">${escapeHtml(lead.name)}</a></h3>
+        <h3>${escapeHtml(lead.name)}</h3>
         <span class="badge badge-emerald">Live WhatsApp · No website</span>
       </div>
       <p class="card-info-list">📍 ${escapeHtml(lead.address || lead.city)} · ${escapeHtml(lead.category)}</p>
@@ -132,7 +116,7 @@ function render() {
       <p class="card-info-list">${escapeHtml((lead.seo_opportunity && lead.seo_opportunity.audit) || "")}</p>
       <div class="card-action-row">
         <a class="btn btn-whatsapp" href="${waUrl(lead)}" target="_blank" rel="noopener">WhatsApp Pitch</a>
-        <a class="btn btn-primary" href="${escapeHtml(sitePreviewUrl(lead))}" target="_blank" rel="noopener">Website Design</a>
+        <a class="btn btn-primary" href="${escapeHtml(viewSiteUrl(lead))}" target="_blank" rel="noopener">View website</a>
         <a class="btn btn-secondary" href="${escapeHtml(lead.google_maps_url)}" target="_blank" rel="noopener">Google Maps</a>
       </div>
     </article>
