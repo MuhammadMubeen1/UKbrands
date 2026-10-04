@@ -318,6 +318,19 @@
         document.getElementById(id).href = wa;
       });
       document.getElementById("maps").href = maps;
+      function setMeta(prop, content) {
+        let el = document.querySelector('meta[property="' + prop + '"]');
+        if (!el) {
+          el = document.createElement("meta");
+          el.setAttribute("property", prop);
+          document.head.appendChild(el);
+        }
+        el.setAttribute("content", content);
+      }
+      setMeta("og:title", name + " · VIEW DEMO WEBSITE");
+      setMeta("og:description", t.tag);
+      setMeta("og:image", pics[0]);
+      setMeta("og:url", location.href);
     }
 
     const q = new URLSearchParams(location.search);

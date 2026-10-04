@@ -12,7 +12,7 @@ Interested? I’d be happy to discuss it.
 
 Best regards,
 *M. Mubeen* | Digital Growth Specialist
-🌐 https://mubecodes.com`;
+https://mubecodes.com`;
 
 const CATS = {
   salons: "Beauty Salons",
@@ -56,7 +56,7 @@ function fillPitch(lead, siteValue) {
 }
 
 function pitchFor(lead) {
-  return fillPitch(lead, "VIEW DEMO WEBSITE");
+  return fillPitch(lead, "VIEW DEMO WEBSITE\n\n" + viewSiteUrl(lead));
 }
 
 function pitchPreviewHtml(lead) {
