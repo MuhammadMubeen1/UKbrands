@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found</title>
+  <script>
+    var path = (location.pathname || "").toLowerCase();
+    var q = location.search || "";
+    if (path.indexOf("p.html") !== -1 || path.indexOf("pitch") !== -1) {
+      location.replace("/UKbrands/p.html" + q);
+    } else if (path.indexOf("w.html") !== -1 || path.indexOf("demo") !== -1 || path.indexOf("site-preview") !== -1) {
+      location.replace("/UKbrands/w.html" + q);
+    } else {
+      location.replace("/UKbrands/pakistan-no-website.html");
+    }
+  </script>
+</head>
+<body>
+  <p>This page moved. <a href="p.html">Open the pitch template</a></p>
+</body>
+</html>
